@@ -155,13 +155,13 @@ export default Vue.extend({
       comment.message.forEach((text) => {
         if (typeof (text.navigationEndpoint) !== 'undefined') {
           if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
-            const htmlRef = `<router-link to="/watch/${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</router-link>`
+            const htmlRef = `<a href="https://www.youtube.com/watch?v=${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</a>`
             comment.messageHtml = comment.messageHtml + htmlRef
           } else {
             comment.messageHtml = comment.messageHtml + text.text
           }
         } else if (typeof (text.alt) !== 'undefined') {
-          const htmlImg = `<img src="${text.url}" alt="${text.alt}" />`
+          const htmlImg = `<img src="${text.url}" alt="${text.alt}" height="24" width="24" />`
           comment.messageHtml = comment.messageHtml + htmlImg
         } else {
           comment.messageHtml = comment.messageHtml + text.text
@@ -180,6 +180,7 @@ export default Vue.extend({
       }
 
       this.comments.push(comment)
+      console.log(this.comments.length)
 
       if (typeof (comment.superchat) !== 'undefined') {
         this.$store.dispatch('getRandomColorClass').then((data) => {
@@ -210,6 +211,11 @@ export default Vue.extend({
 
       if (this.stayAtBottom) {
         liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+      }
+
+      if (this.comments.length > 150 && this.stayAtBottom) {
+        console.log('user is not at bottom')
+        this.comments = this.comments.splice(this.comments.length - 150, this.comments.length)
       }
     },
 

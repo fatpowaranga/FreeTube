@@ -1,8 +1,5 @@
 <template>
   <ft-card>
-    <ft-loader
-      v-if="isLoading"
-    />
     <h4
       v-if="commentData.length === 0 && !isLoading"
       class="getCommentsTitle"
@@ -48,8 +45,11 @@
         <img
           :src="comment.authorThumb"
           class="commentThumbnail"
+          @click="goToChannel(comment.authorLink)"
         >
-        <p class="commentAuthor">
+        <p class="commentAuthor"
+           @click="goToChannel(comment.authorLink)"
+        >
           {{ comment.author }}
           <span class="commentDate">
             {{ comment.time }}
@@ -66,9 +66,26 @@
           />
           {{ comment.likes }}
           <span
+            v-if="comment.isHearted"
+            class="commentHeartBadge"
+          >
+            <img
+              :src="channelThumbnail"
+              class="commentHeartBadgeImg"
+            >
+            <font-awesome-icon
+              icon="heart"
+              class="commentHeartBadgeWhite"
+            />
+            <font-awesome-icon
+              icon="heart"
+              class="commentHeartBadgeRed"
+            />
+          </span>
+          <span
             v-if="comment.numReplies > 0"
             class="commentMoreReplies"
-            @click="getCommentReplies(index)"
+            @click="toggleCommentReplies(index)"
           >
             <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
             <span v-else>{{ $t("Comments.Hide") }}</span>
@@ -114,6 +131,13 @@
               View {{ reply.numReplies }} replies
             </p>
           </div>
+          <div
+            v-if="comment.replies.length < comment.numReplies"
+            class="showMoreReplies"
+            @click="getCommentReplies(index)"
+          >
+            <span>Show More Replies</span>
+          </div>
         </div>
       </div>
     </div>
@@ -131,6 +155,9 @@
     >
       {{ $t("Comments.Load More Comments") }}
     </h4>
+    <ft-loader
+      v-if="isLoading"
+    />
   </ft-card>
 </template>
 

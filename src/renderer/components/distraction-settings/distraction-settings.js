@@ -37,15 +37,20 @@ export default Vue.extend({
     hidePopularVideos: function () {
       return this.$store.getters.getHidePopularVideos
     },
+    hidePlaylists: function () {
+      return this.$store.getters.getHidePlaylists
+    },
     hideLiveChat: function () {
       return this.$store.getters.getHideLiveChat
+    },
+    hideActiveSubscriptions: function () {
+      return this.$store.getters.getHideActiveSubscriptions
     }
   },
   methods: {
     handleHideRecommendedVideos: function (value) {
       if (value) {
         this.updatePlayNextVideo(false)
-        this.updateDefaultTheatreMode(true)
       }
 
       this.updateHideRecommendedVideos(value)
@@ -59,7 +64,9 @@ export default Vue.extend({
       'updateHideRecommendedVideos',
       'updateHideTrendingVideos',
       'updateHidePopularVideos',
+      'updateHidePlaylists',
       'updateHideLiveChat',
+      'updateHideActiveSubscriptions',
       'updatePlayNextVideo',
       'updateDefaultTheatreMode'
     ])

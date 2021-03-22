@@ -2,6 +2,8 @@ import { app, BrowserWindow, Menu, ipcMain, screen } from 'electron'
 import { productName } from '../../package.json'
 import Datastore from 'nedb'
 
+require('@electron/remote/main').initialize()
+
 require('electron-context-menu')({
   showSearchWithGoogle: false,
   showSaveImageAs: true,
@@ -25,13 +27,28 @@ const path = require('path')
 const isDev = process.env.NODE_ENV === 'development'
 const isDebug = process.argv.includes('--debug')
 let mainWindow
+let startupUrl
 
 // CORS somehow gets re-enabled in Electron v9.0.4
 // This line disables it.
 // This line can possible be removed if the issue is fixed upstream
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
 
-app.setAsDefaultProtocolClient('freetube')
+app.commandLine.appendSwitch('enable-accelerated-video-decode')
+app.commandLine.appendSwitch('ignore-gpu-blacklist')
+
+// See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
+// remove so we can register each time as we run the app.
+app.removeAsDefaultProtocolClient('freetube')
+
+// If we are running a non-packaged version of the app && on windows
+if (isDev && process.platform === 'win32') {
+  // Set the path of electron.exe and your app.
+  // These two additional parameters are only available on windows.
+  app.setAsDefaultProtocolClient('freetube', process.execPath, [path.resolve(process.argv[1])])
+} else {
+  app.setAsDefaultProtocolClient('freetube')
+}
 
 // TODO: Uncomment if needed
 // only allow single instance of application
@@ -45,26 +62,65 @@ if (!isDev) {
         if (mainWindow.isMinimized()) mainWindow.restore()
         mainWindow.focus()
 
-        mainWindow.webContents.send('ping', commandLine)
+        const url = getLinkUrl(commandLine)
+        if (url) {
+          mainWindow.webContents.send('openUrl', url)
+        }
       }
     })
 
     app.on('ready', (event, commandLine, workingDirectory) => {
-      settingsDb.findOne({
-        _id: 'disableSmoothScrolling'
+      settingsDb.find({
+        $or: [
+          { _id: 'disableSmoothScrolling' },
+          { _id: 'useProxy' },
+          { _id: 'proxyProtocol' },
+          { _id: 'proxyHostname' },
+          { _id: 'proxyPort' }
+        ]
       }, function (err, doc) {
         if (err) {
           app.exit(0)
           return
         }
 
-        if (doc !== null && doc.value) {
+        let disableSmoothScrolling = false
+        let useProxy = false
+        let proxyProtocol = 'socks5'
+        let proxyHostname = '127.0.0.1'
+        let proxyPort = '9050'
+
+        if (typeof doc === 'object' && doc.length > 0) {
+          doc.forEach((dbItem) => {
+            switch (dbItem._id) {
+              case 'disableSmoothScrolling':
+                disableSmoothScrolling = dbItem.value
+                break
+              case 'useProxy':
+                useProxy = dbItem.value
+                break
+              case 'proxyProtocol':
+                proxyProtocol = dbItem.value
+                break
+              case 'proxyHostname':
+                proxyHostname = dbItem.value
+                break
+              case 'proxyPort':
+                proxyPort = dbItem.value
+                break
+            }
+          })
+        }
+
+        if (disableSmoothScrolling) {
           app.commandLine.appendSwitch('disable-smooth-scrolling')
         } else {
           app.commandLine.appendSwitch('enable-smooth-scrolling')
         }
 
-        createWindow()
+        const proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+
+        createWindow(useProxy, proxyUrl)
 
         if (isDev) {
           installDevTools()
@@ -84,21 +140,57 @@ if (!isDev) {
   })
 
   app.on('ready', () => {
-    settingsDb.findOne({
-      _id: 'disableSmoothScrolling'
+    settingsDb.find({
+      $or: [
+        { _id: 'disableSmoothScrolling' },
+        { _id: 'useProxy' },
+        { _id: 'proxyProtocol' },
+        { _id: 'proxyHostname' },
+        { _id: 'proxyPort' }
+      ]
     }, function (err, doc) {
       if (err) {
         app.exit(0)
         return
       }
 
-      if (doc !== null && doc.value) {
+      let disableSmoothScrolling = false
+      let useProxy = false
+      let proxyProtocol = 'socks5'
+      let proxyHostname = '127.0.0.1'
+      let proxyPort = '9050'
+
+      if (typeof doc === 'object' && doc.length > 0) {
+        doc.forEach((dbItem) => {
+          switch (dbItem._id) {
+            case 'disableSmoothScrolling':
+              disableSmoothScrolling = dbItem.value
+              break
+            case 'useProxy':
+              useProxy = dbItem.value
+              break
+            case 'proxyProtocol':
+              proxyProtocol = dbItem.value
+              break
+            case 'proxyHostname':
+              proxyHostname = dbItem.value
+              break
+            case 'proxyPort':
+              proxyPort = dbItem.value
+              break
+          }
+        })
+      }
+
+      if (disableSmoothScrolling) {
         app.commandLine.appendSwitch('disable-smooth-scrolling')
       } else {
         app.commandLine.appendSwitch('enable-smooth-scrolling')
       }
 
-      createWindow()
+      const proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+
+      createWindow(useProxy, proxyUrl)
 
       if (isDev) {
         installDevTools()
@@ -122,7 +214,7 @@ async function installDevTools () {
   }
 }
 
-function createWindow () {
+function createWindow (useProxy = false, proxyUrl = '') {
   /**
    * Initial window options
    */
@@ -130,6 +222,7 @@ function createWindow () {
     backgroundColor: '#fff',
     icon: isDev
       ? path.join(__dirname, '../../_icons/iconColor.png')
+      /* eslint-disable-next-line */
       : `${__dirname}/_icons/iconColor.png`,
     autoHideMenuBar: true,
     // useContentSize: true,
@@ -138,7 +231,8 @@ function createWindow () {
       nodeIntegrationInWorker: false,
       webSecurity: false,
       backgroundThrottling: false,
-      enableRemoteModule: true
+      enableRemoteModule: true,
+      contextIsolation: false
     },
     show: false
   })
@@ -147,6 +241,12 @@ function createWindow () {
     width: 1200,
     height: 800
   })
+
+  if (useProxy) {
+    mainWindow.webContents.session.setProxy({
+      proxyRules: proxyUrl
+    })
+  }
 
   settingsDb.findOne({
     _id: 'bounds'
@@ -184,6 +284,7 @@ function createWindow () {
   if (isDev) {
     mainWindow.loadURL('http://localhost:9080')
   } else {
+    /* eslint-disable-next-line */
     mainWindow.loadFile(`${__dirname}/index.html`)
 
     global.__static = path
@@ -203,7 +304,7 @@ function createWindow () {
 
   ipcMain.on('setBounds', (_e, data) => {
     const value = {
-      ...mainWindow.getBounds(),
+      ...mainWindow.getNormalBounds(),
       maximized: mainWindow.isMaximized()
     }
 
@@ -231,9 +332,8 @@ function createWindow () {
   })
 
   ipcMain.on('appReady', () => {
-    const param = process.argv[1]
-    if (typeof (param) !== 'undefined' && param !== null) {
-      mainWindow.webContents.send('ping', process.argv)
+    if (startupUrl) {
+      mainWindow.webContents.send('openUrl', startupUrl)
     }
   })
 
@@ -247,6 +347,17 @@ function createWindow () {
     app.commandLine.appendSwitch('enable-smooth-scrolling')
     mainWindow.close()
     createWindow()
+  })
+
+  ipcMain.on('enableProxy', (event, url) => {
+    console.log(url)
+    mainWindow.webContents.session.setProxy({
+      proxyRules: url
+    })
+  })
+
+  ipcMain.on('disableProxy', () => {
+    mainWindow.webContents.session.setProxy({})
   })
 }
 
@@ -275,6 +386,40 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+/*
+ * Callback when processing a freetube:// link (macOS)
+ */
+app.on('open-url', (event, url) => {
+  event.preventDefault()
+
+  if (mainWindow && mainWindow.webContents) {
+    mainWindow.webContents.send('openUrl', baseUrl(url))
+  } else {
+    startupUrl = baseUrl(url)
+  }
+})
+
+/*
+ * Check if an argument was passed and send it over to the GUI (Linux / Windows).
+ * Remove freetube:// protocol if present
+ */
+const url = getLinkUrl(process.argv)
+if (url) {
+  startupUrl = url
+}
+
+function baseUrl(arg) {
+  return arg.replace('freetube://', '')
+}
+
+function getLinkUrl(argv) {
+  if (argv.length > 1) {
+    return baseUrl(argv[argv.length - 1])
+  } else {
+    return null
+  }
+}
 
 /**
  * Auto Updater

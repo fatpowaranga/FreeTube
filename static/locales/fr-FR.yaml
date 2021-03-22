@@ -7,7 +7,7 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Fichier'
 Quit: 'Quitter'
-Edit: 'Éditer'
+Edit: 'Modifier'
 Undo: 'Annuler'
 Redo: 'Rétablir'
 Cut: 'Couper'
@@ -17,7 +17,7 @@ Delete: 'Supprimer'
 Select all: 'Tout sélectionner'
 Reload: 'Actualiser'
 Force Reload: 'Forcer l''actualisation'
-Toggle Developer Tools: 'Activer les Outils de Développement'
+Toggle Developer Tools: 'Activer les outils de développement'
 Actual size: 'Taille actuelle'
 Zoom in: 'Agrandir'
 Zoom out: 'Réduire'
@@ -34,19 +34,19 @@ Search / Go to URL: 'Rechercher / Aller à l''URL'
 Search Filters:
   Search Filters: 'Filtres de recherche'
   Sort By:
-    Sort By: 'Trier Par'
-    Most Relevant: 'Le Plus Pertinent'
+    Sort By: 'Trier par'
+    Most Relevant: 'Le plus pertinent'
     Rating: 'Avis'
-    Upload Date: 'Date de Mise en Ligne'
-    View Count: 'Nombre de Vues'
+    Upload Date: 'Date de mise en ligne'
+    View Count: 'Nombre de vues'
   Time:
     Time: 'Date'
     Any Time: 'Toutes les dates'
-    Last Hour: 'Dernière Heure'
+    Last Hour: 'Dernière heure'
     Today: 'Aujourd''hui'
-    This Week: 'Cette Semaine'
-    This Month: 'Ce Mois-ci'
-    This Year: 'Cette Année'
+    This Week: 'Cette semaine'
+    This Month: 'Ce mois-ci'
+    This Year: 'Cette année'
   Type:
     Type: 'Type'
     All Types: 'Tous les types'
@@ -63,6 +63,8 @@ Search Filters:
   Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
   Fetch more results: 'Montrer plus de résultats'
 # Sidebar
+  There are no more results for this search: Il n'y a plus de résultats pour cette
+    recherche
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnements'
@@ -79,10 +81,17 @@ Subscriptions:
     fixée
   Load More Videos: Charger plus de vidéos
 Trending: 'Tendance'
-Most Popular: 'Les Plus Populaires'
-Playlists: 'Playlists'
+Most Popular: 'Les plus populaires'
+Playlists: 'Listes de lecture'
 User Playlists:
-  Your Playlists: 'Vos playlists'
+  Your Playlists: 'Vos listes de lecture'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Vous
+    n'avez enregistré aucune vidéo. Cliquez sur le bouton Enregistrer dans le coin
+    d'une vidéo pour l'afficher ici
+  Playlist Message: Cette page ne reflète pas les listes de lecture entièrement fonctionnelles.
+    Elle ne répertorie que les vidéos que vous avez enregistrées ou mises en favoris.
+    Une fois le travail terminé, toutes les vidéos actuellement présentes ici seront
+    migrées vers une liste de lecture «Favoris».
 History:
   # On History Page
   History: 'Historique'
@@ -118,6 +127,8 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Consultez les derniers billets du blog
     Check for Updates: Vérifier les mises à jour
+    View all Invidious instance information: Voir les informations de toutes les instances
+      Invidious
   Theme Settings:
     Theme Settings: 'Paramètres du thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
@@ -159,7 +170,7 @@ Settings:
     Turn on Subtitles by Default: 'Activer les sous-titres par défaut'
     Autoplay Videos: 'Lecture automatique des vidéos'
     Proxy Videos Through Invidious: 'Proxy vidéo via Invidious'
-    Autoplay Playlists: 'Lecture automatique des playlists'
+    Autoplay Playlists: 'Lecture automatique des listes de lecture'
     Enable Theatre Mode by Default: 'Activer le mode cinéma par défaut'
     Default Volume: 'Volume par défaut'
     Default Playback Rate: 'Vitesse de lecture par défaut'
@@ -180,6 +191,8 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Intervalle de la prochaine vidéo dans la liste de
+      lecture
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -200,23 +213,23 @@ Settings:
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Adresse Proxy (Exemple :
       SOCKS5://127.0.0.1:9050 )'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Cliquer
-      sur le bouton "TEST PROXY" enverra une demande à https://ipinfo.io/json'
+      sur le bouton « TEST PROXY » enverra une demande à https://ipinfo.io/json'
     Use Tor / Proxy for API calls: 'Utiliser Tor / Proxy pour les appels de l''API'
-    TEST PROXY: 'TEST PROXY'
+    TEST PROXY: 'TESTER LE PROXY'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: 'Voir les instances publiques'
     Clear History:
       Clear History: 'Effacer l’historique'
       # On Click
-      Are you sure you want to delete your history?: 'Êtes-vous sûr de vouloir effacer
-        votre historique ?'
+      Are you sure you want to delete your history?: 'Êtes-vous sûr(e) de vouloir
+        effacer votre historique ?'
       #& Yes
       #& No
     Clear Subscriptions:
       Clear Subscriptions: 'Effacer les abonnements'
       # On Click
-      Are you sure you want to remove all subscriptions?: 'Êtes-vous sûr de vouloir
-        supprimer tous les abonnements ?'
+      Are you sure you want to remove all subscriptions?: 'Êtes-vous sûr(e) de vouloir
+        supprimer tous les abonnements ?'
       #& Yes
       #& No
 
@@ -224,16 +237,16 @@ Settings:
     Privacy Settings: Paramètres de confidentialité
     Remember History: Enregistrer l'historique
     Watch history has been cleared: L'historique a été effacé
-    Are you sure you want to remove your entire watch history?: Êtes-vous sûr de vouloir
-      supprimer tout votre historique ?
+    Are you sure you want to remove your entire watch history?: Êtes-vous sûr(e) de
+      vouloir supprimer tout votre historique ?
     Search cache has been cleared: L'historique de recherche a été effacé
-    Are you sure you want to clear out your search cache?: Êtes-vous sûr de vouloir
-      effacer votre historique de recherche ?
+    Are you sure you want to clear out your search cache?: Êtes-vous sûr(e) de vouloir
+      effacer votre historique de recherche ?
     Clear Search Cache: Effacer l'historique de recherche
     Save Watched Progress: Garder la progression de la vidéo
     Remove Watch History: Effacer l'historique des vidéos regardées
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Etes-vous
-      sur de vouloir supprimer tous les abonnements et les profils ? Cette action
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Êtes-vous
+      sûr(e) de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
     Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
   Data Settings:
@@ -275,6 +288,7 @@ Settings:
     One or more subscriptions were unable to be imported: Un ou plusieurs abonnements
       n’ont pas pu être importés
     Check for Legacy Subscriptions: Vérifier les abonnements Legacy
+    Manage Subscriptions: Gérer les abonnements
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J'aime et Je n'aime pas des vidéos
     Hide Comment Likes: Masquer les J'aime dans les commentaires
@@ -284,10 +298,29 @@ Settings:
     Hide Popular Videos: Masquer les vidéos populaires
     Hide Trending Videos: Masquer les tendances
     Hide Recommended Videos: Masquer les vidéos recommandées
-    Distraction Free Settings: Mode Sans Distraction
+    Distraction Free Settings: Mode sans distraction
+    Hide Active Subscriptions: Masquer les abonnements actifs
+    Hide Playlists: Masquer les listes de lecture
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
-    les changements ?
+    les changements ?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Erreur
+      lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement
+      configuré ?
+    City: Ville
+    Region: Région
+    Country: Pays
+    Ip: Ip
+    Your Info: Vos informations
+    Test Proxy: Test du Proxy
+    Clicking on Test Proxy will send a request to: En cliquant sur Test du Proxy,
+      une demande sera envoyée à
+    Proxy Port Number: Numéro de port du proxy
+    Proxy Host: Hôte du proxy
+    Proxy Protocol: Protocole du proxy
+    Enable Tor / Proxy: Activer Tor / Proxy
+    Proxy Settings: Paramètres du proxy
 About:
   #On About page
   About: 'À propos'
@@ -296,9 +329,9 @@ About:
     logiciel est sous licence AGPL-3.0.'
 
   'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Vous avez trouvé un bug ? Vous souhaitez suggérer une nouvelle fonctionnalité
-    ? Vous voulez aider de façon générale ? Rendez-vous sur la page GitHub. Les "Pull
-    requests" sont les bienvenues.
+    Vous avez trouvé une erreur ? Vous souhaitez suggérer une nouvelle fonctionnalité
+    ? Vous voulez aider de façon générale ? Rendez-vous sur la page GitHub. Les pull
+    requests sont les bienvenues.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Un
     grand merci à toutes les personnes et à tous les projets qui ont rendu FreeTube
@@ -322,6 +355,40 @@ About:
   Latest FreeTube News: 'Les dernières actualités FreeTube'
 
 #On Channel Page
+  Channel Rules: Règles du salon
+  Website: Site internet
+  Source Code: Code source
+  Release Notes: Notes de version
+  Email: Courriel
+  License: Licence
+  Help: Aide
+  Contact: Contacts
+  Translate via Weblate: Traduire via Weblate
+  Blog: Blog
+  Credits: Crédits
+  FAQ: FAQ
+  Wiki: Wiki
+  Report an Issue: Signaler un problème
+  Beta: Bêta
+  Donate: Faire un don
+  Useful Links: Liens utiles
+  Translate: Aidez-nous à traduire FreeTube
+  Chat on Matrix: Chatter sur Matrix
+  Mastodon: Mastodon
+  Report a problem: Signaler un problème
+  View License: Voir la license
+  Licensed under the AGPLv3: Sous licence AGPLv3
+  Source code: Code source
+  these people and projects: ces personnes et projets
+  FreeTube is made possible by: FreeTube est rendu possible par
+  room rules: règles du salon
+  Please read the: Veuillez lire les
+  Please check for duplicates before posting: Veuillez vérifier s'il y a des doublons
+    avant de poster
+  GitHub issues: Les problèmes identifiés par la communauté sur GitHub
+  FreeTube Wiki: Wiki de FreeTube
+  GitHub releases: Les différentes versions de FreeTube disponibles sur GitHub
+  Downloads / Changelog: Téléchargements / Journal des modifications
 Channel:
   Subscriber: 'Abonnement'
   Subscribers: 'Abonnements'
@@ -340,9 +407,9 @@ Channel:
       Oldest: 'Plus ancien'
       Most Popular: 'Les plus populaires'
   Playlists:
-    Playlists: 'Playlists'
+    Playlists: 'Listes de lecture'
     This channel does not currently have any playlists: 'Cette chaîne n''a actuellement
-      aucune playlist'
+      aucune liste de lecture'
     Sort Types:
       Last Video Added: 'Dernière vidéo ajoutée'
       Newest: 'Les plus récentes'
@@ -421,10 +488,10 @@ Video:
 #& Videos
   Play Previous Video: Lire la vidéo précédente
   Play Next Video: Lire la vidéo suivante
-  Autoplay: Lecture Automatique
-  Reverse Playlist: Inverser la Playlist
-  Shuffle Playlist: Mélanger la Playlist
-  Loop Playlist: Playlist en boucle
+  Autoplay: Lecture Auto
+  Reverse Playlist: Inverser la liste de lecture
+  Shuffle Playlist: Mélanger la liste de lecture
+  Loop Playlist: Liste de lecture en boucle
   Starting soon, please refresh the page to check again: Débute prochainement, veuillez
     actualiser la page pour vérifier à nouveau
   Audio:
@@ -435,6 +502,16 @@ Video:
   audio only: Audio uniquement
   video only: Vidéo uniquement
   Download Video: Télécharger la vidéo
+  Copy Invidious Channel Link: Copier le lien Invidious de la chaîne
+  Open Channel in Invidious: Ouvrir la chaîne sur Invidious
+  Copy YouTube Channel Link: Copier le lien de la chaîne YouTube
+  Open Channel in YouTube: Ouvrir la chaîne sur YouTube
+  Started streaming on: Diffusion lancée le
+  Streamed on: Diffusé le
+  Video has been removed from your saved list: La vidéo a été supprimée de votre liste
+    enregistrée
+  Video has been saved: La vidéo a été enregistrée
+  Save Video: Enregistrer la vidéo
 Videos:
   #& Sort By
   Sort By:
@@ -450,7 +527,7 @@ Playlist:
   Views: 'Vues'
   Last Updated On: 'Dernière mise à jour le'
   Share Playlist:
-    Share Playlist: 'Partager la playlist'
+    Share Playlist: 'Partager la liste de lecture'
     Copy YouTube Link: 'Copier le lien Youtube'
     Open in YouTube: 'Ouvrir sur Youtube'
     Copy Invidious Link: 'Copier le lien Individious'
@@ -483,6 +560,10 @@ Share:
   YouTube Embed URL copied to clipboard: 'URL d''intégration Youtube copié dans le
     presse-papiers'
   Include Timestamp: Inclure l'horodatage
+  YouTube Channel URL copied to clipboard: L'URL YouTube de la chaîne est copiée dans
+    le presse-papiers
+  Invidious Channel URL copied to clipboard: L'URL Invidious de la chaîne est copiée
+    dans le presse-papiers
 Mini Player: 'Mini Lecteur'
 Comments:
   Comments: 'Commentaires'
@@ -518,12 +599,12 @@ Loop is now enabled: 'La boucle est maintenant activée'
 Shuffle is now disabled: 'Mode aléatoire désactivé'
 Shuffle is now enabled: 'Mode aléatoire activé'
 Playing Next Video: 'Lire la vidéo suivante'
-Playing Previous Video: 'Lire la vidéo précédente'
+Playing Previous Video: 'Lecture de la vidéo précédente'
 Playing next video in 5 seconds.  Click to cancel: 'Lecture de la vidéo suivante dans
   5 secondes. Cliquer pour annuler.'
 Canceled next video autoplay: 'Annuler la lecture automatique'
-'The playlist has ended.  Enable loop to continue playing': 'Fin de la playlist. Activer
-  la lecture en boucle pour continuer'
+'The playlist has ended.  Enable loop to continue playing': 'Fin de la liste de lecture.
+  Activer la lecture en boucle pour continuer'
 
 Yes: 'Oui'
 No: 'Non'
@@ -539,11 +620,11 @@ Profile:
   Your profile name cannot be empty: Le nom de votre profil ne peut pas être vide
   Profile could not be found: Le profil n'a pas pu être trouvé
   All subscriptions will also be deleted.: Tous les abonnements seront également supprimés.
-  Are you sure you want to delete this profile?: Êtes-vous sûr de vouloir supprimer
-    ce profil ?
+  Are you sure you want to delete this profile?: Êtes-vous sûr(e) de vouloir supprimer
+    ce profil ?
   Delete Profile: Supprimer le profil
   Make Default Profile: Établir un profil par défaut
-  Update Profile: Mise à jour du profil
+  Update Profile: Mettre à jour le profil
   Create Profile: Créer un profil
   Profile Preview: Aperçu du profil
   Custom Color: Couleur personnalisée
@@ -554,13 +635,13 @@ Profile:
   All Channels: Tous les canaux
   Profile Select: Sélection du profil
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Êtes-vous
-    sûr de vouloir supprimer les chaînes sélectionnées ?  Cela ne supprimera pas la
-    chaîne de tout autre profil.
+    sûr(e) de vouloir supprimer les chaînes sélectionnées ?  Ceci ne supprimera pas
+    la chaîne de tout autre profil.
   Subscription List: Liste des abonnements
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : Ceci est votre profil principal.  Êtes-vous sûr de vouloir supprimer les chaînes
-    sélectionnées ?  Les mêmes chaînes seront supprimées dans tous les profils où
+  : Ceci est votre profil principal.  Êtes-vous sûr(e) de vouloir supprimer les chaînes
+    sélectionnées ?  Les mêmes chaînes seront supprimées dans tous les profils où
     elles se trouvent.
   No channel(s) have been selected: Aucune chaîne(s) n'a été sélectionnée
   Add Selected To Profile: Ajouter la sélection au profil
@@ -569,7 +650,8 @@ Profile:
   Select All: Tout sélectionner
   $ selected: $ sélectionné(s)
   Other Channels: Autres chaînes
-The playlist has been reversed: La playlist a été inversée
+  Profile Filter: Filtre de profil
+The playlist has been reversed: La liste de lecture a été inversée
 A new blog is now available, $. Click to view more: Un nouveau billet est maintenant
   disponible, $. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
@@ -578,3 +660,42 @@ Version $ is now available!  Click for more details: La version $ est maintenant
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette
   vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver
   en raison de restrictions d'accès dans certains pays.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera le RSS au lieu
+      de sa méthode par défaut pour récupérer votre flux d'abonnement. Le RSS est
+      plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations
+      comme la durée de la vidéo ou le statut en direct
+  Player Settings:
+    Default Video Format: Définir les formats utilisés lors de la lecture d'une vidéo.
+      Les formats Dash peuvent être lus en qualité supérieure. Les formats Legacy
+      sont limités à un maximum de 720p mais utilisent moins de bande passante. Les
+      formats audio sont des flux audio uniquement
+    Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos
+      au lieu d'établir une connexion directe avec YouTube. Remplace les préférences
+      de l'API
+    Force Local Backend for Legacy Formats: Ne fonctionne que lorsque l'API Invidious
+      est activée par défaut. Lorsqu'elle est activée, l'API locale s'exécute et utilise
+      les formats Legacy renvoyés par celle-ci au lieu de ceux renvoyés par Invidious.
+      Utile lorsque les vidéos renvoyées par Invidious ne sont pas lues en raison
+      de restrictions pays
+  General Settings:
+    Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
+      les appels d'API. Effacez l'instance actuelle pour voir une liste d'instances
+      publiques parmi lesquelles choisir
+    Thumbnail Preference: Toutes les miniatures de FreeTube seront remplacées par
+      une image de la vidéo au lieu de la vignette par défaut
+    Fallback to Non-Preferred Backend on Failure: Lorsque votre API préférée a un
+      problème, FreeTube tentera automatiquement d'utiliser votre API non préférée
+      comme méthode de secours lorsqu'elle est activée
+    Preferred API Backend: Choisissez le backend que FreeTube utilise pour obtenir
+      les données. L'API locale est un extracteur intégré. L'API Invidious nécessite
+      un serveur Invidious pour se connecter.
+    Region for Trending: Ceci vous permet de choisir les vidéos tendance du pays que
+      vous souhaitez afficher. Attention, certains pays affichés ne sont pas pris
+      en charge par YouTube
+More: Plus
+Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
+  pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
+  Cliquer pour annuler. | Lecture de la vidéo suivante dans {l'intervalle vidéo suivant}
+  secondes. Cliquer pour annuler.

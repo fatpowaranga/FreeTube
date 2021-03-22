@@ -1,10 +1,10 @@
 # Put the name of your locale in the same language
-Locale Name: 'Nederlands'
+Locale Name: 'Nederlands (NL)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dit deel van de applicatie is nog niet af. Kom later terug als er vooruitgang is
-  geboekt.
+  Dit gedeelte van de applicatie is nog niet klaar. Kom later terug als er vooruitgang
+  is geboekt.
 
 # Webkit Menu Bar
 File: 'Bestand'
@@ -18,8 +18,8 @@ Paste: 'Plakken'
 Delete: 'Verwijderen'
 Select all: 'Alles selecteren'
 Reload: 'Herladen'
-Force Reload: 'Forceer herladen'
-Toggle Developer Tools: 'Ontwikkelaarsmenu openen'
+Force Reload: 'Forceer Herladen'
+Toggle Developer Tools: 'Ontwikkelaarsmenu Openen'
 Actual size: 'Daadwerkelijke grootte'
 Zoom in: 'Inzoomen'
 Zoom out: 'Uitzoomen'
@@ -37,7 +37,7 @@ Search Filters:
   Search Filters: 'Zoekopdracht filteren'
   Sort By:
     Sort By: 'Sorteren op'
-    Most Relevant: 'Meest relevant'
+    Most Relevant: 'Meest Relevant'
     Rating: 'Beoordeling'
     Upload Date: 'Uploaddatum'
     View Count: 'Kijkcijfers'
@@ -50,8 +50,8 @@ Search Filters:
     This Month: 'Deze maand'
     This Year: 'Dit jaar'
   Type:
-    Type: 'Types'
-    All Types: 'Alle Types'
+    Type: 'Soort'
+    All Types: 'Alle Soorten'
     Videos: 'Video''s'
     Channels: 'Kanalen'
     #& Playlists
@@ -65,24 +65,33 @@ Search Filters:
   Fetching results. Please wait: 'Resultaten verzamelen. Een momentje'
   Fetch more results: 'Meer resultaten laden'
 # Sidebar
+  There are no more results for this search: Er zijn geen verdere resultaten voor
+    deze zoekopdracht
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementen'
   Latest Subscriptions: 'Nieuwste Van Abonnementen'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'U
-    heeft momenteel geen Abonnementen. Voeg abonnementen toe om ze hier te zien'
+    heeft nog geen Abonnementen. Voeg abonnementen toe om ze hier te zien'
   'Getting Subscriptions.  Please wait.': ''
   Refresh Subscriptions: Vernieuw abonnementen
   Getting Subscriptions. Please wait.: Abonnementen verzamelen. Een momentje.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dit
-    profiel heeft een groot aantal abonnementen. RSS word geforceerd om tariefbeperkingen
+    profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om tariefbeperkingen
     te voorkomen
   Load More Videos: Laad Meer Video's
 Trending: 'Trending'
-Most Popular: 'Meest Populair'
+Most Popular: 'Populair'
 Playlists: 'Afspeellijsten'
 User Playlists:
   Your Playlists: 'Uw afspeellijsten'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Je
+    opgeslagen video's is leeg. Klik op de video opslaan knop in de hoek van een video
+    om het hier in de lijst te plaatsen
+  Playlist Message: Deze pagina is niet reflectief van volledig functionele afspeellijst.
+    Er worden alleen video's weergegeven die jij hebt opgeslagen of gefavoriet. Wanneer
+    we klaar zijn met de ontwikkeling van deze feature zullen al deze video's worden
+    gemigreerd naar de 'favorieten' afspeellijst.
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -95,12 +104,12 @@ Settings:
     General Settings: 'Algemene instellingen'
     Fallback to Non-Preferred Backend on Failure: 'Val terug op een Niet-Voorkeur
       Backend bij falen'
-    Enable Search Suggestions: 'Schakel Zoek Suggesties in'
+    Enable Search Suggestions: 'Zoeksuggesties Inschakelen'
     Default Landing Page: 'Standaard Landingspagina'
     Locale Preference: 'Locale Voorkeur'
     Preferred API Backend:
       Preferred API Backend: 'Voorkeur API Backend'
-      Local API: 'Lokaal API'
+      Local API: 'Lokale API'
       Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Video Toontype'
@@ -116,13 +125,14 @@ Settings:
       (Standaard is https://invidious.snopyta.org)'
     Region for Trending: 'Regio voor Trending'
         #! List countries
-    Check for Latest Blog Posts: Controleer de Laatste Blogposts
+    Check for Latest Blog Posts: Controleer op nieuwe Blogposts
     Check for Updates: Controleer op Updates
+    View all Invidious instance information: Bekijk alle Invidious-instantiegegevens
   Theme Settings:
     Theme Settings: 'Thema Instellingen'
     Match Top Bar with Main Color: 'Paar Bovenste Balk met Primaire Kleur'
     Base Theme:
-      Base Theme: 'Basis Thema'
+      Base Theme: 'Basisthema'
       Black: 'Zwart'
       Dark: 'Donker'
       Light: 'Licht'
@@ -146,18 +156,18 @@ Settings:
       Deep Orange: 'Donker Oranje'
     Secondary Color Theme: 'Secundaire Themakleur'
         #* Main Color Theme
-    UI Scale: UI schaal
+    UI Scale: UI Schaal
     Expand Side Bar by Default: Zijbalk Standaard Uitschuiven
-    Disable Smooth Scrolling: Schakel Vloeiend Scrollen Uit
+    Disable Smooth Scrolling: Vloeiend Scrollen Uitschakelen
   Player Settings:
     Player Settings: 'Speler Instellingen'
     Force Local Backend for Legacy Formats: 'Forceer Lokale Backend Voor Legacy Indelingen'
-    Play Next Video: 'Speel Volgende Video af'
+    Play Next Video: 'Volgende Video Automatisch Afspelen'
     Turn on Subtitles by Default: 'Schakel Ondertiteling Standaard in'
-    Autoplay Videos: 'Autoplay Video''s'
+    Autoplay Videos: 'Video''s Automatisch Afspelen'
     Proxy Videos Through Invidious: 'Proxy Video''s Via Invidious'
-    Autoplay Playlists: 'Autoplay Afspeellijsten'
-    Enable Theatre Mode by Default: 'Schakel Theatermodus Standaard in'
+    Autoplay Playlists: 'Afspeellijsten Automatisch Afspelen'
+    Enable Theatre Mode by Default: 'Theatermodus Standaard Inschakelen'
     Default Volume: 'Standaard Volume'
     Default Playback Rate: 'Standaard Afspeelsnelheid'
     Default Video Format:
@@ -166,7 +176,7 @@ Settings:
       Legacy Formats: 'Legacy Indelingen'
       Audio Formats: 'Audio Indelingen'
     Default Quality:
-      Default Quality: 'Standaard Kwaliteit'
+      Default Quality: 'Standaard Videokwaliteit'
       Auto: 'Automatisch'
       144p: '144p'
       240p: '240p'
@@ -177,14 +187,15 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Afspeellijst Volgende Video Tussentijd
   Privacy Settings:
     Privacy Settings: 'Privacy Instellingen'
-    Remember History: 'Onthoud Geschiedenis'
-    Save Watched Progress: 'Behoud Video Voortgang'
-    Clear Search Cache: 'Zoek Cache Opschonen'
+    Remember History: 'Herinner Geschiedenis'
+    Save Watched Progress: 'Herinner Video Voortgang'
+    Clear Search Cache: 'Verwijder Zoek-cache'
     Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
-      zoek cache wil opschonen?'
-    Search cache has been cleared: 'Zoek cache is opgeschoond'
+      zoek-cache wil verwijderen?'
+    Search cache has been cleared: 'De zoek-cache is verwijdert'
     Remove Watch History: 'Verwijder Kijkgeschiedenis'
     Are you sure you want to remove your entire watch history?: 'Weet u zeker dat
       u uw volledige kijkgeschiedenis wil verwijderen?'
@@ -270,6 +281,7 @@ Settings:
     All watched history has been successfully imported: De bekeken geschiedenis is
       met succes geïmporteerd
     Check for Legacy Subscriptions: Controleer op Legacy Abonnementen
+    Manage Subscriptions: Beheer Abonnementen
   Distraction Free Settings:
     Hide Live Chat: Verberg Live Chat
     Hide Popular Videos: Verberg Populaire Video's
@@ -280,9 +292,27 @@ Settings:
     Hide Video Likes And Dislikes: Verberg Likes en Dislikes
     Hide Video Views: Verberg Weergaven
     Distraction Free Settings: Afleidingsvrije Instellingen
+    Hide Active Subscriptions: Verberg Actieve Abonnementen
+    Hide Playlists: Verberg Afspeellijst
   The app needs to restart for changes to take effect. Restart and apply change?: De
     applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
     opstarten?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Fout bij
+      het opvragen van netwerk informatie. Is uw proxy correct geconfigureerd?
+    City: Stad
+    Region: Regio
+    Country: Land
+    Ip: Ip
+    Your Info: Uw Informatie
+    Test Proxy: Test Proxy
+    Clicking on Test Proxy will send a request to: Door op Test Proxy te klikken zal
+      er een request worden verstuurd naar
+    Proxy Port Number: Proxy Poortnummer
+    Proxy Host: Proxy Host
+    Proxy Protocol: Proxy Protocol
+    Enable Tor / Proxy: Tor / Proxy Inschakelen
+    Proxy Settings: Proxy Instellingen
 About:
   #On About page
   About: 'Over'
@@ -315,6 +345,31 @@ About:
   Latest FreeTube News: 'Laatste FreeTube nieuws'
 
 #On Channel Page
+  Donate: Doneer
+  these people and projects: deze mensen en project
+  FreeTube is made possible by: FreeTube is mogelijk gemaakt door
+  Credits: Met dank aan
+  Translate: Vertalen
+  room rules: room regels
+  Please read the: Lees alstublieft de
+  Chat on Matrix: Chat op Matrix
+  Mastodon: Mastodon
+  Email: Email
+  Blog: Blog
+  Website: Website
+  Please check for duplicates before posting: Controleer op duplicaten voordat u een
+    issue post
+  GitHub issues: GitHub issues
+  Report a problem: Rapporteer een probleem
+  FAQ: Veelgestelde vragen
+  FreeTube Wiki: FreeTube Wiki
+  Help: Hulp
+  GitHub releases: GitHub releases
+  Downloads / Changelog: Downloads / Changelog
+  View License: Bekijk Licentie
+  Licensed under the AGPLv3: Vrijgegeven onder de AGPLv3 licentie
+  Source code: Broncode
+  Beta: Beta
 Channel:
   Subscriber: 'Abonnee'
   Subscribers: 'Abonnees'
@@ -325,16 +380,15 @@ Channel:
   Sort By: 'Sorteer Bij'
   Videos:
     Videos: 'Video''s'
-    This channel does not currently have any videos: 'Dit kanaal heeft momenteel geen
-      video''s'
+    This channel does not currently have any videos: 'Dit kanaal heeft nog geen video''s'
     Sort Types:
       Newest: 'Nieuwste'
       Oldest: 'Oudste'
       Most Popular: 'Meest Populair'
   Playlists:
     Playlists: 'Afspeellijsten'
-    This channel does not currently have any playlists: 'Dit kanaal heeft momenteel
-      geen afspeellijsten'
+    This channel does not currently have any playlists: 'Dit kanaal heeft nog geen
+      afspeellijsten'
     Sort Types:
       Last Video Added: 'Laatst Toegevoegd'
       Newest: 'Nieuwste'
@@ -373,7 +427,7 @@ Video:
   'Chat is disabled or the Live Stream has ended.': 'Chat is uitgeschakeld of de Live
     Stream is beëindigd.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Live chat is
-    ingeschakeld. Chat berichten zullen hier verschijnen.'
+    ingeschakeld. Chats zullen hier verschijnen.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Live
     Chat wordt momenteel niet ondersteund door de Invidious API. Een directe verbinding
     met YouTube is nodig.'
@@ -410,9 +464,9 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % geleden'
 #& Videos
-  Autoplay: Autoplay
+  Autoplay: Automatisch Afspelen
   Play Previous Video: Speel Vorige Video af
-  Play Next Video: Speel Volgende Video af
+  Play Next Video: Volgende Video Automatisch Afspelen
   Reverse Playlist: Playlist Omkeren
   Shuffle Playlist: Schuifelen Playlist
   Loop Playlist: Herhaal Playlist
@@ -426,6 +480,16 @@ Video:
   audio only: alleen audio
   video only: alleen video
   Download Video: Download Video
+  Copy Invidious Channel Link: Kopieer Invidious Kanaal-Link
+  Open Channel in Invidious: Open Kanaal op Invidious
+  Copy YouTube Channel Link: Kopieer YouTube Kanaal-Link
+  Open Channel in YouTube: Open Kanaal op YouTube
+  Started streaming on: Gestart met streamen op
+  Streamed on: Gestreamd op
+  Video has been removed from your saved list: Video is verwijderd uit uw opgeslagen
+    video's lijst
+  Video has been saved: Video is opgeslagen
+  Save Video: Video Opslaan
 Videos:
   #& Sort By
   Sort By:
@@ -452,7 +516,7 @@ Playlist:
 #& Views
 Toggle Theatre Mode: 'Schakel Theatermodus In'
 Change Format:
-  Change Video Formats: 'Verander Video-indeling'
+  Change Video Formats: 'Verander Video indeling'
   Use Dash Formats: 'Gebruik Dash Indelingen'
   Use Legacy Formats: 'Gebruik Legacy Indelingen'
   Use Audio Formats: 'Gebruik Audio Indelingen'
@@ -474,6 +538,9 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube Insluitlink is gekopieerd naar het
     klemboard'
   Include Timestamp: Begrijp Tijdstempel In
+  YouTube Channel URL copied to clipboard: YouTube URL is gekopieerd naar het klembord
+  Invidious Channel URL copied to clipboard: Invidious Kanaal URL is gekopieerd naar
+    het klembord
 Mini Player: 'Minispeler'
 Comments:
   Comments: 'Reacties'
@@ -510,7 +577,7 @@ Playing Next Video: 'Volgende Video Word Afgespeeld'
 Playing Previous Video: 'Vorige Video Word Afgespeeld'
 Playing next video in 5 seconds.  Click to cancel: 'Volgende Video Begint in 5 Seconden.
   Klik om te Annuleer.'
-Canceled next video autoplay: 'Autoplay is geannuleerd'
+Canceled next video autoplay: 'Automatisch afspelen is geannuleerd'
 'The playlist has ended.  Enable loop to continue playing': 'Het einde van de afspeellijst
   is bereikt.  Schakel herhalen in om de afspeellijst te blijven afspelen'
 
@@ -557,11 +624,50 @@ Profile:
   $ selected: $ is geselecteerd
   Other Channels: Andere Kanalen
   Subscription List: Abonnementen
+  Profile Filter: Profielfilter
 A new blog is now available, $. Click to view more: Een nieuwe blogpost is beschikbaar,
   $. Klik voor meer informatie
-Download From Site: Download Van Website
+Download From Site: Download van de Website
 Version $ is now available!  Click for more details: Versie $ is nu beschikbaar! Klik
   voor meer informatie
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze
-  video is niet beschikbaar vanwege ontbrekende video-indelingen. Dit kan gebeuren
+  video is niet beschikbaar vanwege ontbrekende video indelingen. Dit kan gebeuren
   als de video niet in uw land beschikbaar is.
+Tooltips:
+  Player Settings:
+    Default Video Format: Selecteer de video indeling dat wordt gebruikt wanneer u
+      een video afspeelt. Dash kan video's afspelen met hogere kwaliteitsinstellingen.
+      Legacy gaat niet hoger dan 720p maar gebruikt minder bandbreedte. Audio zal
+      alleen het geluid streamen
+    Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer Invidious
+      is geselecteerd als de standaard API. Wanneer ingeschakeld zal de lokale API
+      legacy video indelingen gebruiken in plaats van de video indeling die worden
+      teruggegeven door Invidious. Dit kan helpen wanneer een video die word gestreamed
+      via Invidious niet afspeelt in verband met regio restricties
+    Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en via daar
+      de video's downloaden in de plaats van de video's rechstreeks bij YouTube vandaan
+      te halen. Dit overschrijft de ingestelde API voorkeur
+  Subscription Settings:
+    Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
+      van de standaard methode om de videolijsten van je abonnementen te verzamelen.
+      RSS is sneller en voorkomt dat je IP word geblokkeerd maar geeft geen toegang
+      tot sommige informatie zoals de videoduur en live-status
+  General Settings:
+    Invidious Instance: Dit is de Invidious instantie waar FreeTube mee zal verbinden
+      om API calls te maken. Verwijder de momenteel geselecteerd instantie om een
+      lijst van publieke instanties te tonen
+    Thumbnail Preference: Alle thumbnails in FreeTube zullen worden vervangen met
+      een momentopname in plaats van de standaard thumbnail
+    Fallback to Non-Preferred Backend on Failure: Wanneer het API met voorkeur problemen
+      heeft dan zal FreeTube automatisch terugvallen op het alternatieve niet-voorkeur
+      API als deze instelling is ingeschakeld
+    Preferred API Backend: Kies de backend die FreeTube gebruikt om data te verzamelen.
+      De lokale API is een ingebouwde extractor. De Invidious API moet worden verbonden
+      met een Invidious server.
+    Region for Trending: Met trend regio kan je instellen uit welk land je trending
+      video's je wil zien. Niet alle weergegeven landen worden ook daadwerkelijk ondersteund
+      door YouTube
+Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
+  | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
+  | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.
+More: Meer

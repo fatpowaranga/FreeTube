@@ -4,7 +4,8 @@
     :class="{
       list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
       grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
-      [appearance]: true
+      [appearance]: true,
+      watched: addWatchedStyle
     }"
   >
     <div
@@ -31,15 +32,16 @@
       </div>
       <ft-icon-button
         v-if="!isLive"
+        :title="$t('Video.Save Video')"
         icon="star"
         class="favoritesIcon"
+        :theme="favoriteIconTheme"
         :padding="appearance === `watchPlaylistItem` ? 5 : 6"
         :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        :class="{ favorited: isFavorited }"
-        @click="toggleSave(id)"
+        @click="toggleSave"
       />
       <div
-        v-if="watched"
+        v-if="addWatchedStyle"
         class="videoWatched"
       >
         {{ $t("Video.Watched") }}
@@ -54,7 +56,7 @@
       <ft-icon-button
         class="optionsButton"
         title="More Options"
-        theme="base"
+        theme="base-no-default"
         :size="16"
         :use-shadow="false"
         dropdown-position-x="left"

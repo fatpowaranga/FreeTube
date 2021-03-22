@@ -39,12 +39,15 @@
     </div>
     <div>
       <div class="datePublished">
-        {{ $t("Video.Published on") }} {{ dateString }}
+        {{ publishedString }} {{ dateString }}
       </div>
       <div class="viewCount">
         {{ parsedViewCount }}
       </div>
-      <div class="likeBarContainer">
+      <div
+        v-if="!hideVideoLikesAndDislikes"
+        class="likeBarContainer"
+      >
         <div
           class="likeSection"
         >
@@ -60,7 +63,15 @@
       </div>
       <div class="videoOptions">
         <ft-icon-button
-          v-if="!hideRecommendedVideos"
+          v-if="!isUpcoming"
+          :title="$t('Video.Save Video')"
+          icon="star"
+          class="option"
+          :theme="favoriteIconTheme"
+          @click="toggleSave"
+        />
+        <ft-icon-button
+          v-if="theatrePossible"
           :title="$t('Toggle Theatre Mode')"
           class="theatreModeButton option"
           icon="expand-alt"

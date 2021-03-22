@@ -33,6 +33,12 @@
           :default-value="hideCommentLikes"
           @change="updateHideCommentLikes"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Active Subscriptions')"
+          :compact="true"
+          :default-value="hideActiveSubscriptions"
+          @change="updateHideActiveSubscriptions"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -52,6 +58,12 @@
           :compact="true"
           :default-value="hidePopularVideos"
           @change="updateHidePopularVideos"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Playlists')"
+          :compact="true"
+          :default-value="hidePlaylists"
+          @change="updateHidePlaylists"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Live Chat')"

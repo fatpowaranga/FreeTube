@@ -18,6 +18,12 @@
       class="switch-label"
     >
       {{ label }}
+      <ft-tooltip
+        v-if="tooltip !== ''"
+        class="selectTooltip"
+        position="bottom-left"
+        :tooltip="tooltip"
+      />
     </label>
   </div>
 </template>

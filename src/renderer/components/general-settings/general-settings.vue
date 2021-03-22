@@ -19,6 +19,7 @@
           :label="$t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
           :default-value="backendFallback"
           :compact="true"
+          :tooltip="$t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
           @change="updateBackendFallback"
         />
       </div>
@@ -43,7 +44,8 @@
         :value="backendPreference"
         :select-names="backendNames"
         :select-values="backendValues"
-        @change="updateBackendPreference"
+        :tooltip="$t('Tooltips.General Settings.Preferred API Backend')"
+        @change="handlePreferredApiBackend"
       />
       <ft-select
         v-if="false"
@@ -52,14 +54,6 @@
         :select-names="defaultPageNames"
         :select-values="defaultPageValues"
         @change="updateLandingPage"
-      />
-      <ft-select
-        v-if="false"
-        :placeholder="$t('Settings.General Settings.Region for Trending')"
-        :value="region"
-        :select-names="regionNames"
-        :select-values="regionValues"
-        @change="updateRegion"
       />
       <ft-select
         :placeholder="$t('Settings.General Settings.Video View Type.Video View Type')"
@@ -73,6 +67,7 @@
         :value="thumbnailPreference"
         :select-names="thumbnailTypeNames"
         :select-values="thumbnailTypeValues"
+        :tooltip="$t('Tooltips.General Settings.Thumbnail Preference')"
         @change="updateThumbnailPreference"
       />
       <ft-select
@@ -82,6 +77,14 @@
         :select-values="localeOptions"
         @change="updateLocale"
       />
+      <ft-select
+        :placeholder="$t('Settings.General Settings.Region for Trending')"
+        :value="region"
+        :select-names="regionNames"
+        :select-values="regionValues"
+        :tooltip="$t('Tooltips.General Settings.Region for Trending')"
+        @change="updateRegion"
+      />
     </div>
     <ft-flex-box class="generalSettingsFlexBox">
       <ft-input
@@ -90,8 +93,16 @@
         :show-label="true"
         :value="invidiousInstance"
         :data-list="instanceValues"
+        :tooltip="$t('Tooltips.General Settings.Invidious Instance')"
         @input="handleInvidiousInstanceInput"
       />
+    </ft-flex-box>
+    <ft-flex-box>
+      <a
+        href="https://api.invidious.io"
+      >
+        {{ $t('Settings.General Settings.View all Invidious instance information') }}
+      </a>
     </ft-flex-box>
   </ft-card>
 </template>

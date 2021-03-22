@@ -6,7 +6,7 @@ FreeTube: FreeTube
 
 # Webkit Menu Bar
 File: Datei
-Quit: Verlassen
+Quit: Beenden
 Edit: Bearbeiten
 Undo: Rückgängig
 Redo: Wiederherstellen
@@ -16,7 +16,7 @@ Paste: Einfügen
 Delete: Löschen
 Select all: Alles auswählen
 Reload: Aktualisieren
-Force Reload: Erzwinge Aktualisierung
+Force Reload: Aktualisierung erzwingen
 Toggle Developer Tools: Aktiviere Entwicklerwerkzeuge
 Actual size: Originalgröße
 Zoom in: Vergrößern
@@ -63,9 +63,11 @@ Search Filters:
   Fetching results. Please wait: Lade Ergebnisse. Bitte warten
   Fetch more results: Lade mehr Ergebnisse
 # Sidebar
+  There are no more results for this search: Keine weiteren Ergebnisse für diese Suche
+    vorhanden
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: Abonnement
+  Subscriptions: Abonnements
   Latest Subscriptions: Neueste Abonnements
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine
     Abonnementliste ist aktuell leer. Beginne Abonnements hinzuzufügen um sie hier
@@ -74,7 +76,7 @@ Subscriptions:
   Refresh Subscriptions: Abonnements aktualisieren
   Getting Subscriptions. Please wait.: Lade Abonnements. Bitte warten.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dieses
-    Profil hat eine große Anzahl von Abonnementen.  RSS zur Vermeidung von Tarifbeschränkungen
+    Profil hat eine große Anzahl von Abonnenten.  RSS zur Vermeidung von Tarifbeschränkungen
     erzwingen
   Load More Videos: Lade mehr Videos
 Trending: Trends
@@ -82,6 +84,13 @@ Most Popular: Am beliebtesten
 Playlists: Wiedergabelisten
 User Playlists:
   Your Playlists: Deine Wiedergabelisten
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Deine
+    gespeicherten Videos sind leer. Klicken Sie auf die Schaltfläche "Speichern" in
+    der Ecke eines Videos, damit es hier aufgelistet wird
+  Playlist Message: Diese Seite spiegelt nicht die vollständig funktionierenden Wiedergabelisten
+    wider. Sie listet nur Videos auf, die Sie gespeichert oder favorisiert haben.
+    Wenn die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier
+    befinden, in eine Wiedergabeliste "Favoriten" migriert.
 History:
   # On History Page
   History: Verlauf
@@ -101,7 +110,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: Bevorzugtes API-System
       Local API: Lokale API
-      Invidious API: Invidious' API
+      Invidious API: Invidious API
     Video View Type:
       Video View Type: Videoansichtstyp
       Grid: Gitter
@@ -116,11 +125,13 @@ Settings:
       (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
         #! List countries
-    Check for Latest Blog Posts: Nach aktuellsten Blogeintrag suchen
+    Check for Latest Blog Posts: Nach aktuellsten Blogeinträgen suchen
     Check for Updates: Nach Aktualisierungen suchen
+    View all Invidious instance information: Alle Informationen zur Invidious-Instanz
+      anzeigen
   Theme Settings:
     Theme Settings: Thema Einstellungen
-    Match Top Bar with Main Color: Passe obere Leiste an Hauptfarbe an
+    Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
     Base Theme:
       Base Theme: Grundlegendes Thema
       Black: Schwarz
@@ -135,11 +146,11 @@ Settings:
       Indigo: Indigo
       Blue: Blau
       Light Blue: Hellblau
-      Cyan: Mittleres Zyan
-      Teal: Dunkles Türkis
+      Cyan: Türkis
+      Teal: Türkisblau
       Green: Grün
       Light Green: Hellgrün
-      Lime: Lindgrün
+      Lime: Limette
       Yellow: Gelb
       Amber: Bernsteingelb
       Orange: Orange
@@ -151,7 +162,7 @@ Settings:
     Expand Side Bar by Default: Seitenleiste standardmäßig erweitern
   Player Settings:
     Player Settings: Videoabspieler-Einstellungen
-    Force Local Backend for Legacy Formats: Lokales System für Altformat erzwingen
+    Force Local Backend for Legacy Formats: Lokales System für Legacy Formate erzwingen
     Remember History: Verlauf speichern
     Play Next Video: Spiele nächstes Video
     Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
@@ -164,7 +175,7 @@ Settings:
     Default Video Format:
       Default Video Format: Standard-Videoformat
       Dash Formats: DASH-Formate
-      Legacy Formats: Altformate
+      Legacy Formats: Legacy Formate
       Audio Formats: Audioformate
     Default Quality:
       Default Quality: Standardqualität
@@ -178,6 +189,7 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+    Playlist Next Video Interval: Zeit zwischen automatischer Playlist-Videowiedergabe
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -186,7 +198,7 @@ Settings:
       #& Freetube
       Newpipe: Newpipe
       OPML: OPML
-    Manage Subscriptions: Verwalte Abonnements
+    Manage Subscriptions: Abonnements verwalten
     Import Subscriptions: Importiere Abonnements
     Export Subscriptions: Exportiere Abonnements
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
@@ -223,10 +235,10 @@ Settings:
     Are you sure you want to remove your entire watch history?: Bist du sicher, dass
       du deinen gesamten Verlauf löschen willst?
     Remove Watch History: Verlauf löschen
-    Search cache has been cleared: Suchzwischenspeicher wurde geleert
+    Search cache has been cleared: Suchanfragen wurden gelöscht
     Are you sure you want to clear out your search cache?: Bist du sicher, dass du
-      deinen Suchzwischenspeicher leeren möchtest?
-    Clear Search Cache: Suchzwischenspeicher löschen
+      deine Suchanfragen löschen möchtest?
+    Clear Search Cache: Suchanfragen löschen
     Save Watched Progress: Videofortschritt speichern
     Remember History: Verlauf speichern
     Privacy Settings: Datenschutzeinstellungen
@@ -263,15 +275,16 @@ Settings:
     Export NewPipe: Exportiere NewPipe
     Export YouTube: Exportiere YouTube
     Export FreeTube: Exportiere FreeTube
-    Export Subscriptions: Exportiere Abonnements
+    Export Subscriptions: Abonnements exportieren
     Import NewPipe: Importiere NewPipe
     Import YouTube: Importiere YouTube
     Import FreeTube: Importiere FreeTube
-    Import Subscriptions: Importiere Abonnements
+    Import Subscriptions: Abonnements importieren
     Select Export Type: Wähle Exporttyp
     Select Import Type: Wähle Importtyp
     Data Settings: Dateneinstellungen
-    Check for Legacy Subscriptions: Prüfung auf Altabonnements
+    Check for Legacy Subscriptions: Auf ältere Abonnements prüfen
+    Manage Subscriptions: Abonnements verwalten
   Distraction Free Settings:
     Hide Live Chat: Live-Chat verbergen
     Hide Popular Videos: Beliebte Videos verbergen
@@ -282,9 +295,27 @@ Settings:
     Hide Video Likes And Dislikes: Videobewertungen verbergen
     Hide Video Views: Video-Aufrufe verbergen
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
+    Hide Active Subscriptions: Aktive Abonnements ausblenden
+    Hide Playlists: Playlists ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
+  Proxy Settings:
+    Ip: IP-Adresse
+    Error getting network information. Is your proxy configured properly?: Fehler
+      beim Abrufen von Netzwerkinformationen. Ist dein Proxy richtig konfiguriert?
+    City: Stadt
+    Region: Region / Bundesland
+    Country: Land / Nation
+    Your Info: Deine Info
+    Test Proxy: Proxy testen
+    Clicking on Test Proxy will send a request to: In dem du auf Proxy Testen klickst,
+      schickst du eine Anfrage an
+    Proxy Port Number: Proxy-Portnummer
+    Proxy Host: Proxy-Host
+    Proxy Protocol: Proxy-Protokoll
+    Enable Tor / Proxy: Tor / Proxy aktivieren
+    Proxy Settings: Proxy-Einstellungen
 About:
   #On About page
   About: Über
@@ -320,12 +351,46 @@ About:
 #On Channel Page
   This software is FOSS and released under the GNU Affero General Public License v3.0.: Diese
     freie Software ist unter der AGPL-3.0 lizenziert.
+  Translate via Weblate: Auf Weblate übersetzen
+  Website: Webseite
+  Source Code: Quellcode
+  Release Notes: Versionshinweise
+  Blog: Blog
+  Credits: Beiträge
+  FAQ: Häufig gestellte Fragen
+  Wiki: Wiki
+  Report an Issue: Fehler melden
+  Channel Rules: Kanalregeln
+  Email: Email
+  License: Lizenz
+  Beta: Beta
+  Donate: Spenden
+  Useful Links: Nützliche Links
+  Help: Hilfe
+  Contact: Kontakt
+  these people and projects: diesen Menschen und Projekten
+  FreeTube is made possible by: FreeTube wird ermöglicht von
+  Translate: Übersetzen
+  room rules: Raum-Regeln
+  Please read the: Bitte lese die
+  Chat on Matrix: Chatten bei Matrix
+  Mastodon: Mastodon
+  Please check for duplicates before posting: Bitte überprüfe vor dem Absenden, ob
+    es Duplikate gibt
+  GitHub issues: GitHub Issues
+  Report a problem: Problem melden
+  FreeTube Wiki: FreeTube Wiki
+  GitHub releases: GitHub Veröffentlichungen
+  Downloads / Changelog: Downloads / Änderungsverlauf
+  View License: Lizenz einsehen
+  Licensed under the AGPLv3: Lizensiert unter der AGPLv3
+  Source code: Quellcode
 Channel:
   Subscriber: Abonnement
   Subscribers: Abonnements
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
-  Search Channel: Suche Kanal
+  Search Channel: Durchsuche Kanal
   Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert
   Sort By: Sortiere nach
   Videos:
@@ -354,10 +419,9 @@ Channel:
     entfernt
 Video:
   Open in YouTube: In YouTube öffnen
-  Copy YouTube Link: YouTube Link kopieren
+  Copy YouTube Link: YouTube-Link kopieren
   Open YouTube Embedded Player: Öffne eingebetteter Abspieler von YouTube
-  Copy YouTube Embedded Player Link: Kopiere Link des eingebetteten Abspieler von
-    YouTube
+  Copy YouTube Embedded Player Link: Link des eingebetteten YouTube-Abspieler kopieren
   Open in Invidious: In Invidious öffnen
   Copy Invidious Link: Invidious-Link kopieren
   View: Aufruf
@@ -373,7 +437,7 @@ Video:
   Live Chat is currently not supported in this build.: Live-Chat ist in der aktuellen
     Version nicht unterstützt.
   'Chat is disabled or the Live Stream has ended.': Der Chat ist deaktiviert oder
-    der Livestream zuende.
+    der Livestream ist beendet.
   Live chat is enabled.  Chat messages will appear here once sent.: Der Live-Chat
     ist aktiviert.  Chatnachrichten tauchen hier auf, wenn sie abgesendet wurden.
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live-Chat
@@ -432,6 +496,16 @@ Video:
   audio only: nur Audio
   video only: nur Video
   Download Video: Video herunterladen
+  Copy Invidious Channel Link: Invidious-Kanallink kopieren
+  Open Channel in Invidious: Kanal auf Invidious öffnen
+  Copy YouTube Channel Link: YouTube-Kanallink kopieren
+  Open Channel in YouTube: Kanal auf YouTube öffnen
+  Started streaming on: Streaming angefangen am
+  Streamed on: Gestreamt am
+  Video has been removed from your saved list: Video wurde aus der Liste der gespeicherten
+    Videos entfernt
+  Video has been saved: Video wurde gespeichert
+  Save Video: Video speichern
 Videos:
   #& Sort By
   Sort By:
@@ -463,7 +537,7 @@ Share Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: Aktiviere Kinomodus
+Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Video Formats: Ändere Videoformat
   Use Dash Formats: Nutze DASH-Format
@@ -487,11 +561,15 @@ Share:
   YouTube Embed URL copied to clipboard: YouTubes eingebettete URL in die Zwischenablage
     kopiert
   Include Timestamp: Zeitstempel einfügen
+  YouTube Channel URL copied to clipboard: YouTube Kanallink in die Zwischenablage
+    kopiert
+  Invidious Channel URL copied to clipboard: Invidious Kanallink in die Zwischenablage
+    kopiert
 Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
   Click to View Comments: Klicke um Kommentare anzuzeigen
-  Getting comment replies, please wait: Kommentare werden geledan, bitte warten
+  Getting comment replies, please wait: Kommentare werden geladen, bitte warten
   Show Comments: Zeige Kommentare
   Hide Comments: Verstecke Kommentare
   # Context: View 10 Replies, View 1 Reply
@@ -573,9 +651,47 @@ Profile:
   Other Channels: Andere Kanäle
   Subscription List: Abonnement-Liste
   Profile Select: Profilauswahl
+  Profile Filter: Profilfilter
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, $. Click to view more: Ein neuer Blogeintrag ist verfügbar,
   $. Um ihn zu öffnen klicken
 Download From Site: Von der Seite herunterladen
 Version $ is now available!  Click for more details: Version $ ist jetzt verfügbar!  Für
   mehr Details klicken
+Tooltips:
+  General Settings:
+    Thumbnail Preference: Alle Videovoransichten in FreeTube werden durch ein Einzelbild
+      aus dem Video ersetzt und entsprechen somit nicht mehr der Standardvoransicht.
+    Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Aufrufe verwendet.
+      Leere die aktuelle Instanz, um eine vollständige Liste der verfügbaren Server
+      anzuzeigen.
+    Fallback to Non-Preferred Backend on Failure: Erlaube FreeTube, falls die bevorzugte
+      API nicht verfügbar sein sollte, automatisch die nicht bevorzugte Alternative
+      zu nutzen.
+    Preferred API Backend: Wähle das Backend, welches FreeTube zum Laden der Daten
+      nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious
+      API dagegen verwendet einen externen Server.
+    Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
+      die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
+      unterstützt
+  Subscription Settings:
+    Fetch Feeds from RSS: Mit dieser Option nutzt FreeTube einen RSS-Feed von Youtube
+      um deine Abonnements zu aktualisieren. RSS ist sowohl schneller als auch sicherer,
+      wenn du oft temporär von YouTube geblockt wirst(Error 429). Allerdings sind
+      nicht alle Videoinformationen, wie Videodauer oder Live-Status, verfügbar.
+  Player Settings:
+    Default Video Format: Auswahl der Formate bei der Videowiedergabe. Dash-Formate
+      bieten eine höhere Qualität, Legacy-Formate sind auf 720p begrenzt, benötigen
+      dafür aber auch weniger Bandbreite. Audioformate umfassen reine Audiostreams.
+    Proxy Videos Through Invidious: Zu Invidious verbinden, um Videos abzurufen, anstatt
+      eine direkten Verbindung zu YouTube aufzubauen. Überschreibt die API-Präferenz.
+    Force Local Backend for Legacy Formats: Dies funktioniert nur wenn du die Invidious
+      API als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von
+      Legacy Formaten diese verwenden, anstatt auf Invidious zurückzugreifen. Dies
+      hilft dann, wenn Videos von Invidious nicht abspielbar sind. Zum Beispiel aufgrund
+      von Landesbeschränkungen.
+Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
+  klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
+  klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
+  klicken.
+More: Weiteres

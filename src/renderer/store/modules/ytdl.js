@@ -3,6 +3,9 @@ import ytsr from 'ytsr'
 import ytpl from 'ytpl'
 
 import IsEqual from 'lodash.isequal'
+import { SocksProxyAgent } from 'socks-proxy-agent'
+import { HttpsProxyAgent } from 'https-proxy-agent'
+import { HttpProxyAgent } from 'http-proxy-agent'
 
 const state = {
   main: 0,
@@ -24,11 +27,59 @@ const actions = {
         resolve(false)
       }
 
+      if (typeof payload.options.nextpageRef !== 'undefined') {
+        const continuation = payload.options.nextpageRef
+        const nextPageResults = ytsr.continueReq(continuation)
+        resolve(nextPageResults)
+        return
+      }
+
       const defaultFilters = {
         sortBy: 'relevance',
         time: '',
         type: 'all',
         duration: ''
+      }
+
+      let agent = {}
+      const settings = rootState.settings
+      const useProxy = settings.useProxy
+
+      if (useProxy) {
+        const proxyProtocol = settings.proxyProtocol
+        const proxyHostname = settings.proxyHostname
+        const proxyPort = settings.proxyPort
+
+        switch (proxyProtocol) {
+          case 'http':
+            agent = new HttpProxyAgent({
+              host: proxyHostname,
+              port: proxyPort
+            })
+            break
+          case 'https':
+            agent = new HttpsProxyAgent({
+              host: proxyHostname,
+              port: proxyPort
+            })
+            break
+          case 'socks4':
+            agent = new SocksProxyAgent({
+              host: proxyHostname,
+              port: proxyPort,
+              type: 4
+            })
+            break
+          case 'socks5':
+            agent = new SocksProxyAgent({
+              host: proxyHostname,
+              port: proxyPort,
+              type: 5
+            })
+            break
+        }
+
+        payload.options.requestOptions = { agent }
       }
 
       commit('toggleIsYtSearchRunning')
@@ -39,7 +90,9 @@ const actions = {
             payload.options.nextpageRef = filter
           }
 
-          ytsr(payload.query, payload.options).then((result) => {
+          const query = filter || payload.query
+
+          ytsr(query, payload.options).then((result) => {
             console.log(result)
             console.log('done')
             resolve(result)
@@ -49,6 +102,10 @@ const actions = {
           }).finally(() => {
             commit('toggleIsYtSearchRunning')
           })
+        }).catch((err) => {
+          console.log(err)
+          commit('toggleIsYtSearchRunning')
+          reject(err)
         })
       } else {
         ytsr(payload.query, payload.options).then((result) => {
@@ -65,58 +122,181 @@ const actions = {
     })
   },
 
-  ytSearchGetFilters ({ rootState }, payload) {
-    return new Promise((resolve) => {
-      let filter = payload.query
-      let searchSettings = payload.searchSettings
+  async ytSearchGetFilters ({ rootState }, payload) {
+    let options = null
+    let agent = null
+    const settings = rootState.settings
+    const useProxy = settings.useProxy
 
-      if (typeof (searchSettings) === 'undefined') {
-        searchSettings = rootState.utils.searchSettings
+    if (useProxy) {
+      const proxyProtocol = settings.proxyProtocol
+      const proxyHostname = settings.proxyHostname
+      const proxyPort = settings.proxyPort
+
+      switch (proxyProtocol) {
+        case 'http':
+          agent = new HttpProxyAgent({
+            host: proxyHostname,
+            port: proxyPort
+          })
+          break
+        case 'https':
+          agent = new HttpsProxyAgent({
+            host: proxyHostname,
+            port: proxyPort
+          })
+          break
+        case 'socks4':
+          agent = new SocksProxyAgent({
+            host: proxyHostname,
+            port: proxyPort,
+            type: 4
+          })
+          break
+        case 'socks5':
+          agent = new SocksProxyAgent({
+            host: proxyHostname,
+            port: proxyPort,
+            type: 5
+          })
+          break
+      }
+    }
+
+    options = {
+      requestOptions: { agent }
+    }
+
+    let filter = await ytsr.getFilters(payload.query, options)
+    let filterUrl = null
+    let searchSettings = payload.searchSettings
+
+    if (typeof (searchSettings) === 'undefined') {
+      searchSettings = rootState.utils.searchSettings
+    }
+
+    console.log(searchSettings)
+    console.log(filter)
+
+    if (searchSettings.sortBy !== 'relevance') {
+      let filterValue
+      switch (searchSettings.sortBy) {
+        case 'rating':
+          filterValue = 'Rating'
+          break
+        case 'upload_date':
+          filterValue = 'Upload date'
+          break
+        case 'view_count':
+          filterValue = 'View count'
+          break
+      }
+      filterUrl = filter.get('Sort by').get(filterValue).url
+      filter = await ytsr.getFilters(filterUrl, options)
+    }
+
+    console.log(`Current ref: ${filterUrl}`)
+
+    if (searchSettings.duration !== '') {
+      let filterValue = null
+      if (searchSettings.duration === 'short') {
+        filterValue = 'Short (< 4 minutes)'
+      } else if (searchSettings.duration === 'long') {
+        filterValue = 'Long (> 20 minutes)'
       }
 
-      console.log(searchSettings)
+      filterUrl = filter.get('Duration').get(filterValue).url
+      filter = await ytsr.getFilters(filterUrl, options)
+    }
 
-      // This is extremely ugly, though this is the recommended way to accomplish this
-      // in the GitHub documentation
-      console.log(`Current ref: ${filter}`)
-      ytsr.getFilters(filter).then((filters) => {
-        if (searchSettings.type !== 'all') {
-          filter = filters.get('Type').find(o => o.name.toLowerCase().includes(rootState.utils.searchSettings.type)).ref
-        }
+    console.log(`Current ref: ${filterUrl}`)
 
-        console.log(`Current ref: ${filter}`)
-        ytsr.getFilters(filter).then((filters) => {
-          if (searchSettings.time !== '') {
-            filter = filters.get('Upload date').find(o => o.name.toLowerCase().includes(rootState.utils.searchSettings.time)).ref
-          }
+    if (searchSettings.time !== '') {
+      let filterValue = null
 
-          console.log(`Current ref: ${filter}`)
-          ytsr.getFilters(filter).then((filters) => {
-            if (searchSettings.duration !== '') {
-              filter = filters.get('Duration').find(o => o.name.toLowerCase().includes(rootState.utils.searchSettings.duration)).ref
-            }
+      switch (searchSettings.time) {
+        case 'hour':
+          filterValue = 'Last Hour'
+          break
+        case 'today':
+          filterValue = 'Today'
+          break
+        case 'week':
+          filterValue = 'This week'
+          break
+        case 'month':
+          filterValue = 'This month'
+          break
+        case 'year':
+          filterValue = 'This year'
+          break
+      }
 
-            console.log(`Current ref: ${filter}`)
-            ytsr.getFilters(filter).then((filters) => {
-              if (searchSettings.sortBy !== 'relevance') {
-                const sortBy = rootState.utils.searchSettings.sortBy.replace('_', ' ')
-                filter = filters.get('Sort by').find(o => o.name.toLowerCase().includes(sortBy)).ref
-              }
+      filterUrl = filter.get('Upload date').get(filterValue).url
+      filter = await ytsr.getFilters(filterUrl, options)
+    }
 
-              console.log(`Final ref: ${filter}`)
-              resolve(filter)
-            })
-          })
-        })
-      })
+    console.log(`Current ref: ${filterUrl}`)
+
+    if (searchSettings.type !== 'all') {
+      const filterValue = searchSettings.type.charAt(0).toUpperCase() + searchSettings.type.slice(1)
+      filterUrl = filter.get('Type').get(filterValue).url
+      filter = await ytsr.getFilters(filterUrl, options)
+    }
+
+    console.log(`Current ref: ${filterUrl}`)
+
+    return new Promise((resolve, reject) => {
+      resolve(filterUrl)
     })
   },
 
-  ytGetPlaylistInfo (_, playlistId) {
+  ytGetPlaylistInfo ({ rootState }, playlistId) {
     return new Promise((resolve, reject) => {
       console.log(playlistId)
       console.log('Getting playlist info please wait...')
-      ytpl(playlistId, { limit: 'Infinity' }).then((result) => {
+      let agent = null
+      const settings = rootState.settings
+      const useProxy = settings.useProxy
+
+      if (useProxy) {
+        const proxyProtocol = settings.proxyProtocol
+        const proxyHostname = settings.proxyHostname
+        const proxyPort = settings.proxyPort
+
+        switch (proxyProtocol) {
+          case 'http':
+            agent = new HttpProxyAgent({
+              host: proxyHostname,
+              port: proxyPort
+            })
+            break
+          case 'https':
+            agent = new HttpsProxyAgent({
+              host: proxyHostname,
+              port: proxyPort
+            })
+            break
+          case 'socks4':
+            agent = new SocksProxyAgent({
+              host: proxyHostname,
+              port: proxyPort,
+              type: 4
+            })
+            break
+          case 'socks5':
+            agent = new SocksProxyAgent({
+              host: proxyHostname,
+              port: proxyPort,
+              type: 5
+            })
+            break
+        }
+      }
+      ytpl(playlistId, {
+        limit: 'Infinity',
+        requestOptions: { agent }
+      }).then((result) => {
         resolve(result)
       }).catch((err) => {
         reject(err)
@@ -124,10 +304,52 @@ const actions = {
     })
   },
 
-  ytGetVideoInformation (_, videoId) {
+  ytGetVideoInformation ({ rootState }, videoId) {
     return new Promise((resolve, reject) => {
       console.log('Getting video info please wait...')
-      ytdl.getInfo(videoId).then((result) => {
+      let agent = null
+      const settings = rootState.settings
+      const useProxy = settings.useProxy
+
+      if (useProxy) {
+        const proxyProtocol = settings.proxyProtocol
+        const proxyHostname = settings.proxyHostname
+        const proxyPort = settings.proxyPort
+
+        switch (proxyProtocol) {
+          case 'http':
+            agent = new HttpProxyAgent({
+              host: proxyHostname,
+              port: proxyPort
+            })
+            break
+          case 'https':
+            agent = new HttpsProxyAgent({
+              host: proxyHostname,
+              port: proxyPort
+            })
+            break
+          case 'socks4':
+            agent = new SocksProxyAgent({
+              host: proxyHostname,
+              port: proxyPort,
+              type: 4
+            })
+            break
+          case 'socks5':
+            agent = new SocksProxyAgent({
+              host: proxyHostname,
+              port: proxyPort,
+              type: 5
+            })
+            break
+        }
+      }
+
+      ytdl.getInfo(videoId, {
+        lang: 'en-US',
+        requestOptions: { agent }
+      }).then((result) => {
         resolve(result)
       }).catch((err) => {
         reject(err)

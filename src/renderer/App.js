@@ -53,6 +53,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    isDev: function () {
+      return process.env.NODE_ENV === 'development'
+    },
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
@@ -85,6 +88,7 @@ export default Vue.extend({
     this.$store.dispatch('grabUserSettings')
     this.$store.dispatch('grabHistory')
     this.$store.dispatch('grabAllProfiles', this.$t('Profile.All Channels'))
+    this.$store.dispatch('grabAllPlaylists')
     this.$store.commit('setUsingElectron', useElectron)
     this.checkThemeSettings()
     this.checkLocale()
@@ -93,7 +97,7 @@ export default Vue.extend({
       console.log('User is using Electron')
       this.activateKeyboardShortcuts()
       this.openAllLinksExternally()
-      this.enableCliPing()
+      this.enableOpenUrl()
       this.setBoundsOnClose()
     }
 
@@ -112,6 +116,12 @@ export default Vue.extend({
       } else {
         this.$i18n.locale = locale
       }
+      const payload = {
+        isDev: this.isDev,
+        locale: this.$i18n.locale
+      }
+
+      this.$store.dispatch('getRegionData', payload)
     },
 
     checkThemeSettings: function () {
@@ -163,7 +173,15 @@ export default Vue.extend({
 
           const message = this.$t('Version $ is now available!  Click for more details')
           this.updateBannerMessage = message.replace('$', versionNumber)
-          if (version < versionNumber) {
+
+          const appVersion = version.split('.')
+          const latestVersion = versionNumber.split('.')
+
+          if (parseInt(appVersion[0]) < parseInt(latestVersion[0])) {
+            this.showUpdatesBanner = true
+          } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
+            this.showUpdatesBanner = true
+          } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2])) {
             this.showUpdatesBanner = true
           }
         }).fail((xhr, textStatus, error) => {
@@ -262,26 +280,15 @@ export default Vue.extend({
       })
     },
 
-    enableCliPing: function () {
+    enableOpenUrl: function () {
       const v = this
-      electron.ipcRenderer.on('ping', function (event, message) {
-        let url = message[message.length - 1]
+      electron.ipcRenderer.on('openUrl', function (event, url) {
         if (url) {
-          url = url.replace('freetube://', '')
-          v.$store.dispatch('getVideoIdFromUrl', url).then((result) => {
-            if (result) {
+          v.$store.dispatch('getVideoParamsFromUrl', url).then(({ videoId, timestamp }) => {
+            if (videoId) {
               v.$router.push({
-                path: `/watch/${result}`
-              })
-            } else {
-              v.$router.push({
-                path: `/search/${encodeURIComponent(url)}`,
-                query: {
-                  sortBy: v.searchSettings.sortBy,
-                  time: v.searchSettings.time,
-                  type: v.searchSettings.type,
-                  duration: v.searchSettings.duration
-                }
+                path: `/watch/${videoId}`,
+                query: timestamp ? { timestamp } : {}
               })
             }
           })

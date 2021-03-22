@@ -56,8 +56,7 @@ export default Vue.extend({
       ],
       playlistSelectValues: [
         'last',
-        'newest',
-        'oldest'
+        'newest'
       ]
     }
   },
@@ -121,8 +120,7 @@ export default Vue.extend({
     playlistSelectNames: function () {
       return [
         this.$t('Channel.Playlists.Sort Types.Last Video Added'),
-        this.$t('Channel.Playlists.Sort Types.Newest'),
-        this.$t('Channel.Playlists.Sort Types.Oldest')
+        this.$t('Channel.Playlists.Sort Types.Newest')
       ]
     },
 
@@ -136,7 +134,7 @@ export default Vue.extend({
     showFetchMoreButton: function () {
       switch (this.currentTab) {
         case 'videos':
-          if (this.videoContinuationString !== '' && this.videoContinuationString !== null) {
+          if (this.apiUsed === 'invidious' || (this.videoContinuationString !== '' && this.videoContinuationString !== null)) {
             return true
           }
           break
@@ -370,7 +368,7 @@ export default Vue.extend({
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
-          message: `${errorMessage}: ${err}`,
+          message: `${errorMessage}: ${err.responseJSON.error}`,
           time: 10000,
           action: () => {
             navigator.clipboard.writeText(err)
@@ -410,7 +408,10 @@ export default Vue.extend({
     getPlaylistsLocal: function () {
       ytch.getChannelPlaylistInfo(this.id, this.playlistSortBy).then((response) => {
         console.log(response)
-        this.latestPlaylists = response.items
+        this.latestPlaylists = response.items.map((item) => {
+          item.proxyThumbnail = false
+          return item
+        })
         this.playlistContinuationString = response.continuation
         this.isElementListLoading = false
       }).catch((err) => {
@@ -462,9 +463,12 @@ export default Vue.extend({
         resource: 'channels/playlists',
         id: this.id,
         params: {
-          sort_by: this.playlistSortBy,
-          continuation: this.playlistContinuationString
+          sort_by: this.playlistSortBy
         }
+      }
+
+      if (this.playlistContinuationString) {
+        payload.params.continuation = this.playlistContinuationString
       }
 
       this.$store.dispatch('invidiousAPICall', payload).then((response) => {
@@ -475,10 +479,10 @@ export default Vue.extend({
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
-          message: `${errorMessage}: ${err}`,
+          message: `${errorMessage}: ${err.responseJSON.error}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            navigator.clipboard.writeText(err.responseJSON.error)
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {

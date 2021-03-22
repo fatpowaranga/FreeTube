@@ -3,7 +3,8 @@
     class="videoLayout"
     :class="{
       isLoading,
-      useTheatreMode
+      useTheatreMode,
+      noSidebar: !theatrePossible
     }"
   >
     <ft-loader
@@ -74,8 +75,14 @@
         :dislike-count="videoDislikeCount"
         :view-count="videoViewCount"
         :get-timestamp="getTimestamp"
+        :is-live-content="isLiveContent"
+        :is-live="isLive"
         :is-upcoming="isUpcoming"
         :download-links="downloadLinks"
+        :watching-playlist="watchingPlaylist"
+        :theatre-possible="theatrePossible"
+        :length-seconds="videoLengthSeconds"
+        :video-thumbnail="thumbnail"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @theatre-mode="toggleTheatreMode"
@@ -94,6 +101,7 @@
         :id="videoId"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
+        :channel-thumbnail="channelThumbnail"
         @timestamp-event="changeTimestamp"
       />
     </div>

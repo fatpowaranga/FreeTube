@@ -3,7 +3,7 @@ Locale Name: 'Hrvatski'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Ovaj dio programa još nije spreman. Navrati kasnije.
+  Ovaj dio programa još nije gotov. Navrati kasnije.
 
 # Webkit Menu Bar
 File: 'Datoteka'
@@ -18,7 +18,7 @@ Delete: 'Izbriši'
 Select all: 'Odaberi sve'
 Reload: 'Učitaj ponovo'
 Force Reload: 'Prisili ponovno učitavanje'
-Toggle Developer Tools: 'Uključi/isključi alate za programere'
+Toggle Developer Tools: 'Uključi alate za programere'
 Actual size: 'Stvarna veličina'
 Zoom in: 'Uvećaj prikaz'
 Zoom out: 'Umanji prikaz'
@@ -33,9 +33,9 @@ Forward: 'Naprijed'
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Filtri za pretraživanje'
+  Search Filters: 'Filtri pretrage'
   Sort By:
-    Sort By: 'Razvrstaj po'
+    Sort By: 'Redoslijed'
     Most Relevant: 'Najrelevantniji'
     Rating: 'Ocjena'
     Upload Date: 'Datum prijenosa'
@@ -51,7 +51,7 @@ Search Filters:
   Type:
     Type: 'Vrsta'
     All Types: 'Sve vrste'
-    Videos: 'Videozapisi'
+    Videos: 'Videa'
     Channels: 'Kanali'
     #& Playlists
   Duration:
@@ -60,10 +60,11 @@ Search Filters:
     Short (< 4 minutes): 'Kratko (< 4 min)'
     Long (> 20 minutes): 'Dugo (> 20 min)'
   # On Search Page
-  Search Results: 'Rezultati pretraživanja'
+  Search Results: 'Rezultati pretrage'
   Fetching results. Please wait: 'Rezultati se dohvaćaju. Pričekaj'
   Fetch more results: 'Dohvati još rezultata'
 # Sidebar
+  There are no more results for this search: Nema daljnjih rezultata za ovu pretragu
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
@@ -76,12 +77,18 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ovaj
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
-  Load More Videos: Učitaj još videozapisa
+  Load More Videos: Učitaj još videa
 Trending: 'U trendu'
 Most Popular: 'Najpopularniji'
 Playlists: 'Zbirke'
 User Playlists:
   Your Playlists: 'Tvoje zbirke'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nemaš
+    spremljenih videa. Pritisni gumb za spremanje u sličici videa, kako bi se video
+    ovdje prikazao
+  Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
+    samo spremljena ili označena videa. Kad posao završi, svi trenutačno ovdje prisutni
+    videi premjestit će se u zbirku „Favoriti”.
 History:
   # On History Page
   History: 'Povijest'
@@ -92,17 +99,17 @@ Settings:
   Settings: 'Postavke'
   General Settings:
     General Settings: 'Opće postavke'
-    Fallback to Non-Preferred Backend on Failure: 'Koristi ne-preferirani pozadinski
-      sustav u slučaju neuspjeha'
-    Enable Search Suggestions: 'Aktiviraj prijedloge pretraživanja'
+    Fallback to Non-Preferred Backend on Failure: 'U slučaju problema koristi sekundarni
+      pozadinski sustav'
+    Enable Search Suggestions: 'Aktiviraj prijedloge pretrage'
     Default Landing Page: 'Standardna odredišna stranica'
     Locale Preference: 'Jezik'
     Preferred API Backend:
-      Preferred API Backend: 'Preferirani pozadinski sustav sučelja'
+      Preferred API Backend: 'Primarno sučelje'
       Local API: 'Lokalno sučelje'
       Invidious API: 'Invidious sučelje'
     Video View Type:
-      Video View Type: 'Način prikaza videozapisa'
+      Video View Type: 'Način prikaza videa'
       Grid: 'Popločeno'
       List: 'Popis'
     Thumbnail Preference:
@@ -113,10 +120,11 @@ Settings:
       End: 'Kraj'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious primjerak
       (standardno se koristi https://invidious.snopyta.org)'
-    Region for Trending: 'Regija za videozapise u trendu'
+    Region for Trending: 'Regija za videa u trendu'
         #! List countries
     Check for Latest Blog Posts: Traži najnovije objave na blogu
     Check for Updates: Traži nove verzije
+    View all Invidious instance information: Prikaži podatke svih Invidious primjeraka
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
@@ -145,17 +153,17 @@ Settings:
       Deep Orange: 'Tamnonarančasta'
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
-    UI Scale: Skaliranje korisničkog sučelja
+    UI Scale: Uvećanje korisničkog sučelja
     Disable Smooth Scrolling: Deaktiviraj neisprekidano klizanje
     Expand Side Bar by Default: Standardno proširi bočnu traku
   Player Settings:
     Player Settings: 'Postavke playera'
-    Force Local Backend for Legacy Formats: 'Prisili lokalni pozadinski sustav za
+    Force Local Backend for Legacy Formats: 'Koristi lokalni pozadinski sustav za
       stare formate'
-    Play Next Video: 'Reproduciraj sljedeći videozapis'
+    Play Next Video: 'Reproduciraj sljedeći video'
     Turn on Subtitles by Default: 'Standardno uključi titlove'
-    Autoplay Videos: 'Automatski reproduciraj videozapise'
-    Proxy Videos Through Invidious: 'Reproduciraj videozapise putem Invidious proxyja'
+    Autoplay Videos: 'Automatski reproduciraj videa'
+    Proxy Videos Through Invidious: 'Koristi Invidious kao posrednika videa'
     Autoplay Playlists: 'Automatski reproduciraj zbirke'
     Enable Theatre Mode by Default: 'Standardno aktiviraj kazališni modus'
     Default Volume: 'Standardna glasnoća'
@@ -177,14 +185,15 @@ Settings:
       1440p: '1440 p'
       4k: '4 k'
       8k: '8 k'
+    Playlist Next Video Interval: Interval sljedećeg videa zbirke
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
     Save Watched Progress: 'Spremi napredak gledanja'
-    Clear Search Cache: 'Isprazni predmemoriju pretraživanja'
+    Clear Search Cache: 'Isprazni predmemoriju pretrage'
     Are you sure you want to clear out your search cache?: 'Stvarno želiš isprazniti
-      predmemoriju pretraživanja?'
-    Search cache has been cleared: 'Predmemorija pretraživanja je ispražnjena'
+      predmemoriju pretrage?'
+    Search cache has been cleared: 'Predmemorija pretrage je ispražnjena'
     Remove Watch History: 'Ukloni povijest gledanja'
     Are you sure you want to remove your entire watch history?: 'Stvarno želiš ukloniti
       cijelu povijest gledanja?'
@@ -194,8 +203,8 @@ Settings:
     Remove All Subscriptions / Profiles: Ukloni sve pretplate/profile
   Subscription Settings:
     Subscription Settings: 'Postavke pretplata'
-    Hide Videos on Watch: 'Sakrij videozapise nakon gledanja'
-    Fetch Feeds from RSS: 'Dohvati feedove s RSS-a'
+    Hide Videos on Watch: 'Sakrij video nakon gledanja'
+    Fetch Feeds from RSS: 'Dohvati podatke putem RSS-a'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Format izvoza pretplata'
       #& Freetube
@@ -209,12 +218,12 @@ Settings:
     Advanced Settings: 'Napredne postavke'
     Enable Debug Mode (Prints data to the console): 'Aktiviraj modus otklanjanja grešaka
       (ispisuje podatke na konzolu)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy adresa (primjer: SOCKS5:
-      //127.0.0.1: 9050)'
+    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Adresa posrednika (npr.:
+      SOCKS5: //127.0.0.1: 9050)'
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Pritiskom
-      gumba „TESTIRAJ PROXY” poslat će se zahtjev na https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Koristi Tor/Proxy za pozive sučelja'
-    TEST PROXY: 'TESTIRAJ PROXY'
+      gumba „TESTIRAJ POSREDNIKA” poslat će se zahtjev na https://ipinfo.io/json'
+    Use Tor / Proxy for API calls: 'Koristi Tor/posrednika za pozive sučelja'
+    TEST PROXY: 'TESTIRAJ POSREDNIKA'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
     See Public Instances: 'Pogledaj javne primjerke'
     Clear History:
@@ -264,22 +273,40 @@ Settings:
     Select Import Type: Odaberi vrstu uvoza
     Data Settings: Postavke podataka
     How do I import my subscriptions?: Kako uvesti pretplate?
-    One or more subscriptions were unable to be imported: Nije moguće uvesti jednu
-      ili više pretplata
+    One or more subscriptions were unable to be imported: Neuspio uvoz jedne ili više
+      pretplata
     Check for Legacy Subscriptions: Potraži stare pretplate
+    Manage Subscriptions: Upravljaj pretplatama
   Distraction Free Settings:
-    Hide Trending Videos: Sakrij videozapise u trendu
-    Hide Recommended Videos: Sakrij preporučene videozapise
+    Hide Trending Videos: Sakrij videa u trendu
+    Hide Recommended Videos: Sakrij preporučena videa
     Hide Channel Subscribers: Sakrij pretplatnike na kanal
-    Hide Live Chat: Sakrij chat u živo
-    Hide Popular Videos: Sakrij popularne videozapise
+    Hide Live Chat: Sakrij razgovor uživo
+    Hide Popular Videos: Sakrij popularna videa
     Hide Comment Likes: Sakrij ocjene komentara
-    Hide Video Likes And Dislikes: Sakrij ocjenjivanje videozapisa
-    Hide Video Views: Sakrij broj gledanja videozapisa
+    Hide Video Likes And Dislikes: Sakrij ocjenjivanje videa
+    Hide Video Views: Sakrij broj gledanja videa
     Distraction Free Settings: Postavke za nesmetan rad
-  The app needs to restart for changes to take effect. Restart and apply change?: Za
-    primjenu promjena, program se mora ponovo pokrenuti. Ponovo pokrenuti program
-    i primijeniti promjene?
+    Hide Active Subscriptions: Sakrij aktivne pretplate
+    Hide Playlists: Sakrij zbirke
+  The app needs to restart for changes to take effect. Restart and apply change?: Promjene
+    će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
+  Proxy Settings:
+    Country: Zemlja
+    Error getting network information. Is your proxy configured properly?: Greška
+      pri dohvaćanju mrežnih podataka. Je li tvoj posrednik pravilno konfiguriran?
+    City: Grad
+    Region: Regija
+    Ip: IP
+    Your Info: Tvoji podaci
+    Test Proxy: Provjeri posrednika
+    Clicking on Test Proxy will send a request to: Pritiskom gumba „Provjeri posrednika”
+      šalje se zahtjev na
+    Proxy Port Number: Broj priključka posrednika
+    Proxy Host: Računalo posrednika
+    Proxy Protocol: Protokol posrednika
+    Enable Tor / Proxy: Aktiviraj Tor/Posrednik
+    Proxy Settings: Postavke posrednika
 About:
   #On About page
   About: 'Informacije'
@@ -292,7 +319,7 @@ About:
     GitHub stranicu. Zahtjevi za povlačenje su dobrodošli.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Zahvaljujemo
-    svim ljudima i projektima koji omogućuju razvojj programa FreeTube!'
+    svim ljudima i projektima koji omogućuju razvoj programa FreeTube!'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Želiš
     razgovarati? Pridruži se našem Element/Matrix poslužitelju. Pročitaj pravila prije
@@ -311,6 +338,40 @@ About:
 
   Latest FreeTube News: 'Najnovije vijesti o programu FreeTube'
 
+  Translate via Weblate: Prevedi putem Weblatea
+  Website: Web-stranica
+  Source Code: Izvorni kod
+  Release Notes: Napomene uz izdanje
+  Blog: Blog
+  Credits: Zasluge
+  FAQ: Često postavljena pitanja
+  Wiki: Wiki
+  Report an Issue: Prijavi problem
+  Channel Rules: Pravila kanala
+  Email: E-adresa
+  License: Licenca
+  Beta: Beta
+  Donate: Doniraj
+  Useful Links: Korisne poveznice
+  Help: Pomoć
+  Contact: Kontakt
+  Chat on Matrix: Razgovaraj na Matrixu
+  Please check for duplicates before posting: Prije slanja greške, provjeri, je li
+    ista greška već prijavljena
+  these people and projects: ovi ljudi i projekti
+  FreeTube is made possible by: FreeTube omogućuju
+  Translate: Prevodi
+  room rules: pravila sobe
+  Please read the: Pročitaj
+  Mastodon: Mastodon
+  GitHub issues: GitHub problemi
+  Report a problem: Prijavi grešku
+  FreeTube Wiki: FreeTube Wiki
+  GitHub releases: GitHub izdanja
+  Downloads / Changelog: Preuzimanja/dnevnik promjena
+  View License: Pogledaj licencu
+  Licensed under the AGPLv3: AGPLv3 licenca
+  Source code: Izvorni kod
 Profile:
   All Channels: 'Svi kanali'
   Profile Manager: 'Upravljač profila'
@@ -331,7 +392,7 @@ Profile:
   Profile has been updated: 'Profil je aktualiziran'
   Your default profile has been set to $: 'Tvoj standardni profil je postavljen na
     $'
-  Removed $ from your profiles: '$ uklonjen iz tvojih profila'
+  Removed $ from your profiles: '$ je uklonjen iz tvojih profila'
   Your default profile has been changed to your primary profile: 'Tvoj standardni
     profil je promijenjen u tvoj primarni profil'
   $ is now the active profile: '$ je sada aktivni profil'
@@ -348,9 +409,10 @@ Profile:
   Delete Selected: Izbriši odabrano
   Select None: Odaberi ništa
   Select All: Odaberi sve
-  $ selected: $ odabran
+  $ selected: $ je odabran
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
+  Profile Filter: Filtar profila
 Channel:
   Subscriber: 'Pretplatnik'
   Subscribers: 'Pretplatnici'
@@ -358,11 +420,11 @@ Channel:
   Unsubscribe: 'Otkaži pretplatu'
   Search Channel: 'Pretraži kanal'
   Your search results have returned 0 results: 'Pretraživanje je vratilo 0 rezultata'
-  Sort By: 'Razvrstaj po'
+  Sort By: 'Redoslijed'
   Videos:
-    Videos: 'Videozapisi'
+    Videos: 'Videa'
     This channel does not currently have any videos: 'Na ovom kanalu trenutačno nema
-      videozapisa'
+      videa'
     Sort Types:
       Newest: 'Najnoviji'
       Oldest: 'Najstariji'
@@ -372,7 +434,7 @@ Channel:
     This channel does not currently have any playlists: 'Ovaj kanal trenutačno ne
       sadrži nijednu zbirku'
     Sort Types:
-      Last Video Added: 'Zadnji dodani videozapis'
+      Last Video Added: 'Zadnji dodani video'
       Newest: 'Najnoviji'
       Oldest: 'Najstariji'
   About:
@@ -385,8 +447,8 @@ Channel:
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'
-  Video has been marked as watched: 'Videozapis je označen kao pogledan'
-  Video has been removed from your history: 'Videozapis je uklonjen iz tvoje povijesti'
+  Video has been marked as watched: 'Video je označen kao pogledan'
+  Video has been removed from your history: 'Video je uklonjen iz tvoje povijesti'
   Open in YouTube: 'Otvori na YouTube stranici'
   Copy YouTube Link: 'Kopiraj poveznicu na YouTube'
   Open YouTube Embedded Player: 'Otvori ugrađeni YouTube player'
@@ -400,16 +462,16 @@ Video:
   Watched: 'Pogledano'
   # As in a Live Video
   Live: 'Uživo'
-  Live Now: 'Trenutno uživo'
-  Live Chat: 'Chat uživo'
-  Enable Live Chat: 'Aktiviraj chat uživo'
-  Live Chat is currently not supported in this build.: 'Chat uživo trenutačno nije
-    podržan u ovoj verziji.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat je deaktiviran ili je prijenos
-    uživo završio.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Chat uživo je
-    aktiviran. Poruke chata pojavit će se ovdje nakon slanja.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Chat
+  Live Now: 'Sada uživo'
+  Live Chat: 'Razgovor uživo'
+  Enable Live Chat: 'Aktiviraj razgovor uživo'
+  Live Chat is currently not supported in this build.: 'Razgovor uživo trenutačno
+    nije podržan u ovoj verziji.'
+  'Chat is disabled or the Live Stream has ended.': 'Razgovor je deaktiviran ili je
+    prijenos uživo završio.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Razgovor uživo
+    je aktiviran. Poruke razgovora pojavit će se ovdje nakon slanja.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Razgovor
     uživo trenutačno nije podržan s Invidious sučeljem. Potrebna je izravna veza s
     YouTubeom.'
   Published:
@@ -440,14 +502,14 @@ Video:
     Year: 'g'
     Years: 'g'
     Ago: 'Prije'
-    Upcoming: 'Datum premijere'
+    Upcoming: 'Premijera'
   Published on: 'Objavljeno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'prije $ %'
 #& Videos
   Autoplay: Automatska reprodukcija
-  Play Previous Video: Reproduciraj prethodni videozapis
-  Play Next Video: Reproduciraj sljedeći videozapis
+  Play Previous Video: Reproduciraj prethodni video
+  Play Next Video: Reproduciraj sljedeći video
   Reverse Playlist: Obrni redoslijed zbirke
   Shuffle Playlist: Slučajni redoslijed zbirke
   Loop Playlist: Ponavljaj zbirku
@@ -458,9 +520,19 @@ Video:
     High: Visoka
     Medium: Srednja
     Low: Niska
-  audio only: samo audiozapis
-  video only: samo videozapis
-  Download Video: Preuzmi videozapis
+  audio only: samo audiosnimku
+  video only: samo video
+  Download Video: Preuzmi video
+  Copy Invidious Channel Link: 'Kopiraj poveznicu na Invidious kanal'
+  Open Channel in Invidious: 'Otvori kanal na Invidious stranici'
+  Copy YouTube Channel Link: 'Kopiraj poveznicu na YouTube kanal'
+  Open Channel in YouTube: 'Otvori kanal na YouTube stranici'
+  Started streaming on: Početak prijenosa
+  Streamed on: Prijenos
+  Video has been removed from your saved list: Video je uklonjen iz tvojeg popisa
+    spremljenih
+  Video has been saved: Video je spremljen
+  Save Video: Spremi video
 Videos:
   #& Sort By
   Sort By:
@@ -471,7 +543,7 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Pogledaj cijelu zbirku'
-  Videos: 'Videozapisi'
+  Videos: 'Videa'
   View: 'Pogled'
   Views: 'Pogledi'
   Last Updated On: 'Zadnje aktualiziranje'
@@ -492,23 +564,25 @@ Change Format:
   Use Legacy Formats: 'Koristi stare formate'
   Use Audio Formats: 'Koristi audioformate'
   Audio formats are not available for this video: Audioformati nisu dostupni za ovaj
-    videozapis
+    video
   Dash formats are not available for this video: Dash formati nisu dostupni za ovaj
-    videozapis
+    video
 Share:
-  Share Video: 'Dijeli videozapis'
+  Share Video: 'Dijeli video'
   Copy Link: 'Kopiraj poveznicu'
   Open Link: 'Otvori poveznicu'
   Copy Embed: 'Kopiraj ugrađenu verziju'
   Open Embed: 'Otvori ugrađenu verziju'
   # On Click
   Invidious URL copied to clipboard: 'Invidious URL je kopiran u međuspremnik'
-  Invidious Embed URL copied to clipboard: 'Invidious URL ugrađene verzije kopiran
+  Invidious Embed URL copied to clipboard: 'URL ugrađene Invidious verzije kopiran
     je u međuspremnik'
   YouTube URL copied to clipboard: 'YouTube URL je kopiran u međuspremnik'
-  YouTube Embed URL copied to clipboard: 'YouTube URL ugrađene verzije kopiran je
+  YouTube Embed URL copied to clipboard: 'URL ugrađene YouTube verzije kopiran je
     u međuspremnik'
   Include Timestamp: Uključi vremensku oznaku
+  YouTube Channel URL copied to clipboard: 'URL YouTube kanala kopiran je u međuspremnik'
+  Invidious Channel URL copied to clipboard: 'URL Invidious kanala kopiran je u međuspremnik'
 Mini Player: 'Mali player'
 Comments:
   Comments: 'Komentari'
@@ -521,13 +595,13 @@ Comments:
   Hide: 'Sakrij'
   Replies: 'Odgovori'
   Reply: 'Odgovor'
-  There are no comments available for this video: 'Nema komentara za ovaj videozapis'
-  Load More Comments: 'Učitaj više komentara'
-  There are no more comments for this video: Nema daljnjih komentara za ovaj videozapis
+  There are no comments available for this video: 'Nema komentara za ovaj video'
+  Load More Comments: 'Učitaj još komentara'
+  There are no more comments for this video: Nema daljnjih komentara za ovaj video
   No more comments available: Nema daljnjih komentara
   Newest first: Najprije najnovije
   Top comments: Najpopularniji komentari
-  Sort by: Razvrstaj po
+  Sort by: Redoslijed
 Up Next: 'Sljedeći'
 
 # Toast Messages
@@ -540,11 +614,11 @@ Loop is now disabled: 'Ponavljanje je sada deaktivirano'
 Loop is now enabled: 'Ponavljanje je sada aktivirano'
 Shuffle is now disabled: 'Slučajni redoslijed je sada deaktiviran'
 Shuffle is now enabled: 'Slučajni redoslijed je sada aktiviran'
-Playing Next Video: 'Reprodukcija sljedećeg videozapisa'
-Playing Previous Video: 'Reprodukcija prethodnog videozapisa'
-Playing next video in 5 seconds.  Click to cancel: 'Reprodukcija sljedećeg videozapisa
-  za 5 sekundi. Pritisni za prekid.'
-Canceled next video autoplay: 'Automatska reprodukcija sljedećeg videozapisa je prekinuta'
+Playing Next Video: 'Reprodukcija sljedećeg videa'
+Playing Previous Video: 'Reprodukcija prethodnog videa'
+Playing next video in 5 seconds.  Click to cancel: 'Reprodukcija sljedećeg videa za
+  5 sekundi. Pritisni za prekid.'
+Canceled next video autoplay: 'Automatska reprodukcija sljedećeg videa je prekinuta'
 'The playlist has ended.  Enable loop to continue playing': 'Dosegnut je kraj zbirke.
   Aktiviraj ponavljanje za nastavljanje reprodukcije'
 
@@ -557,5 +631,39 @@ Download From Site: Preuzmi s web-stranice
 Version $ is now available!  Click for more details: Dostupna je verzija $! Pritisni
   za prikaz detalja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ovaj
-  videozapis nije dostupan zbog nedostajućih formata. Uzrok tome može biti nedostupnost
-  zemlje.
+  video nije dostupan zbog nedostajućih formata. Uzrok tome može biti nedostupnost
+  u zemlji.
+Tooltips:
+  Player Settings:
+    Default Video Format: Postavi formate za reprodukciju videa. Dash formati mogu
+      reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720 p, ali
+      su zato brži. Audioformati sadrže samo audiosnimke
+    Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
+      umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja
+    Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
+      standardno sučelje. Kad je aktivirano, lokalno sučelje će pokretati i koristiti
+      stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
+      je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena
+  General Settings:
+    Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive
+      sučelja. Isprazni trenutačni primjerak za prikaz popisa javnih primjeraka koje
+      možeš odabrati
+    Thumbnail Preference: U FreeTubeu će se sve minijature zamijeniti s jednim kadrom
+      videa umjesto standardne minijature
+    Fallback to Non-Preferred Backend on Failure: Ako primarno odabrano sučelje ima
+      problema, FreeTube će automatski pokušati koristiti sekundarno sučelje kao zamjensku
+      metodu, ako je aktivirano
+    Preferred API Backend: Odaberi pozadinski sustav koji FreeTube koristi za dobivanje
+      podataka. Lokalno sučelje je ugrađeni sustav. Invidious sučelje zahtijeva Invidious
+      poslužitelja na koji će se povezati.
+    Region for Trending: 'Regija trendova omogućuje biranje prikaza videa u trendu
+      za određenu zemlju. YouTube zapravo ne podržava sve prikazane zemlje'
+  Subscription Settings:
+    Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto vlastite
+      standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
+      blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa
+      ili stanja „uživo”
+Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
+  | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
+  | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
+More: Još

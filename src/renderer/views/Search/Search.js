@@ -16,6 +16,8 @@ export default Vue.extend({
   data: function () {
     return {
       isLoading: false,
+      apiUsed: 'local',
+      amountOfResults: 0,
       query: '',
       searchPage: 1,
       nextPageRef: '',
@@ -113,6 +115,7 @@ export default Vue.extend({
     performSearchLocal: function (payload) {
       if (!payload.nextPage) {
         this.isLoading = true
+        payload.options.pages = 1
       }
 
       this.$store.dispatch('ytSearch', payload).then((result) => {
@@ -121,27 +124,28 @@ export default Vue.extend({
           return
         }
 
+        this.apiUsed = 'local'
+
+        this.amountOfResults = result.results
+
         const returnData = result.items.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+          if (typeof item !== 'undefined') {
+            return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+          }
+
+          return null
         })
 
         const returnDataInvidious = []
         returnData.forEach((video) => {
           if (video.type === 'video') {
-            let authId = video.author.ref.match(/user(.)*/)
-            let publishDate = null
-            let videoDuration = null
-            const videoId = video.link.match(/\?v=(.)*/)[0].split('=')[1]
-            if (authId === null) {
-              authId = video.author.ref.match(/channel(.)*/)
-            }
-            if (video.uploaded_at !== null) {
-              publishDate = ytTrendScraper.calculate_published(video.uploaded_at, Date.now())
-            }
+            const authId = video.author.channelID
+            const publishDate = video.uploadedAt
+            let videoDuration = video.duration
+            const videoId = video.id
             if (video.duration !== null && video.duration !== '') {
               videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
             }
-            authId = authId[0].replace(/(user|channel)\//, '')
             returnDataInvidious.push(
               {
                 videoId: videoId,
@@ -149,14 +153,14 @@ export default Vue.extend({
                 type: 'video',
                 author: video.author.name,
                 authorId: authId,
-                authorUrl: video.author.ref,
+                authorUrl: video.author.url,
                 videoThumbnails: video.thumbnail,
                 description: video.description,
                 viewCount: video.views,
                 published: publishDate,
-                publishedText: video.uploaded_at,
+                publishedText: publishDate,
                 lengthSeconds: videoDuration,
-                liveNow: video.live,
+                liveNow: video.isLive,
                 paid: false,
                 premium: false,
                 isUpcoming: false,
@@ -174,14 +178,15 @@ export default Vue.extend({
           this.shownResults = returnDataInvidious
         }
 
-        this.nextPageRef = result.nextpageRef
+        this.nextPageRef = result.continuation
         this.isLoading = false
 
         const historyPayload = {
           query: payload.query,
           data: this.shownResults,
           searchSettings: this.searchSettings,
-          nextPageRef: result.nextpageRef
+          nextPageRef: result.continuation,
+          amountOfResults: result.results
         }
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
@@ -202,7 +207,6 @@ export default Vue.extend({
           this.performSearchInvidious(payload)
         } else {
           this.isLoading = false
-          // TODO: Show toast with error message
         }
       })
     },
@@ -230,6 +234,8 @@ export default Vue.extend({
         if (!result) {
           return
         }
+
+        this.apiUsed = 'invidious'
 
         console.log(result)
 
@@ -290,13 +296,21 @@ export default Vue.extend({
 
       console.log(payload)
 
-      this.showToast({
-        message: this.$t('Search Filters["Fetching results. Please wait"]')
-      })
-
-      if (this.nextPageRef !== '') {
-        this.performSearchLocal(payload)
+      if (this.apiUsed === 'local') {
+        if (this.amountOfResults <= this.shownResults.length) {
+          this.showToast({
+            message: this.$t('Search Filters.There are no more results for this search')
+          })
+        } else {
+          this.showToast({
+            message: this.$t('Search Filters["Fetching results. Please wait"]')
+          })
+          this.performSearchLocal(payload)
+        }
       } else {
+        this.showToast({
+          message: this.$t('Search Filters["Fetching results. Please wait"]')
+        })
         this.performSearchInvidious(payload)
       }
     },
@@ -305,6 +319,7 @@ export default Vue.extend({
       this.query = history.query
       this.shownResults = history.data
       this.searchSettings = history.searchSettings
+      this.amountOfResults = history.amountOfResults
 
       if (typeof (history.nextPageRef) !== 'undefined') {
         this.nextPageRef = history.nextPageRef

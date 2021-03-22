@@ -63,6 +63,7 @@ Search Filters:
   Fetching results. Please wait: 'Szukanie. Proszę poczekać'
   Fetch more results: 'Pokaż więcej wyników'
 # Sidebar
+  There are no more results for this search: Nie ma więcej wyników dla tego wyszukiwania
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subskrypcje'
@@ -82,6 +83,13 @@ Most Popular: 'Popularne'
 Playlists: 'Playlisty'
 User Playlists:
   Your Playlists: 'Twoje playlisty'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nie
+    masz zachowanych filmów. Kliknij przycisk „Zachowaj” w rogu filmu, aby został
+    tu wymieniony.
+  Playlist Message: Ta strona nie odzwierciedla w pełni działających playlist. Są
+    tu jedynie wymienione filmy, które zachowałeś lub oznaczyłeś jako ulubione. Kiedy
+    prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
+    do playlisty „Ulubione”.
 History:
   # On History Page
   History: 'Historia'
@@ -117,6 +125,8 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Sprawdź ostatnie wpisy na blogu
     Check for Updates: Szukaj aktualizacji
+    View all Invidious instance information: Pokaż informacje o wszystkich instancjach
+      Invidious
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -177,6 +187,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -269,20 +280,40 @@ Settings:
     Select Import Type: Wybierz typ importu
     Data Settings: Ustawienia danych
     One or more subscriptions were unable to be imported: Nie można było zaimportować
-      conajmniej jednej subskrypcji
+      co najmniej jednej subskrypcji
+    Check for Legacy Subscriptions: Sprawdź subskrypcje ze starej wersji
+    Manage Subscriptions: Zarządzaj subskrypcjami
   Distraction Free Settings:
     Distraction Free Settings: Ustawienia skupienia uwagi
     Hide Live Chat: Schowaj czat na żywo
     Hide Popular Videos: Schowaj filmy „Popularne”
     Hide Trending Videos: Schowaj filmy „Na czasie”
     Hide Recommended Videos: Schowaj polecane filmy
-    Hide Comment Likes: Schowaj łapki w górę komentarzy
+    Hide Comment Likes: Schowaj polubienia komentarzy
     Hide Channel Subscribers: Schowaj subskrybentów kanału
-    Hide Video Likes And Dislikes: Schowaj łapki w górę i dół filmów
+    Hide Video Likes And Dislikes: Schowaj łapki w górę i w dół
     Hide Video Views: Schowaj obejrzenia filmu
+    Hide Active Subscriptions: Schowaj aktywne subskrypcje
+    Hide Playlists: Ukryj playlistę
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
+  Proxy Settings:
+    Your Info: O Tobie
+    Error getting network information. Is your proxy configured properly?: Wystąpił
+      błąd przy pozyskiwaniu informacji o sieci. Czy Twoje proxy jest poprawnie ustawione?
+    City: Miasto
+    Region: Region
+    Country: Kraj
+    Ip: IP
+    Test Proxy: Sprawdź proxy
+    Clicking on Test Proxy will send a request to: Kliknięcie „Sprawdź proxy” wyśle
+      żądanie do
+    Proxy Port Number: Numer portu proxy
+    Proxy Host: Host proxy
+    Proxy Protocol: Protokół proxy
+    Enable Tor / Proxy: Włącz Tor / Proxy
+    Proxy Settings: Ustawienia proxy
 About:
   #On About page
   About: 'O projekcie'
@@ -295,7 +326,7 @@ About:
     naszą stronę GitHub. Mile widziane pull requesty.
 
   Thank you very much to the People and Projects that make FreeTube possible!: 'Wielkie
-    dzięki za wszystkich ludzi i projekty dzięki którym istnienie FreeTube jest możliwe!'
+    dzięki za wszystkich ludzi i projekty, dzięki którym istnienie FreeTube jest możliwe!'
 
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Chcesz
     pogadać? Dołącz do naszej społeczności Element (serwer Matrix). Przejrzyj proszę
@@ -315,6 +346,39 @@ About:
   Latest FreeTube News: 'Ostatnie wieści o FreeTube'
 
 #On Channel Page
+  Translate via Weblate: Przetłumaczone poprzez Weblate
+  Website: Strona internetowa
+  Source Code: Kod źródłowy
+  Release Notes: Informacje o wydaniu
+  Blog: Blog
+  Credits: Zasługi
+  FAQ: FAQ
+  Wiki: Wiki
+  Report an Issue: Zgłoś problem
+  Channel Rules: Zasady kanału
+  Email: Email
+  License: Licencja
+  Beta: Beta
+  Donate: Wesprzyj
+  Useful Links: Przydatne linki
+  Help: Pomoc
+  Contact: Kontakt
+  these people and projects: tym ludziom i projektom
+  Translate: Przetłumacz
+  room rules: zasady pokoju
+  Chat on Matrix: Czat na Matrix
+  Mastodon: Mastodon
+  Please read the: Proszę przeczytać
+  Please check for duplicates before posting: Proszę poszukać duplikatów przed wysłaniem
+  GitHub issues: problemy na GitHub
+  Report a problem: Zgłoś problem
+  FreeTube Wiki: Wiki FreeTube
+  GitHub releases: wydania na GitHub
+  Downloads / Changelog: Wydania / Lista zmian
+  View License: Zobacz licencję
+  Licensed under the AGPLv3: Na licencji AGPLv3
+  Source code: Kod źródłowy
+  FreeTube is made possible by: FreeTube powstał dzięki
 Channel:
   Subscriber: 'Subskrybent/ka'
   Subscribers: 'subskrybentów'
@@ -418,7 +482,7 @@ Video:
   Shuffle Playlist: Losuj z playlisty
   Loop Playlist: Zapętl playlistę
   Starting soon, please refresh the page to check again: Wkrótce się zacznie, proszę
-    odświeżyć stronę , aby ponownie sprawdzić
+    odświeżyć stronę, aby ponownie sprawdzić
   Audio:
     Best: Najlepsza
     High: Wysoka
@@ -427,6 +491,16 @@ Video:
   audio only: tylko audio
   video only: tylko wideo
   Download Video: Pobierz film
+  Copy Invidious Channel Link: Skopiuj link do kanału na stronie Invidious
+  Open Channel in Invidious: Otwórz kanał na stronie Invidious
+  Copy YouTube Channel Link: Skopiuj link do kanału na stronie YouTube
+  Open Channel in YouTube: Otwórz kanał na stronie YouTube
+  Started streaming on: Rozpoczęto transmitowanie dnia
+  Streamed on: Transmitowane dnia
+  Video has been removed from your saved list: Film został usunięty z twojej listy
+    zachowanych
+  Video has been saved: Film został zachowany
+  Save Video: Zachowaj film
 Videos:
   #& Sort By
   Sort By:
@@ -474,6 +548,9 @@ Share:
   YouTube URL copied to clipboard: 'Skopiowano URL YouTube do schowka'
   YouTube Embed URL copied to clipboard: 'Skopiowano URL odtwarzacza YouTube do schowka'
   Include Timestamp: Dołącz znacznik czasu
+  YouTube Channel URL copied to clipboard: Skopiowano URL kanału na YouTube do schowka
+  Invidious Channel URL copied to clipboard: Skopiowano URL kanału na Invidious do
+    schowka
 Mini Player: 'Mini odtwarzacz'
 Comments:
   Comments: 'Komentarze'
@@ -558,6 +635,7 @@ Profile:
   $ selected: Wybrano $
   Other Channels: Inne kanały
   Subscription List: Lista subskrypcji
+  Profile Filter: Filtr profilu
 The playlist has been reversed: Playlista została odwrócona
 A new blog is now available, $. Click to view more: Nowy wpis na blogu jest dostępny,
   $. Kliknij, aby zobaczyć więcej
@@ -567,3 +645,38 @@ Version $ is now available!  Click for more details: Wersja $ jest już dostępn
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ten
   film jest niedostępny z powodu brakujących formatów. Przyczyną może być blokada
   regionalna.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Po włączeniu FreeTube będzie używać RSS zamiast domyślnej
+      metody pobierania subskrypcji. RSS jest szybszy i zapobiega blokadzie IP, ale
+      nie dostarcza informacji, takich jak czas trwania filmu czy status transmisji
+      na żywo
+  General Settings:
+    Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy twój preferowany
+      API napotka problem, FreeTube samoczynnie spróbuje użyć niepreferowanego API
+      jako metody zapasowej
+    Preferred API Backend: Wybierz back-end , który FreeTube użyje do uzyskiwania
+      danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia
+      z serwerem Invidious.
+    Region for Trending: Obszar filmów „Na czasie” pozwala wybrać kraj, z którego
+      chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wyświetlone
+      kraje są obsługiwane przez YouTube
+    Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań
+      API. Wyczyść pole z serwerem, by zobaczyć listę publicznych serwerów do wyboru
+    Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
+      z filmu zamiast miniaturki domyślnej
+  Player Settings:
+    Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
+      ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
+      zostanie użyty lokalny API, zamiast API Invidious. Pomaga w przypadkach, gdy
+      filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej
+    Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
+      Formaty Dash obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
+      720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk
+    Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
+      a nie bezpośrednio z YouTube. Nadpisuje ustawienia API
+Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
+  przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
+  aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
+  aby przerwać.
+More: Więcej

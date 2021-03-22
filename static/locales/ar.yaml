@@ -7,7 +7,7 @@ FreeTube: 'فريتيوب'
 
 # Webkit Menu Bar
 File: 'ملف'
-Quit: 'مغادرة'
+Quit: 'إغلاق'
 Edit: 'تحرير'
 Undo: 'تراجع'
 Redo: 'إعادة'
@@ -18,11 +18,11 @@ Delete: 'حذف'
 Select all: 'تحديد الكل'
 Reload: 'إعادة تحميل'
 Force Reload: 'فرض إعادة التحميل'
-Toggle Developer Tools: 'تبديل إلى أدوات المطوّر'
+Toggle Developer Tools: 'تفعيل أدوات المطوّر'
 Actual size: 'الحجم الأصلي'
 Zoom in: 'تكبير'
 Zoom out: 'تصغير'
-Toggle fullscreen: 'ملء الشاشة'
+Toggle fullscreen: 'تفعيل وضع الشاشة الكاملة'
 Window: 'نافذة'
 Minimize: 'تصغير'
 Close: 'إغلاق'
@@ -72,6 +72,9 @@ Subscriptions:
     اشتراكاتك فارغة حالياً. ابدأ بإضافة الاشتراكات لتراهم هنا.'
   'Getting Subscriptions. Please wait.': 'جاري تحميل الاشتراكات. يرجى الانتظار.'
   Refresh Subscriptions: 'تحديث الاشتراكات'
+  Load More Videos: حمّل المزيد من الفيديوهات
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
+    هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول  للاشتراكات
 Trending: 'المحتوى الرائج'
 Most Popular: 'الأكثر شعبية'
 Playlists: 'قوائم التشغيل'
@@ -80,7 +83,7 @@ User Playlists:
 History:
   # On History Page
   History: 'السجلّ'
-  Watch History: 'سجلّ المشاهدة'
+  Watch History: 'سجلّ المشاهدات'
   Your history list is currently empty.: 'قائمة سجلّك فارغة حالياً.'
 Settings:
   # On Settings Page
@@ -89,15 +92,15 @@ Settings:
     General Settings: 'الإعدادات العامة'
     Fallback to Non-Preferred Backend on Failure: 'الرجوع إلى الواجهة الخلفية الغير
       مفضلة عند الفشل'
-    Enable Search Suggestions: 'تفعيل إقتراحات البحث'
+    Enable Search Suggestions: 'تفعيل الإقتراحات عند البحث'
     Default Landing Page: 'الصفحة ‪المقصودة الافتراضية'
-    Locale Preference: 'تفضيل اللغة'
+    Locale Preference: 'اللغات المفضلة'
     Preferred API Backend:
-      Preferred API Backend: 'API الواجهة الخلفية المفضلة'
-      Local API: 'API المحلي'
-      Invidious API: 'Invidious API'
+      Preferred API Backend: 'الواجهة الخلفية المفضلة'
+      Local API: 'واجهة برمجة محلية'
+      Invidious API: 'واجهة برمجة "انفيديوس"'
     Video View Type:
-      Video View Type: 'نوع مشاهدة الفيديو'
+      Video View Type: 'شكل عرض الفيديو'
       Grid: 'شبكة'
       List: 'قائمة'
     Thumbnail Preference:
@@ -140,6 +143,9 @@ Settings:
       Deep Orange: 'برتقالي داكن'
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
+    UI Scale: مقياس واجهة المستخدم
+    Disable Smooth Scrolling: عطّل التمرير المتجانس
+    Expand Side Bar by Default: كبّر الشريط الجانبي بشكل افتراضي
   Player Settings:
     Player Settings: 'إعدادات المشغل'
     Force Local Backend for Legacy Formats: 'فرض الواجهة الخلفية المحلية للتنسيقات
@@ -259,6 +265,32 @@ Settings:
     Data Settings: إعدادات البيانات
     One or more subscriptions were unable to be imported: تعذر استيراد واحد أو أكثر
       من الاشتراكات
+    Check for Legacy Subscriptions: تحقق من وجود اشتراك قديم
+    Manage Subscriptions: إدارة الإشتراكات
+  Distraction Free Settings:
+    Hide Live Chat: اخفي الدردشة المباشرة
+    Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية
+    Hide Trending Videos: اخفي الفيديوهات الرائجة
+    Hide Recommended Videos: اخفي الفيديوهات الموصّى بها
+    Hide Comment Likes: اخفي اعجابات التعليقات
+    Hide Channel Subscribers: اخفي اشتراكات القنوات
+    Hide Video Views: اخفي عدد مشاهدات الفيديوهات
+    Hide Video Likes And Dislikes: إخفاء الإعجاب وعدم الإعجاب للفيديو
+    Distraction Free Settings: إعدادات عدم الإزعاج
+  The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
+    يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
+  Proxy Settings:
+    City: المدينة
+    Region: المنطقة
+    Country: البلد
+    Ip: عنوان الإيبي
+    Your Info: معلوماتك
+    Test Proxy: اختبار البروكسي
+    Proxy Port Number: رقم منفذ البروكسي
+    Proxy Host: خادوم البروكسي
+    Proxy Protocol: بروتوكول البروكسي
+    Enable Tor / Proxy: تفعيل تور / البروكسي
+    Proxy Settings: خيارات البروكسي
 About:
   #On About page
   About: 'حول'
@@ -290,6 +322,19 @@ About:
 
   Latest FreeTube News: 'آخر أخبار FreeTube'
 
+  Donate: التبرع
+  Translate: ساعدنا في ترجمة Freetube
+  Chat on Matrix: الدردشة على ماتريكس
+  Mastodon: ماستدون
+  Email: البريد الإلكتروني
+  Blog: المدوّنة
+  Website: موقع الويب
+  Report a problem: الإبلاغ عن مشكلة
+  FAQ: الأسئلة المتداولة
+  Help: المساعدة
+  View License: اعرض الرخصة
+  Source code: الشفرة المصدرية
+  Beta: تجريبي
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
@@ -372,8 +417,8 @@ Video:
   Copy YouTube Link: '‫انسخ رابط اليوتيوب'
   Open YouTube Embedded Player: 'افتح في مشغّل اليوتيوب المُضمّن'
   Copy YouTube Embedded Player Link: 'انسخ رابط مشغل اليوتيوب المُضمّن'
-  Open in Invidious: 'فتح في Invidious'
-  Copy Invidious Link: 'انسخ رابط Invidious'
+  Open in Invidious: 'إفتح على انفيديوس'
+  Copy Invidious Link: 'انسخ رابط انفيديوس'
   View: 'عرض'
   Views: 'مشاهدات'
   # Context is "X People Watching"
@@ -420,7 +465,7 @@ Video:
     Year: 'سنة'
     Years: 'سنوات'
     Ago: 'منذ'
-    Upcoming: 'العرض الأول قريباً'
+    Upcoming: 'العرض الأول في'
   Published on: 'نُشر في'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'قبل $ %'
@@ -433,6 +478,22 @@ Video:
   Loop Playlist: تكرار قائمة التشغيل
   Starting soon, please refresh the page to check again: سيبدأ قريباً ، يرجى تحديث
     الصفحة للتحقق مرة أخرى
+  Audio:
+    Best: الأفضل
+    High: عالٍ
+    Medium: متوسط
+    Low: منخفض
+  audio only: صوت فقط
+  video only: فيديو فقط
+  Download Video: نزّل الفيديو
+  Started streaming on: بدأ البث على
+  Streamed on: تبث على
+  Copy Invidious Channel Link: انسخ رابط قناة انفيديوس
+  Open Channel in Invidious: افتح القناة على انفيديوس
+  Copy YouTube Channel Link: انسخ رابط قناة اليوتيوب
+  Open Channel in YouTube: افتح القناة على يوتيوب
+  Video has been saved: تم حفظ الفيديو
+  Save Video: احفظ الفيديو
 Videos:
   #& Sort By
   Sort By:
@@ -477,6 +538,8 @@ Share:
   YouTube URL copied to clipboard: 'تم نسخ رابط اليوتيوب إلى الحافظة'
   YouTube Embed URL copied to clipboard: 'تم نسخ رابط يوتيوب المُضمّن إلى الحافظة'
   Include Timestamp: تضمين الختم الزمني
+  YouTube Channel URL copied to clipboard: تم نسخ رابط قناة اليوتيوب
+  Invidious Channel URL copied to clipboard: تم نسخ رابط قناة انفيديوس
 Mini Player: 'المشغل المصغّر'
 Comments:
   Comments: 'التعليقات'
@@ -492,6 +555,10 @@ Comments:
   There are no comments available for this video: 'لا يتوفر تعليقات لهذا الفيديو'
   Load More Comments: 'تحميل المزيد من التعليقات'
   There are no more comments for this video: لا يوجد المزيد من التعليقات لهذا الفيديو
+  No more comments available: لا يتوفر المزيد من التعليقات
+  Newest first: الأحدث أولاً
+  Top comments: أهم التعليقات
+  Sort by: الترتيب حسب
 Up Next: 'التالي'
 
 # Toast Messages
@@ -520,3 +587,24 @@ A new blog is now available, $. Click to view more: مدوّنة جديدة مت
 Download From Site: تنزيل من الموقع
 Version $ is now available!  Click for more details: الإصدار $ متاح الآن! انقر للحصول
   على المزيد من التفاصيل
+Tooltips:
+  General Settings:
+    Thumbnail Preference: كلّ الصّور المصغّرة في FreeTube سيتمّ استبدالها بإطار من
+      الفيديو بدل من الصّورة المصغّرة الافتراضيّة
+    Preferred API Backend: اختر الواجهة الخلفية التي يستخدمها FreeTube لجلب البيانات
+      . الAPI المحلي هو مستخرج محلي . الAPI التابع لInvidious يتطلب التواصل مع خادم
+      شبكة Invidious .
+    Invidious Instance: واجهة Invidious البرمجية المستخدمة من قبل FreeTube. امسح الواجهة
+      البرمجية الحالية للاختيار من قائمة الواجهات
+    Fallback to Non-Preferred Backend on Failure: عند تواجد مشكلة مع الواجهة البرمجية
+      المفضلة لك، سوف يقوم فريتيوب باستخدام الواجهات الأخرى عند تفعيل هذا الخيار
+    Region for Trending: يمكّنك اختيار الدولة من عرض الفيديوهات الشائعة التابعة للدولة
+      التي تفضل . ليست كل البلدان المعروضة في هذه القائمة مدعومة من قبل يوتيوب
+  Player Settings:
+    Proxy Videos Through Invidious: سيتم الاتصال ب Invidious لتقديم مقاطع الفيديو
+      بدلاً من إجراء اتصال مباشر مع يوتيوب. يلغي تفضيل الواجهة البرمجية
+    Force Local Backend for Legacy Formats: تعمل فقط عندما تكون واجهة Invidious البرمجية
+      هي الاختيار الافتراضي . عند تفعيل هذا الخيار ، ستعمل الواجهة البرمجية المحلية
+      باستخدام التنسيقات القديمة التي تم إرجاعها من قبلها بدلاً من أن تستخدم الصيغ
+      التي تم إرجاعها من قبل Invidious . يساعد هذا الخيار عندما لا تعمل الفيديوهات
+      التي تم إرجاعها من قبل Invidious بسبب قيود البلد

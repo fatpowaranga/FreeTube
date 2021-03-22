@@ -62,6 +62,7 @@ Search Filters:
   Fetching results. Please wait: '摘取结果中。请稍候'
   Fetch more results: '摘取更多结果'
 # Sidebar
+  There are no more results for this search: 对于本搜索没有更多结果
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '订阅'
@@ -78,6 +79,8 @@ Most Popular: '最流行'
 Playlists: '播放列表'
 User Playlists:
   Your Playlists: '您的播放列表'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您未保存视频。点击视频角落的“保存”按钮保存视频
+  Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
 History:
   # On History Page
   History: '历史记录'
@@ -111,6 +114,7 @@ Settings:
         #! List countries
     Check for Updates: 检查更新
     Check for Latest Blog Posts: 检查最新的博客贴
+    View all Invidious instance information: 浏览所有Invidious实例
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
@@ -188,7 +192,7 @@ Settings:
     Advanced Settings: '高级设置'
     Enable Debug Mode (Prints data to the console): '允许调试模式（打印数据在控制板）'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': '代理地址（例如：SOCKS5://127.0.0.1:9050）'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '点击“测试代理”健将发送请求给https://ipinfo.io/json'
+    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '点击“测试代理”键将发送请求给https://ipinfo.io/json'
     Use Tor / Proxy for API calls: '用Tor / 代理给API呼叫'
     TEST PROXY: '测试代理'
     #& Invidious Instance (Default is https://invidious.snopyta.org)
@@ -220,7 +224,7 @@ Settings:
     Remove All Subscriptions / Profiles: 移除所有订阅 / 配置文件
   Data Settings:
     Subscriptions have been successfully exported: 订阅已成功导出
-    This might take a while, please wait: 这肯能需要一段时间，请稍候
+    This might take a while, please wait: 这可能需要一段时间，请稍候
     Invalid subscriptions file: 无效的订阅文件
     All subscriptions have been successfully imported: 所有订阅已成功导入
     All subscriptions and profiles have been successfully imported: 所有订阅和配置文件已成功导入
@@ -248,6 +252,7 @@ Settings:
     Data Settings: 数据设置
     One or more subscriptions were unable to be imported: 一个或者更多订阅无法被导入
     Check for Legacy Subscriptions: 检查传统订阅
+    Manage Subscriptions: 管理订阅
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
@@ -258,7 +263,21 @@ Settings:
     Hide Video Likes And Dislikes: 隐藏视频喜欢与不喜欢
     Hide Video Views: 隐藏视频观看数量
     Distraction Free Settings: 零打扰设置
+    Hide Active Subscriptions: 隐藏活跃的订阅
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
+  Proxy Settings:
+    Proxy Protocol: 代理协议
+    Enable Tor / Proxy: 使用Tor/代理
+    Proxy Settings: 代理设置
+    Error getting network information. Is your proxy configured properly?: 获取网络信息错误。您的代理配置是否正确？
+    City: 城市
+    Region: 地区
+    Country: 国家
+    Ip: IP地址
+    Your Info: 你的信息
+    Test Proxy: 测试代理
+    Clicking on Test Proxy will send a request to: 点击测试代理将会发送一个请求给
+    Proxy Port Number: 代理端口号
 About:
   #On About page
   About: '关于'
@@ -284,6 +303,8 @@ About:
   Latest FreeTube News: '最新FreeTube新闻'
 
 #On Channel Page
+  Source code: 源代码
+  Beta: 测试版
 Channel:
   Subscriber: '订阅者'
   Subscribers: '订阅者'
@@ -387,6 +408,12 @@ Video:
   audio only: 仅音频
   video only: 仅视频
   Download Video: 下载视频
+  Copy Invidious Channel Link: 复制Invidious频道连结
+  Open Channel in Invidious: 在Invidious打开频道
+  Copy YouTube Channel Link: 复制YouTube频道链接
+  Open Channel in YouTube: 在YouTube打开频道
+  Started streaming on: 开始在线直播于
+  Streamed on: 在线直播于
 Videos:
   #& Sort By
   Sort By:
@@ -426,11 +453,13 @@ Share:
   Copy Embed: '复制内嵌'
   Open Embed: '打开内嵌'
   # On Click
-  Invidious URL copied to clipboard: '复制Invidious URL到剪切板'
-  Invidious Embed URL copied to clipboard: '复制Invidious内嵌URL到剪切板'
+  Invidious URL copied to clipboard: '复制Invidious URL到剪贴板'
+  Invidious Embed URL copied to clipboard: '复制Invidious内嵌URL到剪贴板'
   YouTube URL copied to clipboard: '复制YouTube URL到剪切板'
-  YouTube Embed URL copied to clipboard: '复制YouTube内嵌URL到剪切板'
+  YouTube Embed URL copied to clipboard: '复制YouTube内嵌URL到剪贴板'
   Include Timestamp: 包含时间戳
+  YouTube Channel URL copied to clipboard: YouTube频道URL已复制到剪贴板
+  Invidious Channel URL copied to clipboard: Invidious频道URL已复制到剪贴板
 Mini Player: '迷你播放器'
 Comments:
   Comments: '评论'
@@ -512,3 +541,18 @@ A new blog is now available, $. Click to view more: 已有新的博客，$。点
 Download From Site: 从网站下载
 Version $ is now available!  Click for more details: 版本$已可使用！ 点击以取得更多信息
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: 启用后，FreeTube将使用RSS而非默认方式来取得您的订阅推送。RSS更快而且可避免IP封锁，但不提供某些信息，如影片长度与即时状态
+  Player Settings:
+    Default Video Format: 设置要用于影片播放的格式。Dash格式有更高的质量。传统格式会限制在 720p但頻寬需求更低。音频格式为仅有音频的串流
+    Proxy Videos Through Invidious: 将连接到 Invidious而非直接连接到 YouTube 来提供影片。覆盖 API 偏好
+    Force Local Backend for Legacy Formats: 仅当 Invidious API是您默认 API 时才有效。启用后，本地API
+      将执行并使用由其回传的的传统格式，而非 Invidious 回传的格式。对因为国家地区限制而不能播放 Invidious回传的影片时有帮助
+  General Settings:
+    Invidious Instance: FreeTube将连接为 API呼叫的Invidious实例。清除当前的实例以查看可供选择的公共实例清单
+    Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图
+    Fallback to Non-Preferred Backend on Failure: 当您的首选API有问题时，FreeTube将自动尝试使用您的非首选API
+      作为后备方案
+    Preferred API Backend: 选择FreeTube 要用于取得数据的后端。本地API 是内置提取器。Invidious API需要Invidious服务器才能连接。
+    Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。并非所有显示的国家都被YouTube支持

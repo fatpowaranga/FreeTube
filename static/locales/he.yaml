@@ -70,6 +70,7 @@ Search Filters:
   Fetching results. Please wait: 'נאספות תוצאות. נא להמתין'
   Fetch more results: 'חיפוש תוצאות נוספות'
 # Sidebar
+  There are no more results for this search: אין תוצאות נוספות לחיפוש הזה
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'מינויים'
@@ -86,6 +87,11 @@ Most Popular: 'הכי פופולרי'
 Playlists: 'פלייליסטים'
 User Playlists:
   Your Playlists: 'הפלייליסטים שלך'
+  Playlist Message: העמוד הזה אינו משקף רשימות נגינה תקינות לחלוטין. הוא מציג רק סרטונים
+    ששמרת או הוספת כמועדפים. עם סיום העבודה, כל הסרטונים שכאן ייובאו אל רשימת הנגינה
+    ‚מועדפים’.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: לא
+    שמרת סרטונים. יש ללחוץ על כפתור השמירה בפינת הסרטון כדי שיופיע כאן
 History:
   # On History Page
   History: 'היסטוריה'
@@ -98,13 +104,12 @@ Settings:
     General Settings: 'הגדרות כלליות'
     Check for Updates: 'בדוק אם קיימים עדכונים'
     Check for Latest Blog Posts: 'בדוק אם קיימים פוסטים חדשים בבלוג'
-    Fallback to Non-Preferred Backend on Failure: 'לסגת לגישור חבוי שאינו מועדף בעת
-      כשל'
+    Fallback to Non-Preferred Backend on Failure: 'נסיגה למנגנון שאינו מועדף בעת כשל'
     Enable Search Suggestions: 'אפשר הצעות לחיפוש'
     Default Landing Page: 'דף נחיתה כבררת מחדל'
     Locale Preference: 'העדפת שפה'
     Preferred API Backend:
-      Preferred API Backend: 'גישור חבוי מועדף של API'
+      Preferred API Backend: 'מנגנון API מועדף'
       Local API: 'API מקומי'
       Invidious API: 'API של Invidious'
     Video View Type:
@@ -118,9 +123,10 @@ Settings:
       Middle: 'אמצע'
       End: 'סוף'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'שרת Invidious
-      ( ברירת המחדל היא https://invidious.snopyta.org )'
+      (ברירת המחדל היא https://invidious.snopyta.org)'
     Region for Trending: 'אזור לסרטונים חמים'
         #! List countries
+    View all Invidious instance information: הצגת כל פרטי העותק של Invidious
   Theme Settings:
     Theme Settings: 'הגדרת מראה'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
@@ -154,20 +160,19 @@ Settings:
     Disable Smooth Scrolling: השבתת גלילה חלקה
   Player Settings:
     Player Settings: 'הגדרת נגן'
-    Force Local Backend for Legacy Formats: 'לכפות את הגישור החבוי המקומי לתצורות
-      ישנות'
+    Force Local Backend for Legacy Formats: 'כפיית המנגנון לניגון בפורמטים ישנים'
     Play Next Video: 'ניגון הסרטון הבא'
-    Turn on Subtitles by Default: 'הפעל כתוביות כברירת מחדל'
+    Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
-    Proxy Videos Through Invidious: 'השתמש בפרוקסי לסרטונים דרך Invidious'
+    Proxy Videos Through Invidious: 'שימוש במתווך (פרוקסי) לניגון סרטונים דרך Invidious'
     Autoplay Playlists: 'הפעלה אוטומטית לפלייליסטים'
     Enable Theatre Mode by Default: 'הפעלת מצב קולנוע כברירת מחדל'
-    Default Volume: 'ווליום ברירת מחדל'
+    Default Volume: 'ברירת המחדל לעצמת השמע'
     Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
     Default Video Format:
       Default Video Format: 'תצורת הסרטונים כברירת־המחדל'
       Dash Formats: 'תצורות Dash'
-      Legacy Formats: 'תצורות ישנות'
+      Legacy Formats: 'תצורות מיושנות'
       Audio Formats: 'תצורות שמע'
     Default Quality:
       Default Quality: 'איכות ברירת המחדל'
@@ -237,6 +242,7 @@ Settings:
     Unknown data key: 'מפתח נתון לא ידוע'
     How do I import my subscriptions?: 'איך לייבא את המנויים שלי?'
     Check for Legacy Subscriptions: איתור מינויים מיושנים
+    Manage Subscriptions: ניהול מינויים
   Advanced Settings:
     Advanced Settings: 'הגדרות מתקדמות'
     Enable Debug Mode (Prints data to the console): 'הפעל מצב Debug ( מציג נתונים
@@ -267,15 +273,32 @@ Settings:
   Distraction Free Settings:
     Hide Live Chat: הסתרת צ׳אט חי
     Hide Popular Videos: הסתרת סרטונים נפוצים
-    Hide Trending Videos: הסתרת סרטונים חמים
-    Hide Recommended Videos: הסתרת סרטונים מומלצים
+    Hide Trending Videos: הסתרת הסרטונים החמים
+    Hide Recommended Videos: הסתרת הסרטונים המומלצים
     Hide Comment Likes: הסתרת לייקים על תגובות
     Hide Channel Subscribers: הסתרת מנויי הערוץ
     Hide Video Likes And Dislikes: הסתרת לייקים ודיסלייקים לסרטון
     Distraction Free Settings: הגדרות להשבתת הסחות
     Hide Video Views: הסתרת תצוגות סרטונים
+    Hide Active Subscriptions: הסתרת מינויים פעילים
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: קבלת פרטי
+      הרשת נכשלה. המתווך שלך מוגדר כראוי?
+    City: עיר
+    Region: אזור
+    Country: מדינה
+    Ip: IP
+    Your Info: הפרטים שלך
+    Test Proxy: בדיקת המתווך
+    Clicking on Test Proxy will send a request to: לחיצה על בדיקת המתווך תשלח בקשה
+      אל
+    Proxy Port Number: מספר פתחת מתווך
+    Proxy Host: מארח מתווך
+    Proxy Protocol: פרוטוקול מתווך
+    Enable Tor / Proxy: הפעלת Tor / מתווך
+    Proxy Settings: הגדרות מתווך
 About:
   #On About page
   About: 'על אודות'
@@ -305,6 +328,39 @@ About:
 
   Latest FreeTube News: 'מה חדש ב-FreeTube'
 
+  Translate via Weblate: תרגום עם Weblate
+  Website: אתר
+  Source Code: קוד מקור
+  Release Notes: הערות מהדורה
+  Blog: בלוג
+  Credits: תודות
+  FAQ: שו״ת
+  Wiki: ויקי
+  Report an Issue: דיווח על תקלה
+  Channel Rules: כללי הערוץ
+  Email: דוא״ל
+  License: רישיון
+  Beta: בטא
+  Donate: תרומה
+  Useful Links: קישורים שימושיים
+  Help: עזרה
+  Contact: יצירת קשר
+  these people and projects: האנשים והמיזמים האלו
+  FreeTube is made possible by: FreeTube זמין לך בזכות
+  Translate: תרגום
+  room rules: כללי החדר
+  Please read the: נא לקרוא את
+  Chat on Matrix: צ׳אט ב־Matrix
+  Mastodon: Mastodon
+  Please check for duplicates before posting: נא לבדוק כפילויות בטרם פרסום תקלה
+  GitHub issues: תקלות ב־GitHub
+  Report a problem: דיווח על תקלה
+  FreeTube Wiki: הוויקי של FreeTube
+  GitHub releases: מהדורות ב־GitHub
+  Downloads / Changelog: הורדות / יומן שינויים
+  View License: הצגת הרישיון
+  Licensed under the AGPLv3: בכפוף לרישיון AGPLv3
+  Source code: קוד מקור
 Profile:
   Profile Select: 'בחירת פרופיל'
   All Channels: 'כל הערוצים'
@@ -405,7 +461,7 @@ Video:
   Enable Live Chat: 'אפשר צ''אט'
   Live Chat is currently not supported in this build.: 'הצ''אט כרגע לא נתמך בגרסה
     זו.'
-  'Chat is disabled or the Live Stream has ended.': 'הצ''אט נחסם או שהשידור החי נגמר.'
+  'Chat is disabled or the Live Stream has ended.': 'הצ׳אט נחסם או שהשידור החי נגמר.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'הצ''אט מופעל.
     ההודעות יופיעו פה כאשר יישלחו.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'מנגנון
@@ -451,6 +507,15 @@ Video:
   audio only: שמע בלבד
   video only: סרטון בלבד
   Download Video: להוריד סרטון
+  Copy Invidious Channel Link: העתקת קישור ערוץ ה־Invidious
+  Open Channel in Invidious: פתיחת הערוץ ב־Invidious
+  Copy YouTube Channel Link: העתקת קישור ערוץ ה־YouTube
+  Open Channel in YouTube: פתיחת הערוץ ב־YouTube
+  Started streaming on: ההזרמה החלה ב־
+  Streamed on: הוזרם ב־
+  Video has been removed from your saved list: הסרטון הוסר מרשימת השמורים שלך
+  Video has been saved: סרטון נשמר
+  Save Video: שמירת סרטון
 Videos:
   #& Sort By
   Sort By:
@@ -479,7 +544,7 @@ Toggle Theatre Mode: 'הפעלו / בטלו מצב קולנוע'
 Change Format:
   Change Video Formats: 'שינוי תצורות הסרטונים'
   Use Dash Formats: 'שימוש בתצורות Dash'
-  Use Legacy Formats: 'שימוש בתצורות ישנות'
+  Use Legacy Formats: 'שימוש בתצורות המיושנות'
   Use Audio Formats: 'שימוש בתצורות שמע'
   Dash formats are not available for this video: 'לא קיימות תצורות Dash לסרטון הזה'
   Audio formats are not available for this video: 'לא קיימות תצורות שמע לסרטון הזה'
@@ -495,6 +560,8 @@ Share:
   Invidious Embed URL copied to clipboard: 'קישור הטמעה של Invidious הועתק'
   YouTube URL copied to clipboard: 'קישור ל-YouTube הועתק'
   YouTube Embed URL copied to clipboard: 'קישור הטמעה של YouTube הועתק'
+  YouTube Channel URL copied to clipboard: כתובת ערוץ ה־YouTube הועתקה ללוח הגזירים
+  Invidious Channel URL copied to clipboard: כתובת ערוץ ה־Invidious הועתק ללוח הגזירים
 Mini Player: 'נגן מיני'
 Comments:
   Comments: 'תגובות'
@@ -517,25 +584,53 @@ Comments:
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
-Local API Error (Click to copy): 'בעיה ב-API המקומי (יש ללחוץ להעתקה)'
-Invidious API Error (Click to copy): 'בעיה ב-API של Invidious (יש ללחוץ להעתקה)'
-Falling back to Invidious API: 'נסוג ל-API של Invidious'
-Falling back to the local API: 'נסוג ל-API המקומי'
+Local API Error (Click to copy): 'בעיה ב־API המקומי (יש ללחוץ להעתקה)'
+Invidious API Error (Click to copy): 'בעיה ב־API של Invidious (יש ללחוץ להעתקה)'
+Falling back to Invidious API: 'מתבצעת נסיגה ל־API של Invidious'
+Falling back to the local API: 'מתבצעת נסיגה ל־API המקומי'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'חסרות
   תצורות לסרטון הזה. הדבר יכול להיגרם בגלל חוסר זמינות למדינה.'
 Subscriptions have not yet been implemented: 'מנגנון המנויים עדיין לא מוכן'
-Loop is now disabled: 'ניגון בלופ בוטל'
-Loop is now enabled: 'ניגון בלופ הופעל'
-Shuffle is now disabled: 'ערבוב בוטל'
-Shuffle is now enabled: 'ערבוב הופעל'
-The playlist has been reversed: 'פלייליסט זה הופך'
-Playing Next Video: 'מנגן את הסרטון הבא'
-Playing Previous Video: 'מנגן את הסרטון הקודם'
-Playing next video in 5 seconds.  Click to cancel: 'מנגן את הסרטון הבא תוך 5 שניות.
-  לחצו לביטול.'
-Canceled next video autoplay: 'ניגון אוטומטי לסרטון הבא בוטל'
-'The playlist has ended.  Enable loop to continue playing': 'הפלייליסט הגיע לסופו.  יש
-  להפעיל ניגון בלולאה כדי להמשיך לנגן אותו'
+Loop is now disabled: 'ניגון בלולאה מושבת'
+Loop is now enabled: 'ניגון בלולאה הופעל'
+Shuffle is now disabled: 'ערבוב מושבת'
+Shuffle is now enabled: 'ערבוב מופעל'
+The playlist has been reversed: 'רשימת נגינה זו התהפכה'
+Playing Next Video: 'הסרטון הבא מתנגן'
+Playing Previous Video: 'הסרטון הקודם מתנגן'
+Playing next video in 5 seconds.  Click to cancel: 'הסרטון הבא יתנגן תוך 5 שניות.
+  יבוטל בלחיצה.'
+Canceled next video autoplay: 'ניגון הסרטון הבא אוטומטית בוטל'
+'The playlist has ended.  Enable loop to continue playing': 'רשימת הנגינה הסתיימה.  יש
+  להפעיל לולאה כדי להמשיך לנגן'
 
 Yes: 'כן'
 No: 'לא'
+Tooltips:
+  General Settings:
+    Fallback to Non-Preferred Backend on Failure: כאשר ל־API המועדף עליך יש בעיה,
+      FreeTube ינסה להשתמש ב־API בעדיפות הנמוכה יותר באופן אוטומטי כשיטת נסיגה כאשר
+      האפשרות פעילה
+    Preferred API Backend: נא לבחור את המנגנון לשימוש FreeTube כדי לקבל נתונים. ה־API
+      המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
+    Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
+      אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube
+    Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לפניות API. מחיקת
+      העותק הנוכחי תעלה רשימה של עותקים ציבוריים לבחור מביניהם
+    Thumbnail Preference: כל התמונות הייצוגיות ברחבי FreeTube תוחלפנה בתמונית מתוך
+      הסרטון במקום התמונה הייצוגית כבררת המחדל
+  Player Settings:
+    Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
+      המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
+      על ידיו במקום באלו שהוחזרו על ידי Invidious. מועיל כאשר הסרטונים שמוחזרים על
+      ידי Invidious לא מתנגנים עקב מגבלות חוקיות במדינה
+    Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
+      להתחבר ישירות ל־YouTube. דורס את העדפת ה־API
+    Default Video Format: קביעת התצורות בעת ניגון סרטונים. תצורות Dash יכולות לנגן
+      באיכויות גבוהות יותר. התצורות המיושנות מוגבלות ל־720 פיקסלים לכל היותר אך משתמשות
+      בפחות רוחב פס. תצורות שמע הן הזרמות של שמע בלבד
+  Subscription Settings:
+    Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
+      המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
+      לא מספקת חלק מהמידע כמו אורך הסרטון או מצב שידור חי
+More: עוד

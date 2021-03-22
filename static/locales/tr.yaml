@@ -70,6 +70,7 @@ Search Filters:
   Fetching results. Please wait: 'Sonuçlar yükleniyor. Lütfen bekleyin'
   Fetch more results: 'Daha fazla sonuç yükle'
 # Sidebar
+  There are no more results for this search: Bu arama için başka sonuç yok
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonelikler'
@@ -86,6 +87,13 @@ Most Popular: 'Popüler Olanlar'
 Playlists: 'Oynatma Listeleri'
 User Playlists:
   Your Playlists: 'Oynatma Listelerin'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Kaydedilen
+    videolarınız boş. Burada listelenmesi için videonun köşesindeki kaydet düğmesine
+    tıklayın
+  Playlist Message: Bu sayfa, tam olarak çalışan oynatma listelerini yansıtmamaktadır.
+    Yalnızca kaydettiğiniz veya favorilerinize eklediğiniz videoları listeler. İş
+    bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
+    taşınacaktır.
 History:
   # On History Page
   History: 'Geçmiş'
@@ -98,13 +106,13 @@ Settings:
     General Settings: 'Genel Ayarlar'
     Check for Updates: 'Güncellemeleri Denetle'
     Check for Latest Blog Posts: 'En Yeni Blog Gönderilerini Denetle'
-    Fallback to Non-Preferred Backend on Failure: 'Hata Zamanında Tercih Edilmeyen
-      Backend''e Geç'
+    Fallback to Non-Preferred Backend on Failure: 'Hata Durumunda Tercih Edilmeyen
+      Arka Uca Geç'
     Enable Search Suggestions: 'Arama Önerilerini Etkinleştir'
     Default Landing Page: 'Varsayılan Açılış Ekranı'
     Locale Preference: 'Tercih Edilen Yerel Ayar'
     Preferred API Backend:
-      Preferred API Backend: 'Tercih Edilen API Backend'
+      Preferred API Backend: 'Tercih Edilen API Arka Ucu'
       Local API: 'Yerel API'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -117,10 +125,11 @@ Settings:
       Beginning: 'Başlangıç'
       Middle: 'Orta'
       End: 'Bitiş'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Oluşumu
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Örneği
       (Varsayılan https://invidious.snopyta.org)'
-    Region for Trending: 'Trendler İçin Ülke Tercihi'
+    Region for Trending: 'Trendler İçin Bölge Tercihi'
         #! List countries
+    View all Invidious instance information: Tüm Invidious örnek bilgilerini görüntüle
   Theme Settings:
     Theme Settings: 'Tema Ayarları'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
@@ -128,9 +137,9 @@ Settings:
       Base Theme: 'Uygulama Teması'
       Black: 'Siyah'
       Dark: 'Koyu'
-      Light: 'Aydınlık'
+      Light: 'Açık'
     Main Color Theme:
-      Main Color Theme: 'Ana Renk'
+      Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
       Pink: 'Pembe'
       Purple: 'Mor'
@@ -147,14 +156,14 @@ Settings:
       Amber: 'Kehribar Rengi'
       Orange: 'Turuncu'
       Deep Orange: 'Koyu Turuncu'
-    Secondary Color Theme: 'İkincil Renk'
+    Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
     Expand Side Bar by Default: Yan Çubuğu Öntanımlı Olarak Genişlet
     Disable Smooth Scrolling: Düzgün Kaydırmayı Devre Dışı Bırak
   Player Settings:
     Player Settings: 'Oynatıcı Ayarları'
-    Force Local Backend for Legacy Formats: 'Legacy Biçimler için Yerel Backend Kullanmaya
+    Force Local Backend for Legacy Formats: 'Eski Biçimler için Yerel Arka Ucu Kullanmaya
       Zorla'
     Play Next Video: 'Sonraki Videoyu Oynat'
     Turn on Subtitles by Default: 'Altyazıyı Varsayılan Olarak Aç'
@@ -166,8 +175,8 @@ Settings:
     Default Playback Rate: 'Varsayılan Oynatma Hızı'
     Default Video Format:
       Default Video Format: 'Varsayılan Video Biçimi'
-      Dash Formats: 'Dash Biçimi'
-      Legacy Formats: 'Legacy Biçimi'
+      Dash Formats: 'Dash Biçimleri'
+      Legacy Formats: 'Eski Biçimler'
       Audio Formats: 'Ses Biçimi'
     Default Quality:
       Default Quality: 'Varsayılan Kalite'
@@ -181,6 +190,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Playlist Next Video Interval: Oynatma Listesi Sonraki Video Aralığı
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -199,7 +209,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Abonelik Ayarları'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
-    Fetch Feeds from RSS: 'Akışı RSS''den Getir'
+    Fetch Feeds from RSS: 'Akışları RSS''den Getir'
     Manage Subscriptions: 'Abonelikleri Yönet'
   Data Settings:
     Data Settings: 'Veri Ayarları'
@@ -239,6 +249,7 @@ Settings:
     Unknown data key: 'Bilinmeyen veri anahtarı'
     How do I import my subscriptions?: 'Aboneliklerimi nasıl içe artarırım?'
     Check for Legacy Subscriptions: Eski Abonelikleri Denetle
+    Manage Subscriptions: Abonelikleri Yönet
   Advanced Settings:
     Advanced Settings: 'Gelişmiş Ayarlar'
     Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir
@@ -277,9 +288,27 @@ Settings:
     Hide Video Likes And Dislikes: Video Beğenmeleri Ve Beğenmemelerini Gizle
     Hide Video Views: Video Görüntülenme Sayılarını Gizle
     Distraction Free Settings: Dikkat Dağıtmama Ayarları
+    Hide Active Subscriptions: Etkin Abonelikleri Gizle
+    Hide Playlists: Oynatma Listelerini Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
+  Proxy Settings:
+    Error getting network information. Is your proxy configured properly?: Ağ bilgileri
+      alınırken hata oluştu. Vekil sunucunuz doğru yapılandırıldı mı?
+    City: Şehir
+    Region: Bölge
+    Country: Ülke
+    Ip: IP
+    Your Info: Bilgileriniz
+    Test Proxy: Vekil Sunucuyu Test Et
+    Clicking on Test Proxy will send a request to: Vekil Sunucuyu Test Et düğmesine
+      tıklamak, şu adrese bir istek gönderecek
+    Proxy Port Number: Vekil Sunucu Bağlantı Noktası Numarası
+    Proxy Host: Vekil Sunucu Ana Makinesi
+    Proxy Protocol: Vekil Sunucu Protokolü
+    Enable Tor / Proxy: Tor / Vekil Sunucu Etkinleştir
+    Proxy Settings: Vekil Sunucu Ayarları
 About:
   #On About page
   About: 'Hakkında'
@@ -310,6 +339,40 @@ About:
 
   Latest FreeTube News: 'En Yeni FreeTube Haberleri'
 
+  Translate via Weblate: Weblate'de Çevir
+  Website: Web Sitesi
+  Source Code: Kaynak Kodları
+  Release Notes: Sürüm Notları
+  Blog: Blog
+  Credits: Katkıda Bulunanlar
+  FAQ: SSS
+  Wiki: Wiki
+  Report an Issue: Sorun Bildir
+  Channel Rules: Kanal Kuralları
+  Email: E-posta
+  License: Lisans
+  Beta: Beta
+  Donate: Bağış Yap
+  Useful Links: Faydalı Bağlantılar
+  Help: Yardım
+  Contact: İletişim
+  these people and projects: bu kişiler ve projeler
+  FreeTube is made possible by: FreeTube'e katkıda bulunanlar
+  Translate: Çevir
+  room rules: oda kuralları
+  Please read the: Lütfen okuyun
+  Chat on Matrix: Matrix'te sohbet et
+  Mastodon: Mastodon
+  Please check for duplicates before posting: Lütfen göndermeden önce yinelenmeleri
+    denetleyin
+  GitHub issues: GitHub sorunları
+  Report a problem: Sorun bildir
+  FreeTube Wiki: FreeTube Wiki
+  GitHub releases: GitHub yayınları
+  Downloads / Changelog: İndirmeler / Değişiklikler
+  View License: Lisansı Görüntüle
+  Licensed under the AGPLv3: AGPLv3 altında lisanslanmıştır
+  Source code: Kaynak kodları
 Profile:
   Profile Select: 'Profil Seçimi'
   All Channels: 'Tüm Kanallar'
@@ -334,7 +397,7 @@ Profile:
   Removed $ from your profiles: '$ Profillerinizden kaldırıldı'
   Your default profile has been changed to your primary profile: 'Varsayılan profiliniz
     birincil profiliniz olarak değiştirildi'
-  $ is now the active profile: '$ artık aktif profil'
+  $ is now the active profile: '$ artık etkin profil'
   Subscription List: 'Abonelik Listesi'
   Other Channels: 'Diğer Kanallar'
   $ selected: '$ seçildi'
@@ -351,6 +414,7 @@ Profile:
     kanalları silmek istediğinizden emin misiniz?  Bu, kanalı başka bir profilden
     silmez.'
 #On Channel Page
+  Profile Filter: Profil Filtresi
 Channel:
   Subscriber: 'Abone'
   Subscribers: 'Aboneler'
@@ -448,7 +512,7 @@ Video:
     Years: 'Yıl'
     Ago: 'Önce'
     Upcoming: 'İlk gösterim tarihi'
-  Published on: 'Yayınlandı'
+  Published on: 'Yayımlanma tarihi'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % önce'
 #& Videos
@@ -460,6 +524,15 @@ Video:
   audio only: yalnızca ses
   video only: yalnızca video
   Download Video: Video İndir
+  Copy Invidious Channel Link: Invidious Kanalı Bağlantısını Kopyala
+  Open Channel in Invidious: İnvidious'da Kanal Aç
+  Copy YouTube Channel Link: Youtube Kanalı Bağlantısını Kopyala
+  Open Channel in YouTube: Youtube'da Kanal Açın
+  Started streaming on: Yayına başlama tarihi
+  Streamed on: Yayınlanma tarihi
+  Video has been removed from your saved list: Video, kaydedilen listenizden kaldırıldı
+  Video has been saved: Video kaydedildi
+  Save Video: Videoyu Kaydet
 Videos:
   #& Sort By
   Sort By:
@@ -488,7 +561,7 @@ Toggle Theatre Mode: 'Tiyatro Modunu Aç/Kapat'
 Change Format:
   Change Video Formats: 'Video Biçimini Değiştir'
   Use Dash Formats: 'Dash Biçimi Kullan'
-  Use Legacy Formats: 'Legacy Biçimi Kullan'
+  Use Legacy Formats: 'Eski Biçimleri Kullan'
   Use Audio Formats: 'Ses Biçimi Kullan'
   Dash formats are not available for this video: 'Dash biçimi bu video için kullanılabilir
     değil'
@@ -508,6 +581,8 @@ Share:
   YouTube URL copied to clipboard: 'YouTube bağlantısı panoya kopyalandı'
   YouTube Embed URL copied to clipboard: 'YouTube bütünleşik oynatıcı bağlantısı panoya
     kopyalandı'
+  YouTube Channel URL copied to clipboard: Youtube Kanalı Adresi panoya kopyalandı
+  Invidious Channel URL copied to clipboard: Invidious Kanalı Adresi panoya kopyalandı
 Mini Player: 'Mini Oynatıcı'
 Comments:
   Comments: 'Yorumlar'
@@ -553,3 +628,41 @@ No: 'Hayır'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Eksik
   biçimler nedeniyle bu video kullanılamıyor. Bu durum, ülke kullanılamazlığı nedeniyle
   gerçekleşebilir.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak
+      için öntanımlı yönteminin yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
+      önüne geçer, ancak video süresi veya canlı yayın durumu gibi belirli bilgileri
+      sağlamaz
+  Player Settings:
+    Default Video Format: Bir video oynatılırken kullanılan biçimleri ayarlayın. Dash
+      biçimleri daha yüksek kalitelerde oynatabilir. Eski biçimler en fazla 720p ile
+      sınırlıdır ancak daha az bant genişliği kullanır. Ses biçimleri yalnızca ses
+      akışlarıdır
+    Proxy Videos Through Invidious: Videoları sunmak için YouTube ile doğrudan bağlantı
+      kurmak yerine Invidious'a bağlanılacak. API tercihini geçersiz kılar
+    Force Local Backend for Legacy Formats: Yalnızca Invidious API'si öntanımlı seçeneğiniz
+      olduğunda çalışır. Etkinleştirildiğinde, yerel API çalışacak ve Invidious tarafından
+      döndürülen biçimler yerine onun döndürdüğü eski biçimler kullanılacaktır. Invidious
+      tarafından döndürülen videolar ülke kısıtlamaları nedeniyle oynatılmadığında
+      yardımcı olur
+  General Settings:
+    Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
+      Aralarından seçim yapabileceğiniz herkese açık örneklerin bir listesini görmek
+      için geçerli örneği temizleyin
+    Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
+      yerine videonun bir karesiyle değiştirilecektir
+    Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz
+      API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi
+      yedek yöntem olarak kullanmaya çalışır
+    Preferred API Backend: FreeTube'un veri elde etmek için kullandığı arka ucu seçin.
+      Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious
+      sunucusu gerektirir.
+    Region for Trending: Trendlerin bölgesi, hangi ülkenin trend videolarını görüntülemek
+      istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları YouTube
+      tarafından desteklenmemektedir
+Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
+  | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
+  tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
+  için tıklayın.
+More: Daha Fazla

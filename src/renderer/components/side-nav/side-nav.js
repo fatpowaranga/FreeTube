@@ -48,8 +48,14 @@ export default Vue.extend({
     hidePopularVideos: function () {
       return this.$store.getters.getHidePopularVideos
     },
+    hidePlaylists: function () {
+      return this.$store.getters.getHidePlaylists
+    },
     hideTrendingVideos: function () {
       return this.$store.getters.getHideTrendingVideos
+    },
+    hideActiveSubscriptions: function () {
+      return this.$store.getters.getHideActiveSubscriptions
     }
   },
   methods: {

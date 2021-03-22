@@ -1,5 +1,6 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
+import fs from 'fs'
 const state = {
   isSideNavOpen: false,
   sessionSearchHistory: [],
@@ -7,6 +8,8 @@ const state = {
   trendingCache: null,
   showProgressBar: false,
   progressBarPercentage: 0,
+  regionNames: [],
+  regionValues: [],
   recentBlogPosts: [],
   searchSettings: {
     sortBy: 'relevance',
@@ -89,6 +92,14 @@ const getters = {
     return state.progressBarPercentage
   },
 
+  getRegionNames () {
+    return state.regionNames
+  },
+
+  getRegionValues () {
+    return state.regionValues
+  },
+
   getRecentBlogPosts () {
     return state.recentBlogPosts
   }
@@ -107,6 +118,25 @@ const actions = {
   getRandomColor () {
     const randomInt = Math.floor(Math.random() * state.colorValues.length)
     return state.colorValues[randomInt]
+  },
+
+  getRegionData ({ commit }, payload) {
+    let fileData
+    /* eslint-disable-next-line */
+    const fileLocation = payload.isDev ? './static/geolocations/' : `${__dirname}/static/geolocations/`
+    if (fs.existsSync(`${fileLocation}${payload.locale}`)) {
+      fileData = fs.readFileSync(`${fileLocation}${payload.locale}/countries.json`)
+    } else {
+      fileData = fs.readFileSync(`${fileLocation}en-US/countries.json`)
+    }
+    const countries = JSON.parse(fileData).map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
+    countries.sort((a, b) => { return a.id - b.id })
+
+    const regionNames = countries.map((entry) => { return entry.name })
+    const regionValues = countries.map((entry) => { return entry.code })
+
+    commit('setRegionNames', regionNames)
+    commit('setRegionValues', regionValues)
   },
 
   calculateColorLuminance (_, colorValue) {
@@ -160,7 +190,56 @@ const actions = {
     return date.getTime() - timeSpan
   },
 
-  getVideoIdFromUrl (_, url) {
+  getVideoParamsFromUrl (_, url) {
+    /** @type {URL} */
+    let urlObject
+    const paramsObject = { videoId: null, timestamp: null }
+    try {
+      urlObject = new URL(url)
+    } catch (e) {
+      return paramsObject
+    }
+
+    function extractParams(videoId) {
+      paramsObject.videoId = videoId
+      paramsObject.timestamp = urlObject.searchParams.get('t')
+    }
+
+    const extractors = [
+      // anything with /watch?v=
+      function() {
+        if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
+          extractParams(urlObject.searchParams.get('v'))
+          return paramsObject
+        }
+      },
+      // youtu.be
+      function() {
+        if (urlObject.host === 'youtu.be' && urlObject.pathname.match(/^\/[A-Za-z0-9_-]+$/)) {
+          extractParams(urlObject.pathname.slice(1))
+          return paramsObject
+        }
+      },
+      // youtube.com/embed
+      function() {
+        if (urlObject.pathname.match(/^\/embed\/[A-Za-z0-9_-]+$/)) {
+          extractParams(urlObject.pathname.replace('/embed/', ''))
+          return paramsObject
+        }
+      },
+      // cloudtube
+      function() {
+        if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
+          extractParams(urlObject.pathname.slice('/cloudtube/video/'.length))
+          return paramsObject
+        }
+      }
+    ]
+
+    return extractors.reduce((a, c) => a || c(), null) || paramsObject
+  },
+
+  getPlaylistIdFromUrl (_, url) {
     /** @type {URL} */
     let urlObject
     try {
@@ -170,22 +249,10 @@ const actions = {
     }
 
     const extractors = [
-      // anything with /watch?v=
+      // anything with /playlist?list=
       function() {
-        if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
-          return urlObject.searchParams.get('v')
-        }
-      },
-      // youtu.be
-      function() {
-        if (urlObject.host === 'youtu.be' && urlObject.pathname.match(/^\/[A-Za-z0-9_-]+$/)) {
-          return urlObject.pathname.slice(1)
-        }
-      },
-      // cloudtube
-      function() {
-        if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
-          return urlObject.pathname.slice('/cloudtube/video/'.length)
+        if (urlObject.pathname === '/playlist' && urlObject.searchParams.has('list')) {
+          return urlObject.searchParams.get('list')
         }
       }
     ]
@@ -404,6 +471,14 @@ const mutations = {
 
   setSearchDuration (state, value) {
     state.searchSettings.duration = value
+  },
+
+  setRegionNames (state, value) {
+    state.regionNames = value
+  },
+
+  setRegionValues (state, value) {
+    state.regionValues = value
   },
 
   setRecentBlogPosts (state, value) {

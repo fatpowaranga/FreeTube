@@ -12,6 +12,7 @@
         <font-awesome-icon
           icon="rss"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("Subscriptions.Subscriptions") }}
@@ -25,6 +26,7 @@
         <font-awesome-icon
           icon="fire"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("Trending") }}
@@ -38,18 +40,21 @@
         <font-awesome-icon
           icon="users"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("Most Popular") }}
         </p>
       </div>
       <div
+        v-if="!hidePlaylists"
         class="navOption mobileShow"
         @click="navigate('userplaylists')"
       >
         <font-awesome-icon
           icon="bookmark"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("Playlists") }}
@@ -65,6 +70,7 @@
         <font-awesome-icon
           icon="history"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("History.History") }}
@@ -78,6 +84,7 @@
         <font-awesome-icon
           icon="sliders-h"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("Settings.Settings") }}
@@ -90,6 +97,7 @@
         <font-awesome-icon
           icon="info-circle"
           class="navIcon"
+          fixed-width
         />
         <p class="navLabel">
           {{ $t("About.About") }}
@@ -97,26 +105,30 @@
       </div>
       <hr>
       <div
-        v-for="(channel, index) in activeSubscriptions"
-        :key="index"
-        class="navChannel mobileHidden"
-        :title="channel.name"
-        @click="goToChannel(channel.id)"
+        v-if="!hideActiveSubscriptions"
       >
         <div
-          class="thumbnailContainer"
+          v-for="(channel, index) in activeSubscriptions"
+          :key="index"
+          class="navChannel mobileHidden"
+          :title="channel.name"
+          @click="goToChannel(channel.id)"
         >
-          <img
-            class="channelThumbnail"
-            :src="channel.thumbnail"
+          <div
+            class="thumbnailContainer"
           >
+            <img
+              class="channelThumbnail"
+              :src="channel.thumbnail"
+            >
+          </div>
+          <p
+            v-if="isOpen"
+            class="navLabel"
+          >
+            {{ channel.name }}
+          </p>
         </div>
-        <p
-          v-if="isOpen"
-          class="navLabel"
-        >
-          {{ channel.name }}
-        </p>
       </div>
     </div>
   </ft-flex-box>

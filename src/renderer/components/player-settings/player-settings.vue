@@ -19,19 +19,21 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Force Local Backend for Legacy Formats')"
           :compact="true"
+          :disabled="backendPreference === 'local'"
           :default-value="forceLocalBackendForLegacy"
+          :tooltip="$t('Tooltips.Player Settings.Force Local Backend for Legacy Formats')"
           @change="updateForceLocalBackendForLegacy"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Proxy Videos Through Invidious')"
           :compact="true"
           :default-value="proxyVideos"
+          :tooltip="$t('Tooltips.Player Settings.Proxy Videos Through Invidious')"
           @change="updateProxyVideos"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
           :compact="true"
-          :disabled="hideRecommendedVideos"
           :default-value="defaultTheatreMode"
           @change="updateDefaultTheatreMode"
         />
@@ -60,6 +62,15 @@
     </div>
     <ft-flex-box>
       <ft-slider
+        :label="$t('Settings.Player Settings.Playlist Next Video Interval')"
+        :default-value="defaultInterval"
+        :min-value="0"
+        :max-value="60"
+        :step="1"
+        value-extension="s"
+        @change="updateDefaultInterval"
+      />
+      <ft-slider
         :label="$t('Settings.Player Settings.Default Volume')"
         :default-value="defaultVolume"
         :min-value="0"
@@ -84,6 +95,7 @@
         :value="defaultVideoFormat"
         :select-names="formatNames"
         :select-values="formatValues"
+        :tooltip="$t('Tooltips.Player Settings.Default Video Format')"
         @change="updateDefaultVideoFormat"
       />
       <ft-select

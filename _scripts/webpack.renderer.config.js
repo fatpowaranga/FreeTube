@@ -18,7 +18,7 @@ const whiteListedModules = ['vue']
 const config = {
   name: 'renderer',
   mode: process.env.NODE_ENV,
-  devtool: isDevMode ? '#cheap-module-eval-source-map' : false,
+  devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
   entry: {
     renderer: path.join(__dirname, '../src/renderer/main.js'),
   },
@@ -37,7 +37,7 @@ const config = {
       },
       {
         test: /\.node$/,
-        use: 'node-loader',
+        loader: 'node-loader',
       },
       {
         test: /\.vue$/,
@@ -48,9 +48,7 @@ const config = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDevMode,
-            },
+            options: {},
           },
           {
             loader: 'css-loader',
@@ -72,9 +70,7 @@ const config = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDevMode,
-            },
+            options: {},
           },
           'css-loader',
         ],
@@ -106,6 +102,7 @@ const config = {
   node: {
     __dirname: isDevMode,
     __filename: isDevMode,
+    global: isDevMode,
   },
   plugins: [
     // new WriteFilePlugin(),
@@ -122,8 +119,8 @@ const config = {
       'process.env.PRODUCT_NAME': JSON.stringify(productName),
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
+      chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
     }),
   ],
   resolve: {

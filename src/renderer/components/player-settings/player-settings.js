@@ -34,6 +34,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
     },
@@ -56,6 +60,10 @@ export default Vue.extend({
 
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
+    },
+
+    defaultInterval: function () {
+      return parseInt(this.$store.getters.getDefaultInterval)
     },
 
     defaultVolume: function () {
@@ -115,6 +123,7 @@ export default Vue.extend({
       'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
       'updateDefaultTheatreMode',
+      'updateDefaultInterval',
       'updateDefaultVolume',
       'updateDefaultPlayback',
       'updateDefaultVideoFormat',

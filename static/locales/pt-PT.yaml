@@ -30,7 +30,7 @@ Back: Retroceder
 Forward: Avançar
 
 Version $ is now available!  Click for more details: Versão $ está agora disponível!
-  Clique aqui para ver mais detalhes.
+  Clique aqui para ver mais detalhes
 Download From Site: Descarregar Do Site
 A new blog is now available, $. Click to view more: Um novo blogue está disponível,
   $. Clique para ver mais
@@ -69,21 +69,30 @@ Search Filters:
   Search Results: Resultados
   Fetching results. Please wait: A procurar. Por favor aguarde
   Fetch more results: Procurar mais resultados
+  There are no more results for this search: Não existem mais resultados
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscrições
   Latest Subscriptions: Subscrições Recentes
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este perfil contém um elevado número de subscrições. O uso de RSS vai ser obrigado para evitar que a sua rede seja bloqueada
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+    perfil contém um elevado número de subscrições. O uso de RSS vai ser obrigado
+    para evitar que a sua rede seja bloqueada
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A
     sua lista de subscrições está vazia. Adicione algumas para as ver aqui.
   'Getting Subscriptions. Please wait.': A carregar subscrições. Por favor aguarde.
   Refresh Subscriptions: Actualizar Subscrições
+  Load More Videos: Carregar Mais Vídeos
 Trending: Tendências
 Most Popular: Mais Populares
 Playlists: Listas de Reprodução
 User Playlists:
   Your Playlists: As suas Listas de Reprodução
+  Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra 
+    vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta, 
+    todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A sua lista está vazia. Carregue no botão com a estrela no canto de um vídeo para o 
+    guardar aqui.
 History:
   # On History Page
   History: Histórico
@@ -92,17 +101,20 @@ History:
 Settings:
   # On Settings Page
   Settings: Definições
+  The app needs to restart for changes to take effect. Restart and apply change?: A
+    aplicação precisa de reiniciar para que as mudanças façam efeito. Reiniciar e
+    aplicar mudanças?
   General Settings:
     General Settings: Definições Gerais
     Check for Updates: Verificar se há Actualizações
     Check for Latest Blog Posts: Verificar se há Novas Publicações no Blogue
-    Fallback to Non-Preferred Backend on Failure: Utilizar Motor de Pesquisa Não Preferido
-      em Caso de Falha
+    Fallback to Non-Preferred Backend on Failure: Utilizar Sistema de Ligação Não
+      Preferido em Caso de Falha
     Enable Search Suggestions: Activar Sugestões de Pesquisa
     Default Landing Page: Página Inicial
     Locale Preference: Localização
     Preferred API Backend:
-      Preferred API Backend: Motor de Pesquisa Preferido
+      Preferred API Backend: Sistema de Ligação Favorito
       Local API: API Local
       Invidious API: API Invidious
     Video View Type:
@@ -117,11 +129,15 @@ Settings:
       End: Fim
     'Invidious Instance (Default is https://invidious.snopyta.org)': Instância Invidious
       (Por omissão é https://invidious.snopyta.org)
+    View all Invidious instance information: Mostrar toda a informação sobre esta instância Invidious
     Region for Trending: Região para as tendências
         #! List countries
   Theme Settings:
     Theme Settings: Definições de Tema
     Match Top Bar with Main Color: Utilizar Cor Principal Para Barra Superior
+    Expand Side Bar by Default: Expandir barra lateral por omissão
+    Disable Smooth Scrolling: Desligar Deslocação Suavizada
+    UI Scale: Mudança de Escala da Interface
     Base Theme:
       Base Theme: Tema Base
       Black: Preto
@@ -149,7 +165,7 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: Definições do reprodutor
-    Force Local Backend for Legacy Formats: Forçar Motor de Pesquisa Local para Formatos
+    Force Local Backend for Legacy Formats: Forçar Sistema de Ligação Local para Formatos
       Antigos
     Remember History: Lembrar Histórico
     Play Next Video: Passar ao Próximo Vídeo
@@ -191,8 +207,8 @@ Settings:
     Watch history has been cleared: Histórico foi apagado
     Remove All Subscriptions / Profiles: Apagar Todas as Subscrições / Perfis
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
-      a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção não pode
-      ser revertida.
+      a certeza de que quer apagar todas as suas subscrições e perfis? Esta acção
+      não pode ser revertida.
   Subscription Settings:
     Subscription Settings: Definições de Subscrições
     Hide Videos on Watch: Esconder Vídeos Visualisados
@@ -213,6 +229,7 @@ Settings:
     Hide Trending Videos: Esconder Tendências
     Hide Popular Videos: Esconder Mais Populares
     Hide Live Chat: Esconder Chat ao Vivo
+    Hide Active Subscriptions: Esconder Subscrições da barra lateral
   Data Settings:
     Data Settings: Definições de dados
     Select Import Type: Escolher tipo de importação
@@ -221,6 +238,7 @@ Settings:
     Import FreeTube: Importar FreeTube
     Import YouTube: Importar YouTube
     Import NewPipe: Importar NewPipe
+    Check for Legacy Subscriptions: Verificar se há Subscrições em Formato Pré-v0.8.0
     Export Subscriptions: Exportar Subscrições
     Export FreeTube: Exportar FreeTube
     Export YouTube: Exportar YouTube
@@ -250,67 +268,48 @@ Settings:
     Unable to write file: Ficheiro não pôde ser escrito
     Unknown data key: Chave dada é desconhecida
     How do I import my subscriptions?: Como posso importar as minhas subscrições?
-  Advanced Settings:
-    Advanced Settings: Definições Avançadas
-    Enable Debug Mode (Prints data to the console): Ligar Modo de Depuração (Escreve
-      dados à consola)
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Endereço de intermediário
-      (Exemplo: SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >-
-      Ao Carregar "TESTAR INTERMEDIÁRIO" um pedido vai ser enviado a https://ipinfo.io/json
-    Use Tor / Proxy for API calls: Usar Tor / Intermediário para Chamadas API
-    TEST PROXY: TESTAR INTERMEDIÁRIO
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: Ver Instâncias Públicas
-    Clear History:
-      Clear History: Limpar Histórico
-      # On Click
-      Are you sure you want to delete your history?: Tem a certeza de que quer apagar
-        o seu histórico?
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: Limpar Subscrições
-      # On Click
-      Are you sure you want to remove all subscriptions?: Tem a certeza de que quer
-        apagar as suas subscrições?
-      #& Yes
-      #& No
-
+    Manage Subscriptions: Gerir Subscrições
+  Proxy Settings:
+    Proxy Settings: Definições de Intermediários
+    Enable Tor / Proxy: Ligar Tor / Intermediário
+    Proxy Protocol: Protocolo do Intermediário
+    Proxy Host: Endereço do Intermediário
+    Proxy Port Number: Porto do Intermediário
+    Clicking on Test Proxy will send a request to: Carregar em Testar Intermediário irá enviar um pedido a
+    Test Proxy: Testar Intermediário
+    Your Info: A sua Informação
+    Ip: Ip
+    Country: País
+    Region: Região
+    City: Cidade
+    Error getting network information. Is your proxy configured properly?: Houve um erro a receber a informação sobre a sua rede. Verifique que o seu intermediário está configurado correctamente.
 About:
   #On About page
   About: Sobre
-  #& About
-  'This software is FOSS and released under the GNU Public License v3+.': >-
-    This copylefted software is freely licensed GPLv3+.
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Encontraste um bug? Queres sugerir uma funcionalidade? Queres ajudar-nos? Vai
-    á nossa página de GitHub. Pull requests são bem vindos.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: >-
-    Agradeço imenso a todas as pessoas e projetos que façam com que o FreeTube seja
-    possivel!
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >-
-    Queres conversar? Junta-te ao nosso servidor Element / Matrix. Por favor verifica
-    as regras antes de te juntares.
-
-  'Looking for help? Check out our Wiki page.': Há procura de ajuda? Vê a nossa página
-    Wiki.
-
-  Check out our Firefox extension!: Experimenta a nossa extensão Firefox!
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >-
-    Se gostas de usar FreeTube, considera doar via Liberapay ou através do nosso endereço
-    Bitcoin.
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: Notícias recentes sobre FreeTube
-
-  This software is FOSS and released under the GNU Affero General Public License v3.0.: Este
-    software é licenciado livremente via AGPL-3.0.
+  Beta: Beta
+  Source code: Código fonte
+  Licensed under the AGPLv3: Está sobre a licensa AGPLv3
+  View License: Ver a Licensa
+  Downloads / Changelog: Descarregar / Mudanças
+  GitHub releases: Lançamentos no GitHub
+  Help: Ajuda
+  FreeTube Wiki: Wiki do FreeTube 
+  FAQ: Perguntas Frequentes
+  Report a problem: Relatar um problema
+  GitHub issues: Problemas no GitHub
+  Please check for duplicates before posting: É favor verificar se um problema já foi relatado
+  Website: Site
+  Blog: Blogue
+  Email: Email
+  Mastodon: Mastodon
+  Chat on Matrix: Chat no Matrix
+  Please read the: Por favor leia as
+  room rules: regras da sala de chat
+  Translate: Traduzir
+  Credits: Créditos
+  FreeTube is made possible by: FreeTube existe graças a
+  these people and projects: estas pessoas e projectos
+  Donate: Doar
 Profile:
   All Channels: Todos os Canais
   Profile Manager: Gestor de Perfis
@@ -389,19 +388,27 @@ Video:
   Remove From History: Apagar do histórico
   Video has been marked as watched: O vídeo foi marcado como visto
   Video has been removed from your history: O vídeo foi removido do seu histórico
+  Save Video: Guardar Vídeo
+  Video has been saved: Vídeo guardado
+  Video has been removed from your saved list: Vídeo removido da sua lista
   Open in YouTube: Abrir no Youtube
   Copy YouTube Link: Copiar Ligação para Youtube
   Open YouTube Embedded Player: Abrir Reprodutor Youtube Embutido
   Copy YouTube Embedded Player Link: Copiar Ligação para Reprodutor Youtube Embutido
   Open in Invidious: Abrir no Invidious
   Copy Invidious Link: Copiar Ligação para Invidious
+  Open Channel in YouTube: Abrir Canal no Youtube
+  Copy YouTube Channel Link: Copiar Ligação para Youtube
+  Open Channel in Invidious: Abrir Calan no Invidious
+  Copy Invidious Channel Link: Copiar Ligação para Invidious
   View: Visualização
   Views: Visualizações
   # Context is "X People Watching"
   Watching: A Ver
   Watched: Visto
   Autoplay: Reprodução Automática
-  Starting soon, please refresh the page to check again: A começar em breve, recarregue a página para voltar a verificar
+  Starting soon, please refresh the page to check again: A começar em breve, recarregue
+    a página para voltar a verificar
 # As in a Live Video
   Live: Ao Vivo
   Live Now: Ao Vivo
@@ -416,6 +423,9 @@ Video:
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Chat
     ao vivo não se encontra a funcionar com o API Invividious. Uma ligação directa
     ao Youtube é necessária.
+  Download Video: Descarregar Vídeo
+  video only: apenas vídeo
+  audio only: apenas áudio
   Audio:
     Low: Baixa
     Medium: Média
@@ -450,7 +460,9 @@ Video:
     Years: Anos
     Ago: Há
     Upcoming: Estreia em breve
-  Published on: Publicado em
+  Published on: Publicado a
+  Streamed on: Transmitido a
+  Started streaming on: Transmissão iniciada a
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: Há $ %
 #& Videos
@@ -504,9 +516,14 @@ Share:
   Invidious URL copied to clipboard: URL Invidious copiado para área de transferência
   Invidious Embed URL copied to clipboard: URL Invidious embutido copiado para área
     de tranferência
+  Invidious Channel URL copied to clipboard: URL do Canal Invidious copiado para área
+    de transferência
   YouTube URL copied to clipboard: URL Youtube copiado para área de transferência
   YouTube Embed URL copied to clipboard: URL Youtube embutido copiado para área de
     transferência
+  YouTube Channel URL copied to clipboard: URL do Canal Youtube copiado para área
+    de transferência
+
 Mini Player: Mini Reprodutor
 Comments:
   Comments: Comentários
@@ -529,13 +546,50 @@ Comments:
   No more comments available: Não existem mais comentários
 Up Next: A Seguir
 
+#Tooltips
+Tooltips:
+  General Settings:
+    Preferred API Backend: O sistema que FreeTube utilizará para se ligar ao Youtube.
+      O API local existe como parte do FreeTube e faz ligações directas ao Youtube.
+      O API Invidious necessita de uma ligação a um servidor Invidious
+    Fallback to Non-Preferred Backend on Failure: Quando o seu sistema preferido encontrar
+      um erro, o FreeTube vai automaticamente tentar usar o sistema não preferido
+      como uma salvaguarda, caso esta opção esteja activada
+    Thumbnail Preference: Todas as antevisões dos vídeos no FreeTube vão ser substituidas
+      por um fotograma do vídeo
+    Invidious Instance: A instância Invidious à qual o FreeTube irá ligar-se para
+      ir buscar dados. Apague o que está escrito para ver uma lista de instâncias
+      públicas disponíveis
+    Region for Trending: A região permite-lhe escolher de qual país quer que seja
+      utilizado pela secção das tendências. Nem todos os países apresentados estão
+      de facto a funcionar devido ao Youtube
+  Player Settings:
+    Force Local Backend for Legacy Formats: Apenas funciona quando o API Invidious
+      é o seu sistema preferido. Quando activado, o API local irá ser usado para ir
+      buscar os formatos antigos, invés daqueles devolvidos pelo Invidious. Útil quando
+      os vídeos dados pelo Invidious não funcionam devido a restrições geográficas
+    Proxy Videos Through Invidious: O FreeTube irá ligar-se ao Invidious para apresentar
+      vídeos em vez de fazer uma ligação directa ao Youtube. Ignora a escolha de sistema
+      preferido
+    Default Video Format: Define o formato utilizado quando um vídeo é reproduzido.
+      O formato DASH consegue reproduzir melhor qualidades. O formato antigo está
+      limitado a 720p, mas utiliza menos rede. Formatos áudio são para transmissões
+      sem vídeo
+  Subscription Settings:
+    Fetch Feeds from RSS: Quando activado, o FreeTube irá buscar as suas subscrições
+      através de RSS em vez do método normal. RSS é mais rápido e previne ser limitado
+      por fazer demasiadas ligações ao Youtube, mas não disponibiliza informação tal
+      como a duração de um vídeo ou se este é ao vivo
+
 # Toast Messages
 Local API Error (Click to copy): API local encontrou um erro (Clique para copiar)
 Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique para
   copiar)
 Falling back to Invidious API: Ocorreu uma falha, a mudar para o API Invidious
 Falling back to the local API: Ocorreu uma falha, a mudar para o API local
-This video is unavailable because of missing formats. This can happen due to country unavailability.: Este vídeo não está disponível devido a formatos em falta. Isto pode acontecer devido à sua indisponibilidade no seu país.
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
+  vídeo não está disponível devido a formatos em falta. Isto pode acontecer devido
+  à sua indisponibilidade no seu país.
 Subscriptions have not yet been implemented: Subscrições ainda não foram implementadas
 Loop is now disabled: Reprodução cíclica desactivada
 Loop is now enabled: Reprodução cíclica activada

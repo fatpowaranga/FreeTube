@@ -63,12 +63,36 @@ export default Vue.extend({
       type: Function,
       required: true
     },
+    isLive: {
+      type: Boolean,
+      required: false
+    },
+    isLiveContent: {
+      type: Boolean,
+      required: true
+    },
     isUpcoming: {
       type: Boolean,
       required: true
     },
     downloadLinks: {
       type: Array,
+      required: true
+    },
+    watchingPlaylist: {
+      type: Boolean,
+      required: true
+    },
+    theatrePossible: {
+      type: Boolean,
+      required: true
+    },
+    lengthSeconds: {
+      type: Number,
+      required: true
+    },
+    videoThumbnail: {
+      type: String,
       required: true
     }
   },
@@ -103,12 +127,32 @@ export default Vue.extend({
       return this.$store.getters.getHideRecommendedVideos
     },
 
+    hideLiveChat: function () {
+      return this.$store.getters.getHideLiveChat
+    },
+
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
     },
 
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
+    },
+
+    favoritesPlaylist: function () {
+      return this.$store.getters.getFavorites
+    },
+
+    inFavoritesPlaylist: function () {
+      const index = this.favoritesPlaylist.videos.findIndex((video) => {
+        return video.videoId === this.id
+      })
+
+      return index !== -1
+    },
+
+    favoriteIconTheme: function () {
+      return this.inFavoritesPlaylist ? 'base favorite' : 'base'
     },
 
     downloadLinkNames: function () {
@@ -132,16 +176,10 @@ export default Vue.extend({
     },
 
     totalLikeCount: function () {
-      if (this.hideVideoLikesAndDislikes) {
-        return null
-      }
       return this.likeCount + this.dislikeCount
     },
 
     likePercentageRatio: function () {
-      if (this.hideVideoLikesAndDislikes) {
-        return null
-      }
       return parseInt(this.likeCount / this.totalLikeCount * 100)
     },
 
@@ -177,6 +215,32 @@ export default Vue.extend({
       const dateSplit = date.toDateString().split(' ')
       const localeDateString = `Video.Published.${dateSplit[1]}`
       return `${this.$t(localeDateString)} ${dateSplit[2]}, ${dateSplit[3]}`
+    },
+
+    publishedString() {
+      if (this.isLiveContent && this.isLive) {
+        return this.$t('Video.Started streaming on')
+      } else if (this.isLiveContent && !this.isLive) {
+        return this.$t('Video.Streamed on')
+      } else {
+        return this.$t('Video.Published on')
+      }
+    }
+  },
+  mounted: function () {
+    if ('mediaSession' in navigator) {
+      /* eslint-disable-next-line */
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: this.title,
+        artist: this.channelName,
+        artwork: [
+          {
+            src: this.videoThumbnail,
+            sizes: '128x128',
+            type: 'image/png'
+          }
+        ]
+      })
     }
   },
   methods: {
@@ -184,7 +248,19 @@ export default Vue.extend({
       this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
+    toggleSave: function () {
+      if (this.inFavoritesPlaylist) {
+        this.removeFromPlaylist()
+      } else {
+        this.addToPlaylist()
+      }
+    },
+
     handleSubscription: function () {
+      if (this.channelId === '') {
+        return
+      }
+
       const currentProfile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
       const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
 
@@ -275,9 +351,52 @@ export default Vue.extend({
       shell.openExternal(url)
     },
 
+    addToPlaylist: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: '',
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.lengthSeconds,
+        timeAdded: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video'
+      }
+
+      const payload = {
+        playlistName: 'Favorites',
+        videoData: videoData
+      }
+
+      this.addVideo(payload)
+
+      this.showToast({
+        message: this.$t('Video.Video has been saved')
+      })
+    },
+
+    removeFromPlaylist: function () {
+      const payload = {
+        playlistName: 'Favorites',
+        videoId: this.id
+      }
+
+      this.removeVideo(payload)
+
+      this.showToast({
+        message: this.$t('Video.Video has been removed from your saved list')
+      })
+    },
+
     ...mapActions([
       'showToast',
-      'updateProfile'
+      'updateProfile',
+      'addVideo',
+      'removeVideo'
     ])
   }
 })

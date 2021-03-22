@@ -3,7 +3,6 @@ import { mapActions } from 'vuex'
 import xml2vtt from 'yt-xml2vtt'
 import $ from 'jquery'
 import fs from 'fs'
-import electron from 'electron'
 import ytDashGen from 'yt-dash-manifest-generator'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -15,6 +14,8 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+
+const remote = require('@electron/remote')
 
 export default Vue.extend({
   name: 'Watch',
@@ -44,6 +45,7 @@ export default Vue.extend({
       showYouTubeNoCookieEmbed: false,
       hidePlayer: false,
       isLive: false,
+      isLiveContent: false,
       isUpcoming: false,
       upcomingTimestamp: null,
       activeFormat: 'legacy',
@@ -72,6 +74,7 @@ export default Vue.extend({
       downloadLinks: [],
       watchingPlaylist: false,
       playlistId: '',
+      timestamp: null,
       playNextTimeout: null
     }
   },
@@ -103,6 +106,9 @@ export default Vue.extend({
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
     },
+    defaultInterval: function () {
+      return this.$store.getters.getDefaultInterval
+    },
     defaultTheatreMode: function () {
       return this.$store.getters.getDefaultTheatreMode
     },
@@ -118,6 +124,12 @@ export default Vue.extend({
     playNextVideo: function () {
       return this.$store.getters.getPlayNextVideo
     },
+    hideRecommendedVideos: function () {
+      return this.$store.getters.getHideRecommendedVideos
+    },
+    hideLiveChat: function () {
+      return this.$store.getters.getHideLiveChat
+    },
 
     youtubeNoCookieEmbeddedFrame: function () {
       return `<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>`
@@ -127,6 +139,9 @@ export default Vue.extend({
     },
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
+    },
+    theatrePossible: function() {
+      return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     }
   },
   watch: {
@@ -142,6 +157,7 @@ export default Vue.extend({
       this.downloadLinks = []
 
       this.checkIfPlaylist()
+      this.checkIfTimestamp()
 
       switch (this.backendPreference) {
         case 'local':
@@ -163,6 +179,7 @@ export default Vue.extend({
     this.useTheatreMode = this.defaultTheatreMode
 
     this.checkIfPlaylist()
+    this.checkIfTimestamp()
 
     if (!this.usingElectron) {
       this.getVideoInformationInvidious()
@@ -194,14 +211,47 @@ export default Vue.extend({
         .dispatch('ytGetVideoInformation', this.videoId)
         .then(async result => {
           console.log(result)
+
+          const playabilityStatus = result.player_response.playabilityStatus
+          if (playabilityStatus.status === 'UNPLAYABLE') {
+            const errorScreen = playabilityStatus.errorScreen.playerErrorMessageRenderer
+            const reason = errorScreen.reason.simpleText
+            let subReason
+            let skipIndex
+            errorScreen.subreason.runs.forEach((message, index) => {
+              if (index !== skipIndex) {
+                if (message.text.match(/<a.*>/)) {
+                  skipIndex = index + 1
+                } else if (!message.text.match(/<\/a>/)) {
+                  if (typeof subReason === 'undefined') {
+                    subReason = message.text
+                  } else {
+                    subReason = subReason + message.text
+                  }
+                }
+              }
+            })
+
+            throw new Error(`${reason}: ${subReason}`)
+          }
+
           this.videoTitle = result.videoDetails.title
           this.videoViewCount = parseInt(
             result.player_response.videoDetails.viewCount,
             10
           )
-          this.channelId = result.videoDetails.author.id
-          this.channelName = result.videoDetails.author.name
-          this.channelThumbnail = result.videoDetails.author.avatar
+          if ('id' in result.videoDetails.author) {
+            this.channelId = result.player_response.videoDetails.channelId
+            this.channelName = result.videoDetails.author.name
+            console.log(result)
+            if (result.videoDetails.author.thumbnails.length > 0) {
+              this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
+            }
+          } else {
+            this.channelId = result.player_response.videoDetails.channelId
+            this.channelName = result.player_response.videoDetails.author
+            this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
+          }
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
@@ -216,25 +266,28 @@ export default Vue.extend({
               this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxres3.jpg`
               break
             default:
-              this.thumbnail = result.videoDetails.thumbnail.thumbnails[result.videoDetails.thumbnail.thumbnails.length - 1].url
+              this.thumbnail = result.videoDetails.thumbnails[result.videoDetails.thumbnails.length - 1].url
               break
           }
 
           this.recommendedVideos = result.related_videos.map((video) => {
             video.videoId = video.id
-            video.authorId = video.ucid
+            video.authorId = video.author.id
             video.viewCount = video.view_count
             video.lengthSeconds = video.length_seconds
+            video.author = video.author.name
+            video.publishedText = video.published
             return video
           })
           if (this.hideVideoLikesAndDislikes) {
             this.videoLikeCount = null
             this.videoDislikeCount = null
           } else {
-            this.videoLikeCount = result.videoDetails.likes
-            this.videoDislikeCount = result.videoDetails.dislikes
+            this.videoLikeCount = isNaN(result.videoDetails.likes) ? 0 : result.videoDetails.likes
+            this.videoDislikeCount = isNaN(result.videoDetails.dislikes) ? 0 : result.videoDetails.dislikes
           }
-          this.isLive = result.player_response.videoDetails.isLiveContent || result.player_response.videoDetails.isLive
+          this.isLive = result.player_response.videoDetails.isLive
+          this.isLiveContent = result.player_response.videoDetails.isLiveContent
           this.isUpcoming = result.player_response.videoDetails.isUpcoming ? result.player_response.videoDetails.isUpcoming : false
 
           if (!this.isLive && !this.isUpcoming) {
@@ -334,6 +387,20 @@ export default Vue.extend({
 
                 return object
               })
+              let captionLinks = result.player_response.captions
+              if (typeof captionLinks !== 'undefined') {
+                captionLinks = captionLinks.playerCaptionsTracklistRenderer.captionTracks.map((caption) => {
+                  const label = `${caption.name.simpleText} (${caption.languageCode}) - text/vtt`
+                  const object = {
+                    url: caption.baseUrl,
+                    label: label
+                  }
+
+                  return object
+                })
+
+                this.downloadLinks = this.downloadLinks.concat(captionLinks)
+              }
             } else {
               // video might be region locked or something else. This leads to no formats being available
               this.showToast({
@@ -397,6 +464,7 @@ export default Vue.extend({
           }
 
           this.isLoading = false
+          this.updateTitle()
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -408,7 +476,7 @@ export default Vue.extend({
             }
           })
           console.log(err)
-          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback && !err.includes('private'))) {
+          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private'))) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
             })
@@ -431,6 +499,10 @@ export default Vue.extend({
         .dispatch('invidiousGetVideoInformation', this.videoId)
         .then(result => {
           console.log(result)
+
+          if (result.error) {
+            throw new Error(result.error)
+          }
 
           this.videoTitle = result.title
           this.videoViewCount = result.viewCount
@@ -531,7 +603,15 @@ export default Vue.extend({
               }
 
               return object
-            }).reverse()
+            }).reverse().concat(result.captions.map((caption) => {
+              const label = `${caption.label} (${caption.languageCode}) - text/vtt`
+              const object = {
+                url: caption.url,
+                label: label
+              }
+
+              return object
+            }))
 
             this.audioSourceList = result.adaptiveFormats.filter((format) => {
               return format.type.includes('audio')
@@ -553,15 +633,17 @@ export default Vue.extend({
             }
           }
 
+          this.updateTitle()
+
           this.isLoading = false
         })
         .catch(err => {
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
-            message: `${errorMessage}: ${err}`,
+            message: `${errorMessage}: ${err.responseText}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              navigator.clipboard.writeText(err.responseText)
             }
           })
           console.log(err)
@@ -572,7 +654,6 @@ export default Vue.extend({
             this.getVideoInformationLocal()
           } else {
             this.isLoading = false
-            // TODO: Show toast with error message
           }
         })
     },
@@ -604,18 +685,32 @@ export default Vue.extend({
 
       console.log(historyIndex)
 
-      if (historyIndex !== -1 && !this.isLive) {
-        const watchProgress = this.historyCache[historyIndex].watchProgress
+      if (!this.isLive) {
+        if (this.timestamp) {
+          if (this.timestamp < 0) {
+            this.$refs.videoPlayer.player.currentTime(0)
+          } else if (this.timestamp > (this.videoLengthSeconds - 10)) {
+            this.$refs.videoPlayer.player.currentTime(this.videoLengthSeconds - 10)
+          } else {
+            this.$refs.videoPlayer.player.currentTime(this.timestamp)
+          }
+        } else if (historyIndex !== -1) {
+          const watchProgress = this.historyCache[historyIndex].watchProgress
 
-        if (watchProgress < (this.videoLengthSeconds - 10)) {
-          this.$refs.videoPlayer.player.currentTime(watchProgress)
+          if (watchProgress < (this.videoLengthSeconds - 10)) {
+            this.$refs.videoPlayer.player.currentTime(watchProgress)
+          }
         }
       }
 
-      if (this.rememberHistory && historyIndex !== -1) {
-        this.addToHistory(this.historyCache[historyIndex].watchProgress)
-      } else if (this.rememberHistory) {
-        this.addToHistory(0)
+      if (this.rememberHistory) {
+        if (this.timestamp) {
+          this.addToHistory(this.timestamp)
+        } else if (historyIndex !== -1) {
+          this.addToHistory(this.historyCache[historyIndex].watchProgress)
+        } else {
+          this.addToHistory(0)
+        }
       }
     },
 
@@ -630,6 +725,16 @@ export default Vue.extend({
         }
       } else {
         this.watchingPlaylist = false
+      }
+    },
+
+    checkIfTimestamp: function () {
+      if (typeof (this.$route.query) !== 'undefined') {
+        try {
+          this.timestamp = parseInt(this.$route.query.timestamp)
+        } catch {
+          this.timestamp = null
+        }
       }
     },
 
@@ -734,14 +839,18 @@ export default Vue.extend({
     },
 
     handleVideoEnded: function () {
+      const nextVideoInterval = this.defaultInterval
       if (this.watchingPlaylist) {
         this.playNextTimeout = setTimeout(() => {
-          this.$refs.watchVideoPlaylist.playNextVideo()
-        }, 5000)
+          const player = this.$refs.videoPlayer.player
+          if (player !== null && player.paused()) {
+            this.$refs.watchVideoPlaylist.playNextVideo()
+          }
+        }, nextVideoInterval * 1000)
 
         this.showToast({
-          message: this.$t('Playing next video in 5 seconds.  Click to cancel'),
-          time: 5500,
+          message: this.$tc('Playing Next Video Interval', nextVideoInterval, { nextVideoInterval: nextVideoInterval }),
+          time: (nextVideoInterval * 1000) + 500,
           action: () => {
             clearTimeout(this.playNextTimeout)
             this.showToast({
@@ -751,15 +860,18 @@ export default Vue.extend({
         })
       } else if (this.playNextVideo) {
         this.playNextTimeout = setTimeout(() => {
-          const nextVideoId = this.recommendedVideos[0].videoId
-          this.$router.push(
-            {
-              path: `/watch/${nextVideoId}`
-            }
-          )
-          this.showToast({
-            message: this.$t('Playing Next Video')
-          })
+          const player = this.$refs.videoPlayer.player
+          if (player !== null && player.paused()) {
+            const nextVideoId = this.recommendedVideos[0].videoId
+            this.$router.push(
+              {
+                path: `/watch/${nextVideoId}`
+              }
+            )
+            this.showToast({
+              message: this.$t('Playing Next Video')
+            })
+          }
         }, 5000)
 
         this.showToast({
@@ -791,12 +903,16 @@ export default Vue.extend({
           console.log('update watch progress')
           this.updateWatchProgress(payload)
         }
+      }
+
+      if (!this.isUpcoming && !this.isLoading) {
+        const player = this.$refs.videoPlayer.player
 
         if (player !== null && !player.paused() && player.isInPictureInPicture()) {
           const playerId = this.videoId
           setTimeout(() => {
             player.play()
-            player.on('leavepictureinpicture', () => {
+            player.on('leavepictureinpicture', (event) => {
               const watchTime = player.currentTime()
               if (this.$route.fullPath.includes('/watch')) {
                 const routeId = this.$route.params.id
@@ -834,7 +950,7 @@ export default Vue.extend({
 
     createLocalDashManifest: function (formats) {
       const xmlData = ytDashGen.generate_dash_file_from_formats(formats, this.videoLengthSeconds)
-      const userData = electron.remote.app.getPath('userData')
+      const userData = remote.app.getPath('userData')
       let fileLocation
       let uriSchema
       if (this.isDev) {
@@ -905,7 +1021,7 @@ export default Vue.extend({
       })
       // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
       this.buildVTTFileLocally(storyboardArray[1]).then((results) => {
-        const userData = electron.remote.app.getPath('userData')
+        const userData = remote.app.getPath('userData')
         let fileLocation
         let uriSchema
 
@@ -962,6 +1078,10 @@ export default Vue.extend({
 
     getTimestamp: function () {
       return Math.floor(this.getWatchedProgress())
+    },
+
+    updateTitle: function () {
+      document.title = `${this.videoTitle} - FreeTube`
     },
 
     ...mapActions([

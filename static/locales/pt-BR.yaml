@@ -62,6 +62,7 @@ Search Filters:
   Fetching results. Please wait: 'Buscando resultados. Por favor, aguarde'
   Fetch more results: 'Buscar mais resultados'
 # Sidebar
+  There are no more results for this search: Não há mais resultados para esta pesquisa
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Inscrições'
@@ -72,11 +73,21 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Buscando inscrições. Por favor, aguarde.'
   Refresh Subscriptions: Atualizar Inscrições
   'Getting Subscriptions. Please wait.': Obtendo Inscrições. Por favor aguarde.
+  Load More Videos: Carregar mais vídeos
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+    perfil tem um grande número de inscrições.  Forçando RSS para evitar limitação
+    de banda
 Trending: 'Em alta'
 Most Popular: 'Mais populares'
 Playlists: 'Listas'
 User Playlists:
   Your Playlists: 'Suas listas'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
+    seus vídeos guardados estão vazios. Clique no botão salvar no canto de um vídeo
+    para que ele seja listado aqui
+  Playlist Message: Esta página não reflete listas de reprodução totalmente funcionais.
+    Ele só lista vídeos que você salvou ou favoritos. Quando o trabalho estiver concluído,
+    todos os vídeos atualmente aqui serão migrados para uma playlist 'Favoritos'.
 History:
   # On History Page
   History: 'Histórico'
@@ -110,6 +121,10 @@ Settings:
       Invidious (A padrão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para o “Em alta”'
         #! List countries
+    Check for Updates: Checar por atualizações
+    Check for Latest Blog Posts: Verificar se há Novas Postagens no Blog
+    View all Invidious instance information: Ver todas as informações da instância
+      Invidious
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
@@ -138,6 +153,9 @@ Settings:
       Deep Orange: 'Laranja escura'
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
+    UI Scale: Escala da Interface de Usuário
+    Disable Smooth Scrolling: Desativar Rolagem Suave
+    Expand Side Bar by Default: Expandir Barra Lateral por Padrão
   Player Settings:
     Player Settings: 'Configurações do vídeo'
     Force Local Backend for Legacy Formats: 'Forçar motor local para formatos legados'
@@ -179,6 +197,7 @@ Settings:
     Import Subscriptions: 'Importar inscrições'
     Export Subscriptions: 'Exportar inscrições'
     How do I import my subscriptions?: 'Como posso importar minhas inscrições?'
+    Fetch Feeds from RSS: Buscar Informações através de RSS
   Advanced Settings:
     Advanced Settings: 'Configurações avançadas'
     Enable Debug Mode (Prints data to the console): 'Habilitar modo de depuração (Mostra
@@ -218,6 +237,79 @@ Settings:
     Save Watched Progress: Salvar progresso de visualização
     Remember History: Lembrar histórico
     Privacy Settings: Configurações de privacidade
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
+      certeza de que quer apagar todas as inscrições e perfis? Esta ação não pode
+      ser desfeita.
+    Remove All Subscriptions / Profiles: Remover Todas as Inscrições / Perfis
+  Data Settings:
+    Subscriptions have been successfully exported: Inscrições foram exportadas com
+      sucesso
+    Invalid history file: Arquivo de histórico inválido
+    One or more subscriptions were unable to be imported: Uma ou mais inscrições não
+      foram possíveis serem importadas
+    All subscriptions have been successfully imported: Todas as inscrições foram importadas
+      com sucesso
+    Select Import Type: Selecione o Tipo de Importação
+    Data Settings: Configurações de Dados
+    Export History: Exportar Histórico
+    Import History: Importar Histórico
+    Export NewPipe: Exportar NewPipe
+    Export YouTube: Exportar YouTube
+    Export FreeTube: Exportar FreeTube
+    Export Subscriptions: Exportar Inscrições
+    Check for Legacy Subscriptions: Verificar se há inscrições em formato antigo
+    Import NewPipe: Importar NewPipe
+    Import YouTube: Importar YouTube
+    Import FreeTube: Importar FreeTube
+    Import Subscriptions: Importar Inscrições
+    Select Export Type: Escolher Tipo de Exportação
+    How do I import my subscriptions?: Como importo minhas inscrições?
+    Unknown data key: Chave de dados desconhecida
+    Unable to write file: O arquivo não pôde ser escrito
+    Unable to read file: O arquivo não pôde ser lido
+    All watched history has been successfully exported: Todo o histórico de visualizações
+      foi exportado com sucesso
+    All watched history has been successfully imported: Todo o histórico de visualizações
+      foi importado com sucesso
+    History object has insufficient data, skipping item: O objeto Histórico tem dados
+      insuficientes, pulando item
+    This might take a while, please wait: Este processo pode demorar, por favor espere
+    Invalid subscriptions file: Arquivo de inscrições inválido
+    All subscriptions and profiles have been successfully imported: Todas as inscrições
+      e perfis foram importados com sucesso
+    Profile object has insufficient data, skipping item: O objeto Perfil possui dados
+      insuficientes, pulando item
+    Manage Subscriptions: Administrar Inscrições
+  Distraction Free Settings:
+    Hide Live Chat: Esconder chat ao vivo
+    Hide Popular Videos: Esconder vídeos populares
+    Hide Trending Videos: Esconder vídeos em alta
+    Hide Recommended Videos: Esconder vídeos recomendados
+    Hide Comment Likes: Esconder curtidas dos comentários
+    Distraction Free Settings: Configurações de Modo sem Distração
+    Hide Channel Subscribers: Ocultar Assinantes do Canal
+    Hide Video Likes And Dislikes: Ocultar curtidas e desgostos do vídeo
+    Hide Video Views: Ocultar Visualizações de Vídeo
+    Hide Active Subscriptions: Ocultar Inscrições Ativas
+  The app needs to restart for changes to take effect. Restart and apply change?: O
+    aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
+    mudança?
+  Proxy Settings:
+    Country: País
+    Ip: IP
+    Your Info: Suas Informações
+    Test Proxy: Testar Proxy
+    Clicking on Test Proxy will send a request to: Clicando em Test Proxy, será enviado
+      uma solicitação para
+    Proxy Port Number: Número da Porta de Proxy
+    Proxy Host: Host do Proxy
+    Proxy Protocol: Protocolo de Proxy
+    Enable Tor / Proxy: Ativar Tor / Proxy
+    Proxy Settings: Configurações de Proxy
+    Error getting network information. Is your proxy configured properly?: Erro ao
+      obter informações da rede. O seu proxy está configurado corretamente?
+    City: Cidade
+    Region: Região
 About:
   #On About page
   About: 'Sobre'
@@ -249,6 +341,31 @@ About:
   Latest FreeTube News: 'Ultimas notícias sobre o FreeTube'
 
 #On Channel Page
+  GitHub issues: Problemas com o GitHub
+  Report a problem: Reportar um problema
+  FAQ: FAQs
+  FreeTube Wiki: Wiki do FreeTube
+  Help: Ajuda
+  GitHub releases: Lançamentos do GitHub
+  Downloads / Changelog: Downloads / Modificações
+  View License: Ver Licença
+  Licensed under the AGPLv3: Licença AGPLv3
+  Source code: Código-fonte
+  Beta: Beta
+  Donate: Doar
+  these people and projects: estas pessoas e projetos
+  FreeTube is made possible by: O FreeTube é possível graças a
+  Credits: Créditos
+  Translate: Traduzir
+  room rules: regras da sala
+  Please read the: Favor ler o
+  Chat on Matrix: Bate-papo na Matrix
+  Mastodon: Mastodon
+  Email: E-mail
+  Blog: Blog
+  Website: Site web
+  Please check for duplicates before posting: Verifique se há duplicatas antes de
+    postar
 Channel:
   Subscriber: 'Inscrito'
   Subscribers: 'Inscritos'
@@ -277,6 +394,9 @@ Channel:
     About: 'Sobre'
     Channel Description: 'Descrição do canal'
     Featured Channels: 'Canais destacados'
+  Added channel to your subscriptions: Canal adicionado às suas inscrições
+  Removed subscription from $ other channel(s): Inscrição removida de outros $ canais
+  Channel has been removed from your subscriptions: O canal foi removido da suas inscrições
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
@@ -333,11 +453,39 @@ Video:
     Year: 'ano'
     Years: 'anos'
     Ago: 'Atrás'
-    Upcoming: 'Futuramente'
+    Upcoming: 'Futuramente em'
+    Minutes: Minutos
+    Minute: Minuto
   Published on: 'Publicado em'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Há $ %'
+  Publicationtemplate: 'Há $ % atrás'
 #& Videos
+  Started streaming on: Transmissão iniciada em
+  Streamed on: Transmitido em
+  Audio:
+    Best: Máxima
+    Medium: Média
+    Low: Baixa
+    High: Alta
+  audio only: somente áudio
+  video only: somente vídeo
+  Download Video: Baixar Vídeo
+  Starting soon, please refresh the page to check again: Vai começar em breve, favor
+    atualizar a página para verificar novamente
+  Autoplay: Reprodução Automática
+  Play Previous Video: Reproduzir o Vídeo Anterior
+  Play Next Video: Reproduzir o Próximo Vídeo
+  Reverse Playlist: Inverter ordem da lista de reprodução
+  Shuffle Playlist: Lista de reprodução em modo aleatório
+  Loop Playlist: Repetir lista de reprodução
+  Copy Invidious Channel Link: Copiar link do canal no Invidious
+  Open Channel in Invidious: Abrir Canal no Invidious
+  Copy YouTube Channel Link: Copiar o link do canal no YouTube
+  Open Channel in YouTube: Abrir canal no YouTube
+  Video has been removed from your saved list: O vídeo foi removido da sua lista de
+    vídeos salvos
+  Video has been saved: O vídeo foi salvo
+  Save Video: Salvar vídeo
 Videos:
   #& Sort By
   Sort By:
@@ -368,6 +516,10 @@ Change Format:
   Use Dash Formats: 'Usar formatos DASH'
   Use Legacy Formats: 'Usar formatos legados'
   Use Audio Formats: 'Usar formato de áudio'
+  Audio formats are not available for this video: Formatos de áudio não disponíveis
+    para este vídeo
+  Dash formats are not available for this video: Formatos Dash não disponíveis para
+    este vídeo
 Share:
   Share Video: 'Compartilhar vídeo'
   Copy Link: 'Copiar link'
@@ -381,6 +533,11 @@ Share:
   YouTube URL copied to clipboard: 'O URL do YouTube está na área de transferência'
   YouTube Embed URL copied to clipboard: 'O URL incorporado do YouTube está na área
     de transferência'
+  YouTube Channel URL copied to clipboard: URL do Canal Youtube copiado para a área
+    de transferência
+  Invidious Channel URL copied to clipboard: URL do Canal Invidious copiado para a
+    área de transferência
+  Include Timestamp: Incluir Marcação de Tempo
 Mini Player: 'Visualizador Pequeno'
 Comments:
   Comments: 'Comentários'
@@ -396,6 +553,11 @@ Comments:
   There are no comments available for this video: 'Não há comentários disponíveis
     neste vídeo'
   Load More Comments: 'Buscar mais comentários'
+  No more comments available: Não existem mais comentários
+  Newest first: Mais recentes primeiro
+  Top comments: Melhores comentários
+  Sort by: Ordenar por
+  There are no more comments for this video: Não há mais comentários para este vídeo
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -410,8 +572,8 @@ Shuffle is now disabled: 'Embaralhamento foi desativado'
 Shuffle is now enabled: 'Embaralhamento foi ativado'
 Playing Next Video: 'Reproduzindo próximo vídeo'
 Playing Previous Video: 'Reproduzindo vídeo anterior'
-Playing next video in 5 seconds.  Click to cancel: 'Reproduzindo o próximo vídeo em
-  5 segundos. Clique para cancelar'
+Playing next video in 5 seconds.  Click to cancel: 'O próximo vídeo será reproduzido
+  em 5 segundos. Clique para cancelar.'
 Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo vídeo'
 'The playlist has ended.  Enable loop to continue playing': 'A lista acabou. Habilite
   o ciclo para continuar reproduzindo'
@@ -427,5 +589,78 @@ Profile:
   Create New Profile: Criar um novo perfil
   All Channels: Todos os Canais
   All subscriptions will also be deleted.: Todas as inscrições serão também deletadas.
+  Profile could not be found: O perfil não pôde ser encontrado
+  Are you sure you want to delete this profile?: Tem certeza de que quer apagar este
+    perfil?
+  Make Default Profile: Tornar Perfil Padrão
+  Create Profile: Criar Perfil
+  Custom Color: Cor Personalizada
+  Edit Profile: Editar Perfil
+  Profile Manager: Gerenciador de Perfis
+  Profile Select: Seleção de Perfil
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Tem
+    certeza de que quer apagar os canais slecionados? Esta ação não vai apagar os
+    canais de nenhum outro perfil.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : Este é o seu perfil principal. Tem certeza de que quer apagar os canais selecionados?
+    Os mesmos vão ser apagados em qualquer perfil em que se encontrem.
+  No channel(s) have been selected: Nenhum canal foi selecionado
+  Add Selected To Profile: Adicionar Selecionado ao Perfil
+  Delete Selected: Apagar Selecionados
+  Select None: Selecionar Nenhum
+  Select All: Selecionar Todos
+  $ selected: $ selecionado
+  Other Channels: Outros Canais
+  Subscription List: Lista de Inscrições
+  $ is now the active profile: $ é agora o perfil ativo
+  Your default profile has been changed to your primary profile: Seu perfil padrão
+    foi mudado para o seu perfil principal
+  Removed $ from your profiles: $ foi removido dos seus perfis
+  Your default profile has been set to $: Seu perfil padrão foi definido como $
+  Profile has been updated: Perfil atualizado
+  Profile has been created: Perfil criado
+  Your profile name cannot be empty: Seu nome de perfil não pode ficar em branco
 Version $ is now available!  Click for more details: Versão $ está disponível agora!
   Clique para mais detalhes
+A new blog is now available, $. Click to view more: Um novo blog está disponível,
+  $. Clique para ver mais
+Download From Site: Fazer download pelo site
+The playlist has been reversed: A lista de reprodução foi invertida
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
+  vídeo não está disponível por causa de formatos faltantes. Isso pode acontecer devido
+  à indisponibilidade do país.
+Tooltips:
+  Subscription Settings:
+    Fetch Feeds from RSS: Quando ativado, o FreeTube usará RSS em vez de seu método
+      padrão para obter o feed de sua assinatura. O RSS é mais rápido e evita o bloqueio
+      de IP, mas não fornece certas informações como duração do vídeo ou status ao
+      vivo
+  Player Settings:
+    Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
+      Formatos Dash podem reproduzir qualidades mais altas. Os formatos antigos são
+      limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
+      áudio são para transmissões sem vídeo
+    Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
+      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API
+    Force Local Backend for Legacy Formats: Só funciona quando a API do Invidious
+      é predefinida. Quando ativada, a API local será executada e usará os formatos
+      antigos retornados por ela em vez dos retornados pelo Invidious. É útil quando
+      os vídeos retornados pelo Invidious não são reproduzidos devido a restrições
+      de país
+  General Settings:
+    Region for Trending: A região de tendências permite escolher quais vídeos de tendências
+      do país você quer exibir. Nem todos os países exibidos são realmente suportados
+      pelo YouTube
+    Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
+      chamadas de API. Limpe a instância atual para ver uma lista de instâncias públicas
+      para escolher
+    Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um
+      quadro do vídeo em vez da miniatura padrão
+    Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
+      um problema, o FreeTube tentará automaticamente usar sua API não preferida como
+      um método substituto quando ativado
+    Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
+      A API local é um extrator integrado. A API Invidious requer um servidor Invidious
+      para se conectar.
+More: Mais
