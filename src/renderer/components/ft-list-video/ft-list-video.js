@@ -50,7 +50,11 @@ export default Vue.extend({
         'openYoutubeEmbed',
         'copyYoutubeEmbed',
         'openInvidious',
-        'copyInvidious'
+        'copyInvidious',
+        'openYoutubeChannel',
+        'copyYoutubeChannel',
+        'openInvidiousChannel',
+        'copyInvidiousChannel'
       ]
     }
   },
@@ -89,12 +93,20 @@ export default Vue.extend({
       return `${this.invidiousInstance}/watch?v=${this.id}`
     },
 
+    invidiousChannelUrl: function () {
+      return `${this.invidiousInstance}/channel/${this.channelId}`
+    },
+
     youtubeUrl: function () {
       return `https://www.youtube.com/watch?v=${this.id}`
     },
 
     youtubeShareUrl: function () {
       return `https://youtu.be/${this.id}`
+    },
+
+    youtubeChannelUrl: function () {
+      return `https://youtube.com/channel/${this.channelId}`
     },
 
     youtubeEmbedUrl: function () {
@@ -112,7 +124,11 @@ export default Vue.extend({
         this.$t('Video.Open YouTube Embedded Player'),
         this.$t('Video.Copy YouTube Embedded Player Link'),
         this.$t('Video.Open in Invidious'),
-        this.$t('Video.Copy Invidious Link')
+        this.$t('Video.Copy Invidious Link'),
+        this.$t('Video.Open Channel in YouTube'),
+        this.$t('Video.Copy YouTube Channel Link'),
+        this.$t('Video.Open Channel in Invidious'),
+        this.$t('Video.Copy Invidious Channel Link')
       ]
 
       if (this.watched) {
@@ -145,6 +161,26 @@ export default Vue.extend({
     },
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
+    },
+
+    addWatchedStyle: function () {
+      return this.watched && !this.inHistory
+    },
+
+    favoritesPlaylist: function () {
+      return this.$store.getters.getFavorites
+    },
+
+    inFavoritesPlaylist: function () {
+      const index = this.favoritesPlaylist.videos.findIndex((video) => {
+        return video.videoId === this.id
+      })
+
+      return index !== -1
+    },
+
+    favoriteIconTheme: function () {
+      return this.inFavoritesPlaylist ? 'base favorite' : 'base'
     }
   },
   mounted: function () {
@@ -153,10 +189,11 @@ export default Vue.extend({
   },
   methods: {
     toggleSave: function () {
-      console.log('TODO: ft-list-video method toggleSave')
-      this.showToast({
-        message: this.$t('Saving videos are currently not available.  Please wait for a future update')
-      })
+      if (this.inFavoritesPlaylist) {
+        this.removeFromPlaylist()
+      } else {
+        this.addToPlaylist()
+      }
     },
 
     handleOptionsClick: function (option) {
@@ -206,6 +243,30 @@ export default Vue.extend({
             console.log('using electron')
             const shell = require('electron').shell
             shell.openExternal(this.invidiousUrl)
+          }
+          break
+        case 'copyYoutubeChannel':
+          navigator.clipboard.writeText(this.youtubeChannelUrl)
+          this.showToast({
+            message: this.$t('Share.YouTube Channel URL copied to clipboard')
+          })
+          break
+        case 'openYoutubeChannel':
+          if (this.usingElectron) {
+            const shell = require('electron').shell
+            shell.openExternal(this.youtubeChannelUrl)
+          }
+          break
+        case 'copyInvidiousChannel':
+          navigator.clipboard.writeText(this.invidiousChannelUrl)
+          this.showToast({
+            message: this.$t('Share.Invidious Channel URL copied to clipboard')
+          })
+          break
+        case 'openInvidiousChannel':
+          if (this.usingElectron) {
+            const shell = require('electron').shell
+            shell.openExternal(this.invidiousChannelUrl)
           }
           break
       }
@@ -352,11 +413,54 @@ export default Vue.extend({
       this.watched = false
     },
 
+    addToPlaylist: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: '',
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+        timeAdded: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video'
+      }
+
+      const payload = {
+        playlistName: 'Favorites',
+        videoData: videoData
+      }
+
+      this.addVideo(payload)
+
+      this.showToast({
+        message: this.$t('Video.Video has been saved')
+      })
+    },
+
+    removeFromPlaylist: function () {
+      const payload = {
+        playlistName: 'Favorites',
+        videoId: this.id
+      }
+
+      this.removeVideo(payload)
+
+      this.showToast({
+        message: this.$t('Video.Video has been removed from your saved list')
+      })
+    },
+
     ...mapActions([
       'showToast',
       'toLocalePublicationString',
       'updateHistory',
-      'removeFromHistory'
+      'removeFromHistory',
+      'addVideo',
+      'removeVideo'
     ])
   }
 })
